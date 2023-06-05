@@ -50,6 +50,10 @@
                     <source>title.task_list</source>
                     <target>Articles list</target>
             </trans-unit>
+      <trans-unit id="label.category">
+                          <source>label.category</source>
+                          <target>Category</target>
+                  </trans-unit>
     </body>
   </file>
 </xliff>
