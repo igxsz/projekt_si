@@ -38,6 +38,18 @@
         <source>title.record_view</source>
         <target>Record view #%id%</target>
       </trans-unit>
+      <trans-unit id="label.created_at">
+              <source>label.created_at</source>
+              <target>Created at</target>
+      </trans-unit>
+      <trans-unit id="label.updated_at">
+                    <source>label.updated_at</source>
+                    <target>Updated at</target>
+      </trans-unit>
+      <trans-unit id="title.task_list">
+                    <source>title.task_list</source>
+                    <target>Articles list</target>
+            </trans-unit>
     </body>
   </file>
 </xliff>

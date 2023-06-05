@@ -2,5 +2,9 @@
     "require-dev": {
         "symfony/maker-bundle": "^1.48",
         "doctrine/doctrine-fixtures-bundle": "^3.4"
+    },
+    "require": {
+        "twig/intl-extra": "^3.6",
+        "twig/extra-bundle": "^3.6"
     }
 }
