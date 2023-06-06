@@ -25,3 +25,10 @@ services:
 
     App\Controller\HelloWorldController:
         tags: ['controller.service_arguments']
+
+    App\Entity\Task:
+        autowire: true
+    App\Entity\Category:
+        autowire: true
+    App\Controller\TaskController:
+        autowire: true

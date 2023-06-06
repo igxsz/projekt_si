@@ -10,7 +10,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{# 'label.id'|trans #}</th>
+                <th>{{ 'label.id'|trans }}</th>
                 <th>{{ 'label.title'|trans }}</th>
                 <th>{{ 'label.content'|trans }}</th>
                 <th scope="col">
@@ -21,7 +21,7 @@
             <tbody>
             {% for record in records %}
                 <tr>
-                    <td>{# record.id #}</td>
+                    <td>{{ record.id }}</td>
                     <td>{{ record.title}}</td>
                     <td>{{ record.tags|join(', ') }}</td>
                     <td>&nbsp;</td>

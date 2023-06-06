@@ -50,9 +50,25 @@
                     <source>title.task_list</source>
                     <target>Articles list</target>
             </trans-unit>
-      <trans-unit id="label.category">
-                          <source>label.category</source>
+      <trans-unit id="label_category">
+                          <source>label_category</source>
                           <target>Category</target>
+                  </trans-unit>
+      <trans-unit id="category.title">
+                                <source>category.title</source>
+                                <target>Category</target>
+                        </trans-unit>
+      <trans-unit id="title.task_details">
+                          <source>title.task_details</source>
+                          <target>Details</target>
+                  </trans-unit>
+      <trans-unit id="action.show">
+                    <source>action.show</source>
+                    <target>Details</target>
+            </trans-unit>
+      <trans-unit id="action.back_to_list">
+                          <source>action.back_to_list</source>
+                          <target>Back to list</target>
                   </trans-unit>
     </body>
   </file>
