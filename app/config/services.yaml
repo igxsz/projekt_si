@@ -32,3 +32,5 @@ services:
         autowire: true
     App\Controller\TaskController:
         autowire: true
+    App\Controller\CategoryController:
+        autowire: true

@@ -70,6 +70,34 @@
                           <source>action.back_to_list</source>
                           <target>Back to list</target>
                   </trans-unit>
+      <trans-unit id="title.category_list">
+                                <source>title.category_list</source>
+                                <target>Category list</target>
+                        </trans-unit>
+      <trans-unit id="title.category_create">
+                                      <source>title.category_create</source>
+                                      <target>Create new category</target>
+                        </trans-unit>
+      <trans-unit id="title.category_edit">
+                                            <source>title.category_edit</source>
+                                            <target>Edit this category</target>
+                              </trans-unit>
+      <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Save</target>
+               </trans-unit>
+      <trans-unit id="title.category_editt">
+                           <source>title.category_edit</source>
+                           <target>Edit category</target>
+           </trans-unit>
+      <trans-unit id="action.edit">
+                    <source>action.edit</source>
+                    <target>Edit</target>
+                   </trans-unit>
+      <trans-unit id="action.delete">
+                    <source>action.delete</source>
+                    <target>Delete</target>
+                    </trans-unit>
     </body>
   </file>
 </xliff>
