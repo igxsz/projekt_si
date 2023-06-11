@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.task_list'|trans }}</h1>
+    <h1 >{{ 'title.task_list'|trans }}</h1>
     {% if pagination is defined and pagination.items|length %}
 
-        <table class="table table-striped">
+        <table class="table table-striped align-middle table-hover">
             <thead>
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'task.id') }}</th>
@@ -29,7 +29,7 @@
                     <td>{{ task.title }}</td>
                     <td>{{ task.category.title }}</td>
                     <td>
-                        <a href="{{ url('task_show', {id: task.id}) }}" title="{{ 'action.show'|trans }}">
+                        <a href="{{ url('task_show', {id: task.id}) }}" title="{{ 'action.show'|trans }}" class="btn btn-outline-secondary">
                             {{ 'action.show'|trans }}
                         </a>
                     </td>
