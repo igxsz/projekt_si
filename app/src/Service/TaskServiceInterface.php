@@ -5,6 +5,7 @@
 
 namespace App\Service;
 
+use App\Entity\Task;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
@@ -24,7 +25,14 @@ interface TaskServiceInterface
     /**
      * Save entity.
      *
-     * @param Category $category Category entity
+     * @param Task $task Task entity
      */
-    public function save(Category $category): void;
+    public function save(Task $task): void;
+
+    /**
+     * Delete entity.
+     *
+     * @param Task $task Task entity
+     */
+    public function delete(Task $task): void;
 }

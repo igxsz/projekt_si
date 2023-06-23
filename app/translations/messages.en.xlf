@@ -94,10 +94,7 @@
                 <source>action.save</source>
                 <target>Save</target>
                </trans-unit>
-      <trans-unit id="title.category_edit">
-                           <source>title.category_edit</source>
-                           <target>Edit category</target>
-           </trans-unit>
+
       <trans-unit id="title.category_delete">
                                  <source>title.category_delete</source>
                                  <target>Delete category</target>
@@ -110,6 +107,10 @@
                     <source>action.delete</source>
                     <target>Delete</target>
                     </trans-unit>
+      <trans-unit id="action.category_list">
+                          <source>action.category_list</source>
+                          <target>Show categories</target>
+                          </trans-unit>
     </body>
   </file>
 </xliff>

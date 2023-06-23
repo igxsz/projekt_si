@@ -6,10 +6,22 @@
 {% endblock %}
 
 {% block body %}
-    <h1 >{{ 'title.task_list'|trans }}</h1>
+    <h1>{{ 'title.task_list'|trans }}</h1>
+    <nav class="nav">
+        <a href="{{ url('category_index') }}" title="{{ 'action.category_list'|trans }}" class="nav-link">
+            {{ 'action.category_list'|trans }}
+        </a>
+    </nav>
+{#    <div class="navigation text-bold">#}
+{#        <h1 >{{ 'title.task_list'|trans }}</h1>#}
+{#        <a href="{{ url('category_index') }}" title="{{ 'action.category_list'|trans }}" class="btn btn-outline-secondary">#}
+{#            {{ 'action.category_list'|trans }}#}
+{#        </a>#}
+{#    </div>#}
+
     {% if pagination is defined and pagination.items|length %}
 
-        <table class="table table-striped align-middle table-hover">
+        <table class="table table-striped align-middle table-hover mt-4">
             <thead>
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'task.id') }}</th>
