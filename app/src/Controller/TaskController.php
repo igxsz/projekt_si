@@ -6,8 +6,10 @@
 namespace App\Controller;
 
 use App\Entity\Task;
+use App\Entity\User;
 use App\Form\Type\TaskType;
 use App\Service\TaskServiceInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -67,7 +69,8 @@ class TaskController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}', name: 'task_show', requirements: ['id' => '[1-9]\d*'], methods: 'GET')]
+    #[Route('/{id}', name: 'task_show', requirements: ['id' => '[1-9]\d*'], methods: 'GET', )]
+    #[IsGranted('VIEW', subject: 'task')]
     public function show(Task $task): Response
     {
         return $this->render('task/show.html.twig', ['task' => $task]);
@@ -80,10 +83,13 @@ class TaskController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/create', name: 'task_create', methods: 'GET|POST', )]
+    #[Route('/create', name: 'task_create', methods: 'GET|POST')]
     public function create(Request $request): Response
     {
+        /** @var User $user */
+        $user = $this->getUser();
         $task = new Task();
+        $task->setAuthor($user);
         $form = $this->createForm(
             TaskType::class,
             $task,
@@ -102,7 +108,10 @@ class TaskController extends AbstractController
             return $this->redirectToRoute('task_index');
         }
 
-        return $this->render('task/create.html.twig',  ['form' => $form->createView()]);
+        return $this->render(
+            'task/create.html.twig',
+            ['form' => $form->createView()]
+        );
     }
 
     /**
@@ -114,6 +123,7 @@ class TaskController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}/edit', name: 'task_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    #[IsGranted('EDIT', subject: 'task')]
     public function edit(Request $request, Task $task): Response
     {
         $form = $this->createForm(
@@ -155,6 +165,7 @@ class TaskController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}/delete', name: 'task_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    #[IsGranted('DELETE', subject: 'task')]
     public function delete(Request $request, Task $task): Response
     {
         $form = $this->createForm(

@@ -17,6 +17,8 @@
             <dd>{{ task.updatedAt|format_date('long') }}</dd>
             <dt>{{ 'label.title'|trans }}</dt>
             <dd>{{  task.title }}</dd>
+            <dt>{{ 'label.author'|trans }}</dt>
+            <dd>{{  task.author.email }}</dd>
 
         </dl>
         <p>

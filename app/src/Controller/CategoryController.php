@@ -7,6 +7,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Service\CategoryServiceInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +19,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class CategoryController.
  */
 #[Route('/category')]
+//#[IsGranted('MANAGE')]
 class CategoryController extends AbstractController
 {
     /**

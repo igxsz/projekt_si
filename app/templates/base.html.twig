@@ -21,7 +21,19 @@
                 </div>
             {% endfor %}
         {% endfor %}
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {#    <div>{{ app.user.firstName }}</div>#}
+            <div class="d-grid gap-2 d-md-flex mt-2 justify-content-md-end">
+                <a class="btn btn-primary" href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>
+            </div>
+        {% else %}
+            <div class="justify-content-right">
+                <a class="btn btn-primary" href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
+            </div>
+        {% endif %}
     {% block body %}{% endblock %}
+
 </main>
 {% block javascripts %}
     <script
@@ -38,6 +50,16 @@
             crossorigin="anonymous"></script>
 
     </div>
+{#    {% if is_granted('IS_AUTHENTICATED_FULLY') %}#}
+{#    <div>{{ app.user.firstName }}</div>#}
+{#    <div class="d-grid gap-2 d-md-flex justify-content-md-end">#}
+{#        <a class="btn btn-primary" href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>#}
+{#    </div>#}
+{#    {% else %}#}
+{#    <div class="justify-content-right">#}
+{#        <a class="btn btn-primary" href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>#}
+{#    </div>#}
+{#    {% endif %}#}
 {% endblock %}
 </body>
 </html>
