@@ -30,7 +30,11 @@ services:
         autowire: true
     App\Entity\Category:
         autowire: true
+    App\Entity\User:
+        autowire: true
     App\Controller\TaskController:
         autowire: true
     App\Controller\CategoryController:
+        autowire: true
+    App\Controller\UserController:
         autowire: true

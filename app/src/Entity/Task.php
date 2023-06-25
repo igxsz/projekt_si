@@ -116,35 +116,35 @@ class Task
         return $this;
     }
 
-//    public function getComment(): ?string
-//    {
-//        return $this->comment;
-//    }
-//
-//    public function setComment(?string $comment): self
-//    {
-//        $this->comment = $comment;
-//
-//        return $this;
-//    }
-
-/**
- * @return Collection<int, Comment>
- */
-public function getComment(): Collection
-{
-    return $this->comment;
-}
-
-public function addComment(Comment $comment): self
-{
-    if (!$this->comment->contains($comment)) {
-        $this->comment->add($comment);
-        $comment->setTask($this);
+    public function getComment(): ?string
+    {
+        return $this->comment;
     }
 
-    return $this;
-}
+    public function setComment(?string $comment): self
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+///**
+// * @return Collection<int, Comment>
+// */
+//public function getComment(): Collection
+//{
+//    return $this->comment;
+//}
+//
+//public function addComment(Comment $comment): self
+//{
+//    if (!$this->comment->contains($comment)) {
+//        $this->comment->add($comment);
+//        $comment->setTask($this);
+//    }
+//
+//    return $this;
+//}
 
 public function removeComment(Comment $comment): self
 {

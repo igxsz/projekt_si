@@ -13,9 +13,12 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -23,9 +26,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class UserType extends AbstractType
 {
-    public function __construct(TranslatorInterface $translator)
+    private UserPasswordHasherInterface $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
-        $this->translator = $translator;
+        $this->passwordHasher = $passwordHasher;
     }
 
     /**
@@ -42,26 +47,37 @@ class UserType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add(
-            'email',
-            EmailType::class,
-            [
-                'label' => 'label.title',
-                'required' => true,
-            ]);
-        $builder->add(
-            'newPassword',
-            RepeatedType::class,
-            [
-                'mapped'=> false,
-                'type'=> PasswordType::class,
-                'invalid_message'=> $this->translator->trans('message.passwords_not_matching'),
-                'options' => ['attr' => ['class' => 'form-control password-field']],
-                'first_options' => ['label' => $this->translator->trans('label.new_password')],
-                'second_options' => ['label' => $this->translator->trans('label.repeat_password')],
-            ]
-        );
+        $builder
+            ->add(
+                'password',
+                PasswordType::class,
+                [
+                    'label' => 'label.password',
+                    'required' => true,
+                    'attr' => ['max_length' => 64],
+                ]
+            )
+            ->add(
+                'email',
+                TextType::class,
+                [
+                    'label' => 'label.name',
+                    'required' => true,
+                    'attr' => ['max_length' => 64],
+                ]
+            )
+            ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+                $form = $event->getForm();
+                $user = $event->getData();
 
+                // Hash the password
+                $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
+
+                // Set the hashed password
+                $user->setPassword($hashedPassword);
+
+                $event->setData($user);
+            });
     }
 
     /**

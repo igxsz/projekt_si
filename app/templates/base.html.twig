@@ -23,12 +23,12 @@
         {% endfor %}
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            {#    <div>{{ app.user.firstName }}</div>#}
+                <div class="d-grid gap-2 d-md-flex mt-2 justify-content-md-end">{{ app.user.email }}</div>
             <div class="d-grid gap-2 d-md-flex mt-2 justify-content-md-end">
                 <a class="btn btn-primary" href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>
             </div>
         {% else %}
-            <div class="justify-content-right">
+            <div >
                 <a class="btn btn-primary" href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
             </div>
         {% endif %}
