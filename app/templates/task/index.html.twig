@@ -33,6 +33,7 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'task.updatedAt') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_category'|trans, 'category.title') }}</th>
+{#                <th>{{ 'label.comment'|trans }}</th>#}
                 <th>{{ 'label.actions'|trans }}</th>
             </tr>
             </thead>
@@ -43,7 +44,12 @@
                     <td>{{ task.createdAt|format_date('long') }}</td>
                     <td>{{ task.updatedAt|format_date('long') }}</td>
                     <td>{{ task.title }}</td>
-                    <td>{{ task.category.title }}</td>
+                    <td>
+                        <a href="{{ url('task_index', {'filters.category_id' : task.category.id}) }}" title="{{ task.category.title }}">
+                            {{ task.category.title }}
+                        </a>
+                    </td>
+{#                    <td>{{ task.comment.content }}</td>#}
                     <td>
 
                         {% if is_granted('VIEW', task) %}

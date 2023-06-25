@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\TaskRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -39,6 +42,20 @@ class Task
     #[Assert\NotBlank]
     #[Assert\Type(User::class)]
     private ?User $author;
+
+    #[ORM\OneToMany(mappedBy: 'task', targetEntity: Comment::class)]
+    private Collection $comment;
+
+    public function __construct()
+    {
+        $this->comment = new ArrayCollection();
+    }
+
+//    /**
+//     * @var Comment|null
+//     */
+//    #[ORM\Column(type: Types::TEXT, nullable: true)]
+//    private ?string $comment = null;
 
     public function getId(): ?int
     {
@@ -98,4 +115,46 @@ class Task
 
         return $this;
     }
+
+//    public function getComment(): ?string
+//    {
+//        return $this->comment;
+//    }
+//
+//    public function setComment(?string $comment): self
+//    {
+//        $this->comment = $comment;
+//
+//        return $this;
+//    }
+
+/**
+ * @return Collection<int, Comment>
+ */
+public function getComment(): Collection
+{
+    return $this->comment;
+}
+
+public function addComment(Comment $comment): self
+{
+    if (!$this->comment->contains($comment)) {
+        $this->comment->add($comment);
+        $comment->setTask($this);
+    }
+
+    return $this;
+}
+
+public function removeComment(Comment $comment): self
+{
+    if ($this->comment->removeElement($comment)) {
+        // set the owning side to null (unless already changed)
+        if ($comment->getTask() === $this) {
+            $comment->setTask(null);
+        }
+    }
+
+    return $this;
+}
 }

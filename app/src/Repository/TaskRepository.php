@@ -7,11 +7,13 @@ namespace App\Repository;
 
 use App\Entity\Category;
 use App\Entity\Task;
+use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class TaskRepository.
@@ -46,42 +48,61 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+//    /**
+//     * Query tasks by author.
+//     *
+//     * @param UserInterface         $user    User entity
+//     * @param array<string, object> $filters Filters
+//     *
+//     * @return QueryBuilder Query builder
+//     */
+//    public function queryByAuthor(UserInterface $user, array $filters = []): QueryBuilder
+//    {
+//        $queryBuilder = $this->queryAll($filters);
+//
+//        $queryBuilder->andWhere('task.author = :author')
+//            ->setParameter('author', $user);
+//
+//        return $queryBuilder;
+//    }
+
     /**
      * Query all records.
      *
+     * @param array<string, object> $filters Filters
+     *
      * @return QueryBuilder Query builder
      */
-    public function queryAll(): QueryBuilder
+    public function queryAll(array $filters): QueryBuilder
     {
-        return $this->getOrCreateQueryBuilder()
+        $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
                 'partial task.{id, createdAt, updatedAt, title}',
-                'partial category.{id, title}'
+                'partial category.{id, title}',
             )
             ->join('task.category', 'category')
             ->orderBy('task.updatedAt', 'DESC');
-    }
 
+        return $this->applyFiltersToList($queryBuilder, $filters);
+    }
     /**
-     * Count tasks by category.
+     * Apply filters to paginated list.
      *
-     * @param Category $category Category
+     * @param QueryBuilder          $queryBuilder Query builder
+     * @param array<string, object> $filters      Filters array
      *
-     * @return int Number of tasks in category
-     *
-     * @throws NoResultException
-     * @throws NonUniqueResultException
+     * @return QueryBuilder Query builder
      */
-    public function countByCategory(Category $category): int
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
     {
-        $qb = $this->getOrCreateQueryBuilder();
+        if (isset($filters['category']) && $filters['category'] instanceof Category) {
+            $queryBuilder->andWhere('category = :category')
+                ->setParameter('category', $filters['category']);
+        }
 
-        return $qb->select($qb->expr()->countDistinct('task.id'))
-            ->where('task.category = :category')
-            ->setParameter(':category', $category)
-            ->getQuery()
-            ->getSingleScalarResult();
+        return $queryBuilder;
     }
+
 
     /**
      * Save entity.
@@ -117,4 +138,24 @@ class TaskRepository extends ServiceEntityRepository
         return $queryBuilder ?? $this->createQueryBuilder('task');
     }
 
+    /**
+     * Count tasks by category.
+     *
+     * @param Category $category Category
+     *
+     * @return int Number of tasks in category
+     *
+     * @throws NoResultException
+     * @throws NonUniqueResultException
+     */
+    public function countByCategory(Category $category): int
+    {
+        $qb = $this->getOrCreateQueryBuilder();
+
+        return $qb->select($qb->expr()->countDistinct('task.id'))
+            ->where('task.category = :category')
+            ->setParameter(':category', $category)
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
 }

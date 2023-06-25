@@ -9,6 +9,7 @@ use App\Entity\Category;
 //use App\Entity\Enum\TaskStatus;
 use App\Entity\Task;
 use App\Entity\User;
+use App\Entity\Comment;
 use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
@@ -55,6 +56,11 @@ class TaskFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $author = $this->getRandomReference('users');
             $task->setAuthor($author);
 
+
+            /** @var Comment $comment */
+            $comment = $this->getRandomReference('comments');
+            $task->addComment($comment);
+
             return $task;
         });
 
@@ -67,10 +73,10 @@ class TaskFixtures extends AbstractBaseFixtures implements DependentFixtureInter
      *
      * @return string[] of dependencies
      *
-     * @psalm-return array{0: CategoryFixtures::class, 1: TagFixtures::class, 2: UserFixtures::class}
+     * @psalm-return array{0: CategoryFixtures::class, 1: UserFixtures::class, 2: CommentFixtures::class}
      */
     public function getDependencies(): array
     {
-        return [CategoryFixtures::class, UserFixtures::class];
+        return [CategoryFixtures::class, UserFixtures::class, CommentFixtures::class];
     }
 }

@@ -18,12 +18,25 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class CategoryVoter extends Voter
 {
     /**
-     * Manage permission.
+     * Edit permission.
      *
      * @const string
      */
-    public const MANAGE = 'MANAGE';
+    public const EDIT = 'EDIT';
 
+    /**
+     * View permission.
+     *
+     * @const string
+     */
+    public const VIEW = 'VIEW';
+
+    /**
+     * Delete permission.
+     *
+     * @const string
+     */
+    public const DELETE = 'DELETE';
 
     /**
      * Security helper.
@@ -52,7 +65,8 @@ class CategoryVoter extends Voter
      */
     protected function supports(string $attribute, $subject): bool
     {
-        return $attribute === self::MANAGE;
+        return in_array($attribute, [self::EDIT, self::VIEW, self::DELETE])
+            && $subject instanceof Category;
     }
 
     /**
@@ -72,22 +86,73 @@ class CategoryVoter extends Voter
             return false;
         }
 
-        if($attribute === self::MANAGE){
-            return $this->canManage();
+        if ($user->getRoles() === ['ROLE_ADMIN']) {
+            return true; // Użytkownik z rolą ROLE_ADMIN ma uprawnienia do zarządzania zadaniami
+        }
+
+        switch ($attribute) {
+            case self::EDIT:
+                return $this->canEdit($subject, $user);
+            case self::VIEW:
+                return $this->canView($subject, $user);
+            case self::DELETE:
+                return $this->canDelete($subject, $user);
         }
 
         return false;
     }
 
-
-
-    private function canManage()
+    private function canEdit()
     {
         return $this->security->isGranted('ROLE_ADMIN');
     }
 
-    private function canEdit(Category $category): bool
+    private function canView()
     {
         return $this->security->isGranted('ROLE_ADMIN');
     }
+
+    private function canDelete()
+    {
+        return $this->security->isGranted('ROLE_ADMIN');
+    }
+
+//    /**
+//     * Checks if user can edit task.
+//     *
+//     * @param Category $category Task entity
+//     * @param User $user User
+//     *
+//     * @return bool Result
+//     */
+//    private function canEdit(Category $category, User $user): bool
+//    {
+//        return $category->getAuthor() === $user;
+//    }
+//
+//    /**
+//     * Checks if user can view task.
+//     *
+//     * @param Category $category Category entity
+//     * @param User $user User
+//     *
+//     * @return bool Result
+//     */
+//    private function canView(Category $category, User $user): bool
+//    {
+//        return $category->getAuthor() === $user;
+//    }
+//
+//    /**
+//     * Checks if user can delete task.
+//     *
+//     * @param Category $category Category entity
+//     * @param User $user User
+//     *
+//     * @return bool Result
+//     */
+//    private function canDelete(Category $category, User $user): bool
+//    {
+//        return $category->getAuthor() === $user;
+//    }
 }

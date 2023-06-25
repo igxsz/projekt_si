@@ -86,6 +86,7 @@ class TaskVoter extends Voter
             return false;
         }
 
+
         switch ($attribute) {
             case self::EDIT:
                 return $this->canEdit($subject, $user);
