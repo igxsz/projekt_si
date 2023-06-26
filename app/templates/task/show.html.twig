@@ -19,13 +19,66 @@
             <dd>{{  task.title }}</dd>
             <dt>{{ 'label.author'|trans }}</dt>
             <dd>{{  task.author.email }}</dd>
+{#            <td>{{ task.comment_id }}</td>#}
+{#            <td>{{ comment.createdAt|date('Y/m/d')  }}</td>#}
 
         </dl>
+
+{#        #}{# KOMENTARZE #}
+{#        <h3>{{ 'title.comment_list'|trans }}</h3>#}
+{#        {% if pagination is defined and pagination.items|length %}#}
+
+{#            <div class="navigation text-center">#}
+{#                {{ knp_pagination_render(pagination) }}#}
+{#            </div>#}
+
+{#            <table class="table table-striped">#}
+{#                <thead>#}
+{#                <tr>#}
+{#                    <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user.name') }}</th>#}
+{#                    <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>#}
+{#                    <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>#}
+
+{#                </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                {% for comment in pagination.items %}#}
+{#                    <tr>#}
+{#                        {% if comment.user.id is defined %}#}
+{#                            <td><a href="{{ url('user_show', {id: comment.user.id}) }}" name="{{ 'action.show'|trans }}">#}
+{#                                    {{ comment.user.email }}#}
+{#                                </a></td>#}
+{#                        {% else %} <td> null </td>#}
+{#                        {% endif %}#}
+{#                        <td>{{ comment.content }}</td>#}
+{#                        <td>{{ comment.createdAt|date('Y/m/d')  }}</td>#}
+{#                    </tr>#}
+{#                {% endfor %}#}
+{#                </tbody>#}
+{#            </table>#}
+
+{#            <div class="navigation text-center">#}
+{#                {{ knp_pagination_render(pagination) }}#}
+{#            </div>#}
+{#        {% else %}#}
+{#            <p>#}
+{#                {{ 'message.empty_list'|trans }}#}
+{#            </p>#}
+{#        {% endif %}#}
+
+        {# DODAJ KOMENTARZ #}
+        <p>
+            <a type="button" class="btn btn-primary"  href="{{ url('comment_create', {id: task.id}) }}" title="{{ 'action.add_comment'|trans }}">
+                {{ 'action.add_comment'|trans }}
+            </a>
+        </p>
+
         <p>
             <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}">
                 {{ 'action.back_to_list'|trans }}
             </a>
         </p>
+
     {% else %}
         <p>
             {{ 'message.record_not_found'|trans }}

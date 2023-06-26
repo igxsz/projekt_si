@@ -16,6 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Security;
@@ -40,11 +41,15 @@ class UserController extends AbstractController
 
     /**
      * Constructor.
+     *
+     * @param UserServiceInterface $userService User service
+     * @param TranslatorInterface  $translator  Translator
      */
-    public function __construct(UserService $userService, TranslatorInterface $translator)
+    public function __construct(UserServiceInterface $userService, TranslatorInterface $translator, UserPasswordHasherInterface $passwordHasher)
     {
         $this->userService = $userService;
         $this->translator = $translator;
+        $this->passwordHasher = $passwordHasher;
     }
 
     /**
@@ -55,10 +60,8 @@ class UserController extends AbstractController
      * @return Response HTTP response
      */
     #[Route(name: 'user_index', methods: 'GET')]
-    public function index(Request $request, Security $security): Response
+    public function index(Request $request): Response
     {
-        if (!in_array('ROLE_ADMIN', $security->getUser()->getRoles()))
-            $this->redirectToRoute('task_index');
         $pagination = $this->userService->getPaginatedList(
             $request->query->getInt('page', 1)
         );
@@ -69,59 +72,14 @@ class UserController extends AbstractController
     /**
      * Show action.
      *
-     * @param User $user User
+     * @param User $user User entity
      *
      * @return Response HTTP response
      */
-    #[Route(
-        '/{id}',
-        name: 'user_show',
-        requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET'
-    )]
-    public function show(Request $request, UserRepository $userRepository,  Security $security, User $user): Response
+    #[Route('/{id}', name: 'user_show', requirements: ['id' => '[1-9]\d*'], methods: 'GET')]
+    public function show(User $user): Response
     {
-        if (!in_array('ROLE_ADMIN', $security->getUser()->getRoles()))
-            $this->redirectToRoute('task_index');
-
-        $pagination = $commentService->getPaginatedListByUser($request->query->getInt('page', 1), $user);
-
-        return $this->render(
-            'user/show.html.twig',
-            ['user' => $user, 'pagination' => $pagination]
-        );
-    }
-
-    /*
-
-     */
-    #[Route(
-        '/edit/{id}',
-        name: 'user_edit',
-        requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|POST'
-    )]
-    public function edit(Request $request, Security $security, User $user): Response
-    {
-        if (!in_array('ROLE_ADMIN', $security->getUser()->getRoles()))
-            $this->redirectToRoute('task_index');
-
-        $form = $this->createForm(UserType::class, $user,
-            [
-                'method' => 'POST',
-                'action' => $this->generateUrl('user_edit', ['id' => $user->getId()])
-            ]);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->userService->save($user);
-            $this->addFlash('success', $this->translator->trans('user.edited_successfully'));
-            return $this->redirectToRoute('task_index');
-        }
-
-        return $this->render(
-            'user/edit.html.twig',
-            ['user' => $user, 'form' => $form->createView()]);
+        return $this->render('user/show.html.twig', ['user' => $user]);
     }
 
 //    /**
@@ -129,19 +87,27 @@ class UserController extends AbstractController
 //     *
 //     * @param Request $request HTTP request
 //     *
-//     * @return Response HTTP response*/
-//    #[Route('/signup', name: 'user_signup', methods: 'GET|POST', )]
+//     * @return Response HTTP response
+//     */
+//    #[Route('/create', name: 'user_create', methods: 'GET|POST', )]
 //    public function create(Request $request): Response
 //    {
 //        $user = new User();
 //        $form = $this->createForm(
-//            SignUpType::class,
+//            UserType::class,
 //            $user,
-//            ['action' => $this->generateUrl('user_signup')]
+//            ['action' => $this->generateUrl('user_create')]
 //        );
 //        $form->handleRequest($request);
 //
 //        if ($form->isSubmitted() && $form->isValid()) {
+//            //$user->setRoles(['ROLE_USER']);
+//            $user->setPassword(
+//                $this->passwordHasher->hashPassword(
+//                    $user,
+//                    $form["password"]->getData()
+//                )
+//            );
 //            $this->userService->save($user);
 //
 //            $this->addFlash(
@@ -154,24 +120,73 @@ class UserController extends AbstractController
 //
 //        return $this->render('user/create.html.twig',  ['form' => $form->createView()]);
 //    }
+
     /**
-     * Delete action.
+     * Edit action.
      *
-     * @param Request  $request  HTTP request
-     * @param User $user User entity
+     * @param Request $request HTTP request
+     * @param User    $user    User entity
      *
      * @return Response HTTP response
      */
-
-    #[Route('/delete/{id}', name: 'user_delete', requirements: ['id' => '\d+'], methods: ['GET', 'DELETE'])]
-    public function delete(Request $request, Security $security, User $user): Response
+    #[Route('/{id}/edit', name: 'user_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    public function edit(Request $request, User $user): Response
     {
-        if (!in_array('ROLE_ADMIN', $security->getUser()->getRoles()))
-            $this->redirectToRoute('task_index');
-        $form = $this->createForm(FormType::class, $user, [
-            'method' => 'DELETE',
-            'action' => $this->generateUrl('user_delete', ['id' => $user->getId()]),
-        ]);
+        $form = $this->createForm(
+            UserType::class,
+            $user,
+            [
+                'method' => 'PUT',
+                'action' => $this->generateUrl('user_edit', ['id' => $user->getId()]),
+            ]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword(
+                $this->passwordHasher->hashPassword(
+                    $user,
+                    $form["password"]->getData()
+                )
+            );
+            $this->userService->save($user);
+
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.edited_successfully')
+            );
+
+            return $this->redirectToRoute('user_index');
+        }
+
+        return $this->render(
+            'user/edit.html.twig',
+            [
+                'form' => $form->createView(),
+                'user' => $user,
+            ]
+        );
+    }
+
+    /**
+     * Delete action.
+     *
+     * @param Request $request HTTP request
+     * @param User    $user    User entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/{id}/delete', name: 'user_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    public function delete(Request $request, User $user): Response
+    {
+        $form = $this->createForm(
+            FormType::class,
+            $user,
+            [
+                'method' => 'DELETE',
+                'action' => $this->generateUrl('user_delete', ['id' => $user->getId()]),
+            ]
+        );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

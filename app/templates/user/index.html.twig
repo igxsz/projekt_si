@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    {% if is_granted('ROLE_ADMIN') %}
     <h1>{{ 'title.user_list'|trans }}</h1>
     <nav class="nav">
         <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}" class="nav-link">
@@ -58,5 +59,9 @@
         <p>
             {{ 'message.empty_list'|trans }}
         </p>
+    {% endif %}
+
+    {% else %}
+        <p>{{ 'Access denied'|trans }}</p>
     {% endif %}
 {% endblock %}

@@ -34,6 +34,18 @@
                     <source>label.author</source>
                     <target>Autor</target>
                   </trans-unit>
+      <trans-unit id="label.task">
+                          <source>label.task</source>
+                          <target>Artykuł</target>
+                        </trans-unit>
+      <trans-unit id="label.user">
+                                <source>label.user</source>
+                                <target>Użytkownik</target>
+                              </trans-unit>
+      <trans-unit id="label.email">
+                                      <source>label.email</source>
+                                      <target>Email</target>
+                                    </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
         <target>List jest pusta</target>
@@ -130,6 +142,14 @@
                               <source>title.category_edit</source>
                               <target>Edytuj tę kategorię</target>
                               </trans-unit>
+      <trans-unit id="title.comment_list">
+                                    <source>title.comment_list</source>
+                                    <target>Komentarze</target>
+                                    </trans-unit>
+      <trans-unit id="title.user_list">
+                                          <source>title.user_list</source>
+                                          <target>Lista użytkowników</target>
+                                          </trans-unit>
       <trans-unit id="action.save">
                 <source>action.save</source>
                 <target>Zapisz</target>
@@ -151,6 +171,14 @@
               <source>action.category_list</source>
               <target>Lista kategorii</target>
              </trans-unit>
+      <trans-unit id="action.user_list">
+                    <source>action.user_list</source>
+                    <target>Użytkownicy</target>
+                   </trans-unit>
+      <trans-unit id="action.comment_list">
+                          <source>action.comment_list</source>
+                          <target>Komentarze</target>
+                         </trans-unit>
       <trans-unit id="action.task_create">
                   <source>action.task_create</source>
                   <target>Stwórz artykuł</target>

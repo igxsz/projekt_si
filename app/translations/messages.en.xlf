@@ -151,6 +151,10 @@
               <source>action.category_list</source>
               <target>List of categories</target>
              </trans-unit>
+      <trans-unit id="action.user_list">
+                    <source>action.user_list</source>
+                    <target>Users</target>
+                   </trans-unit>
       <trans-unit id="action.task_create">
                   <source>action.task_create</source>
                   <target>Create an article</target>

@@ -11,8 +11,16 @@
         <a href="{{ url('category_index') }}" title="{{ 'action.category_list'|trans }}" class="nav-link">
             {{ 'action.category_list'|trans }}
         </a>
-        <a href="{{ url('task_create') }}" title="{{ 'action.task_create'|trans }}" class="nav-link">
-            {{ 'action.task_create'|trans }}
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ url('task_create') }}" title="{{ 'action.task_create'|trans }}" class="nav-link">
+                {{ 'action.task_create'|trans }}
+            </a>
+            <a href="{{ url('user_index') }}" title="{{ 'action.user_list'|trans }}" class="nav-link">
+                {{ 'action.user_list'|trans }}
+            </a>
+        {% endif %}
+        <a href="{{ url('comment_index') }}" title="{{ 'action.comment_list'|trans }}" class="nav-link">
+            {{ 'action.comment_list'|trans }}
         </a>
     </nav>
 
@@ -33,8 +41,11 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'task.updatedAt') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_category'|trans, 'category.title') }}</th>
-{#                <th>{{ 'label.comment'|trans }}</th>#}
-                <th>{{ 'label.actions'|trans }}</th>
+{#                <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>#}
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>{{ 'label.actions'|trans }}</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>
@@ -49,7 +60,6 @@
                             {{ task.category.title }}
                         </a>
                     </td>
-{#                    <td>{{ task.comment.content }}</td>#}
                     <td>
 
                         {% if is_granted('VIEW', task) %}

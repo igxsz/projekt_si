@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.comment_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.comment_list'|trans }}</h1>
+    <nav class="nav">
+        <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}" class="nav-link">
+            {{ 'action.back_to_list'|trans }}
+        </a>
+    </nav>
+    {% if pagination is defined and pagination.items|length %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'comment.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.task'|trans, 'comment.task') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user') }}</th>
+                <th>{{ 'label.actions'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for comment in pagination.items %}
+                <tr>
+                    <td>{{ comment.id }}</td>
+                    <td>{{ comment.content }}</td>
+                    <td>{{ comment.createdAt|format_date('long') }}</td>
+                    {% if comment.task.title is defined %}
+                        <td>{{ comment.task.title }}</td>
+                    {% else %} <td> null </td>
+                    {% endif %}
+                    {% if comment.user.id is defined %}
+                        <td>{{ comment.user.email }}</td>
+                    {% else %} <td> null </td>
+                    {% endif %}
+                    <td>
+                        <a type="button" class="btn btn-outline-danger" href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'action.delete'|trans }}">
+                            {{ 'action.delete'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

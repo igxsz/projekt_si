@@ -43,13 +43,9 @@ class Task
     #[Assert\Type(User::class)]
     private ?User $author;
 
-    #[ORM\OneToMany(mappedBy: 'task', targetEntity: Comment::class)]
-    private Collection $comment;
-
-    public function __construct()
-    {
-        $this->comment = new ArrayCollection();
-    }
+//    #[ORM\ManyToOne(fetch: "EXTRA_LAZY")]
+//    #[ORM\JoinColumn(nullable: false)]
+//    private ?Comment $comment = null;
 
 //    /**
 //     * @var Comment|null
@@ -116,17 +112,17 @@ class Task
         return $this;
     }
 
-    public function getComment(): ?string
-    {
-        return $this->comment;
-    }
-
-    public function setComment(?string $comment): self
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
+//    public function getComment(): ?string
+//    {
+//        return $this->comment;
+//    }
+//
+//    public function setComment(?string $comment): self
+//    {
+//        $this->comment = $comment;
+//
+//        return $this;
+//    }
 
 ///**
 // * @return Collection<int, Comment>

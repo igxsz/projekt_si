@@ -7,6 +7,7 @@ namespace App\Service;
 
 use App\Entity\Task;
 use App\Entity\User;
+use App\Repository\CommentRepository;
 use App\Repository\TaskRepository;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -27,6 +28,8 @@ class TaskService implements TaskServiceInterface
      */
     private PaginatorInterface $paginator;
 
+    private CommentRepository $commentRepository;
+
     /**
      * Category service.
      */
@@ -42,8 +45,10 @@ class TaskService implements TaskServiceInterface
     public function __construct(
         CategoryServiceInterface $categoryService,
         PaginatorInterface $paginator,
-        TaskRepository $taskRepository
+        TaskRepository $taskRepository,
+        CommentRepository $commentRepository
     ) {
+        $this->commentRepository = $commentRepository;
         $this->categoryService = $categoryService;
         $this->paginator = $paginator;
         $this->taskRepository = $taskRepository;
@@ -86,6 +91,12 @@ class TaskService implements TaskServiceInterface
      */
     public function delete(Task $task): void
     {
+        $comments = $this->commentRepository->findBy(
+            ['Task' => $task]
+        );
+        foreach ($comments as $comment) {
+            $this->commentRepository->delete($comment);
+        }
         $this->taskRepository->delete($task);
     }
 

@@ -5,32 +5,46 @@
 
 namespace App\Form\Type;
 
+use App\Entity\Category;
+use App\Entity\Enum\UserRole;
 use App\Entity\User;
+//use App\Form\DataTransformer\UserDataTransformer;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class UserType.
  */
 class UserType extends AbstractType
 {
-    private UserPasswordHasherInterface $passwordHasher;
+//    /**
+//     * User data transformer.
+//     *
+//     * @var UserDataTransformer
+//     */
+//    private UserDataTransformer $tagsDataTransformer;
+//
+//    /**
+//     * Constructor.
+//     *
+//     * @param UserDataTransformer $tagsDataTransformer User data transformer
+//     */
+//    public function __construct(UserDataTransformer $tagsDataTransformer)
+//    {
+//        $this->tagsDataTransformer = $tagsDataTransformer;
+//    }
+    private AuthorizationCheckerInterface $authorizationChecker;
 
-    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    public function __construct(AuthorizationCheckerInterface $authorizationChecker)
     {
-        $this->passwordHasher = $passwordHasher;
+        $this->authorizationChecker = $authorizationChecker;
     }
 
     /**
@@ -44,40 +58,51 @@ class UserType extends AbstractType
      *
      * @see FormTypeExtensionInterface::buildForm()
      */
-
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
-            ->add(
-                'password',
-                PasswordType::class,
+        $builder->add(
+            'email',
+            TextType::class,
+            [
+                'label' => 'label.email',
+                'required' => true,
+                'attr' => ['max_length' => 255],
+            ]);
+        if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
+            $builder->add(
+                'roles',
+                ChoiceType::class,
                 [
-                    'label' => 'label.password',
+                    'label' => 'Roles',
+                    'choices' => [
+                        'User' => 'ROLE_USER',
+                        'Admin' => 'ROLE_ADMIN',
+                    ],
+                    'multiple' => true,
                     'required' => true,
-                    'attr' => ['max_length' => 64],
                 ]
-            )
-            ->add(
-                'email',
-                TextType::class,
-                [
-                    'label' => 'label.name',
-                    'required' => true,
-                    'attr' => ['max_length' => 64],
-                ]
-            )
-            ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
-                $form = $event->getForm();
+            );
+        }
+        else {
+            // Set the role to ROLE_USER for non-admin users
+            $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
                 $user = $event->getData();
-
-                // Hash the password
-                $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
-
-                // Set the hashed password
-                $user->setPassword($hashedPassword);
-
-                $event->setData($user);
+                $user->setRoles([UserRole::ROLE_USER->value]);
             });
+        }
+        $builder->add(
+            'password',
+            TextType::class,
+            [
+                'label' => 'label.password',
+                'required' => true,
+                'attr' => ['max_length' => 128],
+            ]
+        );
+
+//        $builder->get('tags')->addModelTransformer(
+//            $this->tagsDataTransformer
+//        );
     }
 
     /**

@@ -10,9 +10,11 @@
         <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}" class="nav-link">
             {{ 'action.back_to_list'|trans }}
         </a>
+        {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ url('category_create') }}" title="{{ 'action.category_create'|trans }}" class="nav-link">
             {{ 'action.category_create'|trans }}
         </a>
+        {% endif %}
 
 
     </nav>
@@ -26,7 +28,9 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'category.createdAt') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'category.updatedAt') }}</th>
 
+                {% if is_granted('ROLE_ADMIN') %}
                 <th>{{ 'label.actions'|trans }}</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>

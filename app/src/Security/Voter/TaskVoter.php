@@ -85,6 +85,9 @@ class TaskVoter extends Voter
         if (!$user instanceof UserInterface) {
             return false;
         }
+        if ($user->getRoles() === ['ROLE_ADMIN']) {
+            return true; // Użytkownik z rolą ROLE_ADMIN ma uprawnienia do zarządzania zadaniami
+        }
 
 
         switch ($attribute) {
@@ -107,9 +110,9 @@ class TaskVoter extends Voter
      *
      * @return bool Result
      */
-    private function canEdit(Task $task, User $user): bool
+    private function canEdit(): bool
     {
-        return $task->getAuthor() === $user;
+        return $this->security->isGranted('ROLE_ADMIN');
     }
 
     /**
@@ -120,9 +123,9 @@ class TaskVoter extends Voter
      *
      * @return bool Result
      */
-    private function canView(Task $task, User $user): bool
+    private function canView(): bool
     {
-        return $task->getAuthor() === $user;
+        return $this->security->isGranted('ROLE_ADMIN');
     }
 
     /**
@@ -133,8 +136,8 @@ class TaskVoter extends Voter
      *
      * @return bool Result
      */
-    private function canDelete(Task $task, User $user): bool
+    private function canDelete(): bool
     {
-        return $task->getAuthor() === $user;
+        return $this->security->isGranted('ROLE_ADMIN');
     }
 }
