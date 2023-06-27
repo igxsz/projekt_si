@@ -40,8 +40,6 @@ class TaskVoter extends Voter
 
     /**
      * Security helper.
-     *
-     * @var Security
      */
     private Security $security;
 
@@ -89,12 +87,11 @@ class TaskVoter extends Voter
             return true; // Użytkownik z rolą ROLE_ADMIN ma uprawnienia do zarządzania zadaniami
         }
 
-
         switch ($attribute) {
             case self::EDIT:
                 return $this->canEdit($subject, $user);
-//            case self::VIEW:
-//                return $this->canView($subject, $user);
+                //            case self::VIEW:
+                //                return $this->canView($subject, $user);
             case self::DELETE:
                 return $this->canDelete($subject, $user);
         }
@@ -105,9 +102,6 @@ class TaskVoter extends Voter
     /**
      * Checks if user can edit task.
      *
-     * @param Task $task Task entity
-     * @param User $user User
-     *
      * @return bool Result
      */
     private function canEdit(): bool
@@ -115,24 +109,21 @@ class TaskVoter extends Voter
         return $this->security->isGranted('ROLE_ADMIN');
     }
 
-//    /**
-//     * Checks if user can view task.
-//     *
-//     * @param Task $task Task entity
-//     * @param User $user User
-//     *
-//     * @return bool Result
-//     */
-//    private function canView(): bool
-//    {
-//        return $this->security->isGranted('ROLE_ADMIN');
-//    }
+    //    /**
+    //     * Checks if user can view task.
+    //     *
+    //     * @param Task $task Task entity
+    //     * @param User $user User
+    //     *
+    //     * @return bool Result
+    //     */
+    //    private function canView(): bool
+    //    {
+    //        return $this->security->isGranted('ROLE_ADMIN');
+    //    }
 
     /**
      * Checks if user can delete task.
-     *
-     * @param Task $task Task entity
-     * @param User $user User
      *
      * @return bool Result
      */

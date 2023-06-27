@@ -6,11 +6,9 @@
 namespace App\DataFixtures;
 
 use App\Entity\Category;
-//use App\Entity\Enum\TaskStatus;
+// use App\Entity\Enum\TaskStatus;
 use App\Entity\Task;
 use App\Entity\User;
-use App\Entity\Comment;
-use DateTimeImmutable;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 /**
@@ -35,12 +33,12 @@ class TaskFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $task = new Task();
             $task->setTitle($this->faker->sentence);
             $task->setCreatedAt(
-                DateTimeImmutable::createFromMutable(
+                \DateTimeImmutable::createFromMutable(
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
                 )
             );
             $task->setUpdatedAt(
-                DateTimeImmutable::createFromMutable(
+                \DateTimeImmutable::createFromMutable(
                     $this->faker->dateTimeBetween('-100 days', '-1 days')
                 )
             );
@@ -48,15 +46,13 @@ class TaskFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $category = $this->getRandomReference('categories');
             $task->setCategory($category);
 
-
-
-//            $task->setStatus(TaskStatus::from($this->faker->numberBetween(1, 2)));
+            //            $task->setStatus(TaskStatus::from($this->faker->numberBetween(1, 2)));
 
             /** @var User $author */
             $author = $this->getRandomReference('users');
             $task->setAuthor($author);
 
-            $content =$this->faker->paragraph;
+            $content = $this->faker->paragraph;
             $task->setContent($content);
 
             return $task;

@@ -6,21 +6,16 @@
 namespace App\Controller;
 
 use App\Entity\User;
-//use App\Form\SignUpType;
+// use App\Form\SignUpType;
 use App\Form\Type\UserType;
-use App\Service\UserService;
-use App\Repository\UserRepository;
 use App\Service\UserServiceInterface;
-//use App\Service\CommentService;
+// use App\Service\CommentService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
@@ -42,8 +37,9 @@ class UserController extends AbstractController
     /**
      * Constructor.
      *
-     * @param UserServiceInterface $userService User service
-     * @param TranslatorInterface  $translator  Translator
+     * @param UserServiceInterface        $userService    User service
+     * @param TranslatorInterface         $translator     Translator
+     * @param UserPasswordHasherInterface $passwordHasher
      */
     public function __construct(UserServiceInterface $userService, TranslatorInterface $translator, UserPasswordHasherInterface $passwordHasher)
     {
@@ -82,45 +78,6 @@ class UserController extends AbstractController
         return $this->render('user/show.html.twig', ['user' => $user]);
     }
 
-//    /**
-//     * Create action.
-//     *
-//     * @param Request $request HTTP request
-//     *
-//     * @return Response HTTP response
-//     */
-//    #[Route('/create', name: 'user_create', methods: 'GET|POST', )]
-//    public function create(Request $request): Response
-//    {
-//        $user = new User();
-//        $form = $this->createForm(
-//            UserType::class,
-//            $user,
-//            ['action' => $this->generateUrl('user_create')]
-//        );
-//        $form->handleRequest($request);
-//
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            //$user->setRoles(['ROLE_USER']);
-//            $user->setPassword(
-//                $this->passwordHasher->hashPassword(
-//                    $user,
-//                    $form["password"]->getData()
-//                )
-//            );
-//            $this->userService->save($user);
-//
-//            $this->addFlash(
-//                'success',
-//                $this->translator->trans('message.created_successfully')
-//            );
-//
-//            return $this->redirectToRoute('user_index');
-//        }
-//
-//        return $this->render('user/create.html.twig',  ['form' => $form->createView()]);
-//    }
-
     /**
      * Edit action.
      *
@@ -146,7 +103,7 @@ class UserController extends AbstractController
             $user->setPassword(
                 $this->passwordHasher->hashPassword(
                     $user,
-                    $form["password"]->getData()
+                    $form['password']->getData()
                 )
             );
             $this->userService->save($user);

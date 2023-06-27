@@ -9,7 +9,6 @@ use App\Entity\Comment;
 use App\Entity\Task;
 use App\Entity\User;
 use App\Repository\CommentRepository;
-use App\Repository\TaskRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -21,7 +20,7 @@ class CommentService implements CommentServiceInterface
     /**
      * Comment repository.
      */
-    private CommentRepository $CommentRepository;
+    private CommentRepository $commentRepository;
 
     /**
      * Paginator.
@@ -31,12 +30,12 @@ class CommentService implements CommentServiceInterface
     /**
      * Constructor.
      *
-     * @param CommentRepository     $CommentRepository Comment repository
-     * @param PaginatorInterface $paginator      Paginator
+     * @param CommentRepository  $commentRepository Comment repository
+     * @param PaginatorInterface $paginator         Paginator
      */
-    public function __construct(CommentRepository $CommentRepository, PaginatorInterface $paginator)
+    public function __construct(CommentRepository $commentRepository, PaginatorInterface $paginator)
     {
-        $this->CommentRepository = $CommentRepository;
+        $this->commentRepository = $commentRepository;
         $this->paginator = $paginator;
     }
 
@@ -50,36 +49,61 @@ class CommentService implements CommentServiceInterface
     public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->CommentRepository->QueryAll(),
+            $this->commentRepository->QueryAll(),
             $page,
             CommentRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
+    /**
+     * Paginated list by users
+     * @param int  $page
+     * @param Task $task
+     *
+     * @return PaginationInterface
+     */
     public function getPaginatedListByTask(int $page, Task $task): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->CommentRepository->findBy(
+            $this->commentRepository->findBy(
                 ['task' => $task]
             ),
             $page,
             CommentRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
+
+    /**
+     * Paginated list by users
+     *
+     * @param int  $page
+     * @param User $user
+     *
+     * @return PaginationInterface
+     */
     public function getPaginatedListByUser(int $page, User $user): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->CommentRepository->findBy(
+            $this->commentRepository->findBy(
                 ['User' => $user]
             ),
             $page,
             CommentRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
+
+    /**
+     * Getter for task.
+     *
+     * @param Comment $comment
+     *
+     * @return Task|null
+     */
     public function getTask(Comment $comment): ?Task
     {
         return $comment->getTask();
     }
+
     /**
      * Save entity.
      *
@@ -87,11 +111,10 @@ class CommentService implements CommentServiceInterface
      */
     public function save(Comment $comment): void
     {
-        if ($comment->getId() == null)
-        {
+        if (null == $comment->getId()) {
             $comment->setCreatedAt(new \DateTimeImmutable());
         }
-        $this->CommentRepository->save($comment);
+        $this->commentRepository->save($comment);
     }
 
     /**
@@ -101,6 +124,6 @@ class CommentService implements CommentServiceInterface
      */
     public function delete(Comment $comment): void
     {
-        $this->CommentRepository->delete($comment);
+        $this->commentRepository->delete($comment);
     }
 }

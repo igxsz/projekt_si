@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /**
  * comment controller.
@@ -6,7 +7,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Task;
 use App\Form\CommentType;
@@ -40,21 +40,22 @@ class CommentController extends AbstractController
     /**
      * Constructor.
      *
-     * @param CommentServiceInterface $taskService Recipe service
-     * @param TranslatorInterface  $translator  Translator
+     * @param CommentServiceInterface $commentService
+     * @param TranslatorInterface     $translator     Translator
+     * @param TaskRepository          $taskRepository
      */
-    public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator, TaskRepository $recipeRepository)
+    public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator, TaskRepository $taskRepository)
     {
         $this->commentService = $commentService;
         $this->translator = $translator;
     }
-    /**
+
     /**
      * Index action.
      *
-     * @param Request            $request        HTTP Request
-     * @param CommentRepository     $commentRepository comment repository
-     * @param PaginatorInterface $paginator      Paginator
+     * @param Request            $request           HTTP Request
+     * @param CommentRepository  $commentRepository comment repository
+     * @param PaginatorInterface $paginator         Paginator
      *
      * @return Response HTTP response
      */
@@ -73,7 +74,8 @@ class CommentController extends AbstractController
     /**
      * Show action.
      *
-     * @param comment $comment comment entity
+     * @param CommentRepository $commentRepository
+     * @param int               $id
      *
      * @return Response HTTP response
      */
@@ -86,15 +88,18 @@ class CommentController extends AbstractController
     public function show(CommentRepository $commentRepository, int $id): Response
     {
         $comment = $commentRepository->find($id);
+
         return $this->render(
             'comment/show.html.twig',
             ['comment' => $comment]
         );
     }
+
     /**
      * Create action.
      *
      * @param Request $request HTTP request
+     * @param Task    $task
      *
      * @return Response HTTP response
      */
@@ -126,6 +131,15 @@ class CommentController extends AbstractController
 
         return $this->render('comment/create.html.twig', ['form' => $form->createView()]);
     }
+
+    /**
+     * Delete.
+     *
+     * @param Request $request
+     * @param Comment $comment
+     *
+     * @return Response Responsse
+     */
     #[Route('/delete/{id}', name: 'comment_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|POST')]
     public function delete(Request $request, Comment $comment): Response
     {

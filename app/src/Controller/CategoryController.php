@@ -7,7 +7,6 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
-use App\Service\CategoryService;
 use App\Service\CategoryServiceInterface;
 use App\Service\TaskService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -18,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\Type\CategoryType;
 use Symfony\Contracts\Translation\TranslatorInterface;
+
 /**
  * Class CategoryController.
  */
@@ -26,22 +26,24 @@ class CategoryController extends AbstractController
 {
     /**
      * Category service.
+     *
+     * @param CategoryServiceInterface $categoryService
      */
     private CategoryServiceInterface $categoryService;
+
     private CategoryRepository $categoryRepository;
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
     /**
      * Constructor.
      *
-     * @param CategoryServiceInterface $taskService Task service
-     * @param TranslatorInterface      $translator  Translator
+     * @param CategoryServiceInterface $categoryService
+     * @param TranslatorInterface      $translator         Translator
+     * @param CategoryRepository       $categoryRepository
      */
     public function __construct(CategoryServiceInterface $categoryService, TranslatorInterface $translator, CategoryRepository $categoryRepository)
     {
@@ -62,7 +64,6 @@ class CategoryController extends AbstractController
         name: 'category_create',
         methods: 'GET|POST',
     )]
-
     public function create(Request $request): Response
     {
         $category = new Category();
@@ -139,7 +140,7 @@ class CategoryController extends AbstractController
     #[IsGranted('DELETE', subject: 'category')]
     public function delete(Request $request, Category $category): Response
     {
-        if(!$this->categoryService->canBeDeleted($category)) {
+        if (!$this->categoryService->canBeDeleted($category)) {
             $this->addFlash(
                 'warning',
                 $this->translator->trans('message.category_contains_tasks')
@@ -198,7 +199,10 @@ class CategoryController extends AbstractController
     /**
      * Show action.
      *
-     * @param Category $category Category
+     * @param Request            $request
+     * @param CategoryRepository $categoryRepository
+     * @param TaskService        $taskService
+     * @param int                $id
      *
      * @return Response HTTP response
      */
@@ -212,6 +216,7 @@ class CategoryController extends AbstractController
     {
         $category = $categoryRepository->find($id);
         $pagination = $taskService->getPaginatedListByCategory($request->query->getInt('page', 1), $category);
+
         return $this->render('category/show.html.twig', ['category' => $category, 'pagination' => $pagination]);
     }
 }

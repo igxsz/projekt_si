@@ -18,7 +18,6 @@ use Knp\Component\Pager\PaginatorInterface;
  */
 class CategoryService implements CategoryServiceInterface
 {
-
     /**
      * Category repository.
      */
@@ -29,6 +28,10 @@ class CategoryService implements CategoryServiceInterface
      */
     private PaginatorInterface $paginator;
 
+    /**
+     * Task Service
+     * @var TaskService
+     */
     private TaskService $taskService;
 
     /**
@@ -40,16 +43,16 @@ class CategoryService implements CategoryServiceInterface
      * Constructor.
      *
      * @param CategoryRepository $categoryRepository Category repository
-     * @param PaginatorInterface $paginator      Paginator
-     * @param TaskRepository $taskRepository Task repository
+     * @param TaskRepository     $taskRepository     Task repository
+     * @param TaskService        $taskService
+     * @param PaginatorInterface $paginator          Paginator
      */
-    public function __construct(CategoryRepository $categoryRepository, TaskRepository $taskRepository,TaskService $taskService,PaginatorInterface $paginator )
+    public function __construct(CategoryRepository $categoryRepository, TaskRepository $taskRepository, TaskService $taskService, PaginatorInterface $paginator)
     {
         $this->categoryRepository = $categoryRepository;
         $this->taskRepository = $taskRepository;
         $this->taskService = $taskService;
         $this->paginator = $paginator;
-
     }
 
     /**
@@ -59,13 +62,14 @@ class CategoryService implements CategoryServiceInterface
      */
     public function save(Category $category): void
     {
-//        if (null == $category->getId()) {
-//            $category->setCreatedAt(new \DateTimeImmutable());
-//        }
-//        $category->setUpdatedAt(new \DateTimeImmutable());
+        //        if (null == $category->getId()) {
+        //            $category->setCreatedAt(new \DateTimeImmutable());
+        //        }
+        //        $category->setUpdatedAt(new \DateTimeImmutable());
 
         $this->categoryRepository->save($category);
     }
+
     /**
      * Delete entity.
      *
@@ -91,6 +95,7 @@ class CategoryService implements CategoryServiceInterface
             CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
+
     /**
      * Can Category be deleted?
      *
@@ -108,6 +113,7 @@ class CategoryService implements CategoryServiceInterface
             return false;
         }
     }
+
     /**
      * Find by id.
      *
@@ -121,5 +127,4 @@ class CategoryService implements CategoryServiceInterface
     {
         return $this->categoryRepository->findOneById($id);
     }
-
 }

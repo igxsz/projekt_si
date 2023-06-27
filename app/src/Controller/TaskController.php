@@ -40,7 +40,8 @@ class TaskController extends AbstractController
      * Constructor.
      *
      * @param TaskServiceInterface $taskService Task service
-     * @param TranslatorInterface  $translator  Translator
+     * @param TranslatorInterface $translator Translator
+     * @param TaskRepository $taskRepository
      */
     public function __construct(TaskServiceInterface $taskService, TranslatorInterface $translator, TaskRepository $taskRepository)
     {
@@ -74,19 +75,19 @@ class TaskController extends AbstractController
         return $this->render('task/index.html.twig', ['pagination' => $pagination]);
     }
 
-
-
-
     /**
      * Show action.
      *
+     * @param Request $request
+     * @param CommentService $commentService
+     * @param TaskRepository $taskRepository
      * @param Task $task Task entity
      *
      * @return Response HTTP response
      */
     #[Route('/{id}', name: 'task_show', requirements: ['id' => '[1-9]\d*'], methods: 'GET', )]
-//    #[IsGranted('VIEW', subject: 'task')]
-    public function show(Request $request,  CommentService $commentService, TaskRepository $taskRepository, Task $task ): Response
+    //    #[IsGranted('VIEW', subject: 'task')]
+    public function show(Request $request, CommentService $commentService, TaskRepository $taskRepository, Task $task): Response
     {
         $pagination = $commentService->getPaginatedListByTask($request->query->getInt('page', 1), $task);
 
@@ -214,6 +215,7 @@ class TaskController extends AbstractController
             ]
         );
     }
+
     /**
      * Get filters from request.
      *
@@ -223,11 +225,11 @@ class TaskController extends AbstractController
      *
      * @psalm-return array{category_id: int, tag_id: int, status_id: int}
      */
-        private function getFilters(Request $request): array
-        {
-            $filters = [];
-            $filters['category_id'] = $request->query->getInt('filters_category_id');
+    private function getFilters(Request $request): array
+    {
+        $filters = [];
+        $filters['category_id'] = $request->query->getInt('filters_category_id');
 
-            return $filters;
+        return $filters;
     }
 }

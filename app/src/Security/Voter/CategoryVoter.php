@@ -40,8 +40,6 @@ class CategoryVoter extends Voter
 
     /**
      * Security helper.
-     *
-     * @var Security
      */
     private Security $security;
 
@@ -102,57 +100,30 @@ class CategoryVoter extends Voter
         return false;
     }
 
+    /**
+     * Can edit is role is admin
+     * @return bool
+     */
     private function canEdit()
     {
         return $this->security->isGranted('ROLE_ADMIN');
     }
 
+    /**
+     * Can view if role is admin
+     * @return bool
+     */
     private function canView()
     {
         return $this->security->isGranted('ROLE_ADMIN');
     }
 
+    /**
+     * Can delete if role is admin
+     * @return bool
+     */
     private function canDelete()
     {
         return $this->security->isGranted('ROLE_ADMIN');
     }
-
-//    /**
-//     * Checks if user can edit task.
-//     *
-//     * @param Category $category Task entity
-//     * @param User $user User
-//     *
-//     * @return bool Result
-//     */
-//    private function canEdit(Category $category, User $user): bool
-//    {
-//        return $category->getAuthor() === $user;
-//    }
-//
-//    /**
-//     * Checks if user can view task.
-//     *
-//     * @param Category $category Category entity
-//     * @param User $user User
-//     *
-//     * @return bool Result
-//     */
-//    private function canView(Category $category, User $user): bool
-//    {
-//        return $category->getAuthor() === $user;
-//    }
-//
-//    /**
-//     * Checks if user can delete task.
-//     *
-//     * @param Category $category Category entity
-//     * @param User $user User
-//     *
-//     * @return bool Result
-//     */
-//    private function canDelete(Category $category, User $user): bool
-//    {
-//        return $category->getAuthor() === $user;
-//    }
 }

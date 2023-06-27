@@ -31,13 +31,12 @@ class TaskService implements TaskServiceInterface
 
     private CommentRepository $commentRepository;
 
-
     /**
      * Constructor.
      *
-     * @param CategoryServiceInterface $categoryService Category service
-     * @param PaginatorInterface       $paginator       Paginator
-     * @param TaskRepository           $taskRepository  Task repository
+     * @param PaginatorInterface $paginator         Paginator
+     * @param TaskRepository     $taskRepository    Task repository
+     * @param CommentRepository  $commentRepository
      */
     public function __construct(
         PaginatorInterface $paginator,
@@ -52,8 +51,8 @@ class TaskService implements TaskServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int $page Page number
-     * @param User|null $author Tasks author
+     * @param int                $page    Page number
+     * @param User|null          $author  Tasks author
      * @param array<string, int> $filters Filters array
      *
      * @return PaginationInterface<SlidingPagination> Paginated list
@@ -68,6 +67,14 @@ class TaskService implements TaskServiceInterface
             TaskRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
+
+    /**
+     * Get paginated list by category
+     * @param int      $page
+     * @param Category $category
+     *
+     * @return PaginationInterface
+     */
     public function getPaginatedListByCategory(int $page, Category $category): PaginationInterface
     {
         return $this->paginator->paginate(

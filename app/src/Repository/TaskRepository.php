@@ -7,7 +7,6 @@ namespace App\Repository;
 
 use App\Entity\Category;
 use App\Entity\Task;
-use App\Entity\Comment;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
@@ -48,23 +47,23 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
-//    /**
-//     * Query tasks by author.
-//     *
-//     * @param UserInterface         $user    User entity
-//     * @param array<string, object> $filters Filters
-//     *
-//     * @return QueryBuilder Query builder
-//     */
-//    public function queryByAuthor(UserInterface $user, array $filters = []): QueryBuilder
-//    {
-//        $queryBuilder = $this->queryAll($filters);
-//
-//        $queryBuilder->andWhere('task.author = :author')
-//            ->setParameter('author', $user);
-//
-//        return $queryBuilder;
-//    }
+    //    /**
+    //     * Query tasks by author.
+    //     *
+    //     * @param UserInterface         $user    User entity
+    //     * @param array<string, object> $filters Filters
+    //     *
+    //     * @return QueryBuilder Query builder
+    //     */
+    //    public function queryByAuthor(UserInterface $user, array $filters = []): QueryBuilder
+    //    {
+    //        $queryBuilder = $this->queryAll($filters);
+    //
+    //        $queryBuilder->andWhere('task.author = :author')
+    //            ->setParameter('author', $user);
+    //
+    //        return $queryBuilder;
+    //    }
 
     /**
      * Query all records.
@@ -85,6 +84,7 @@ class TaskRepository extends ServiceEntityRepository
 
         return $this->applyFiltersToList($queryBuilder, $filters);
     }
+
     /**
      * Apply filters to paginated list.
      *
@@ -102,7 +102,6 @@ class TaskRepository extends ServiceEntityRepository
 
         return $queryBuilder;
     }
-
 
     /**
      * Save entity.
