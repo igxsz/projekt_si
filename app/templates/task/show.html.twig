@@ -18,53 +18,57 @@
             <dt>{{ 'label.title'|trans }}</dt>
             <dd>{{  task.title }}</dd>
             <dt>{{ 'label.author'|trans }}</dt>
-            <dd>{{  task.author.email }}</dd>
-{#            <td>{{ task.comment_id }}</td>#}
-{#            <td>{{ comment.createdAt|date('Y/m/d')  }}</td>#}
+            <dd>{{  task.author.nick }}</dd>
+            <dt>{{ 'label.content'|trans }}</dt>
+            <dd>{{  task.content }}</dd>
 
         </dl>
 
-{#        #}{# KOMENTARZE #}
-{#        <h3>{{ 'title.comment_list'|trans }}</h3>#}
-{#        {% if pagination is defined and pagination.items|length %}#}
 
-{#            <div class="navigation text-center">#}
-{#                {{ knp_pagination_render(pagination) }}#}
-{#            </div>#}
+    <h3 class="mt-6">{{ 'title.comments_and_tasks'|trans({'%id%': task.id|default('')}) }}</h3>
 
-{#            <table class="table table-striped">#}
-{#                <thead>#}
-{#                <tr>#}
-{#                    <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user.name') }}</th>#}
-{#                    <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>#}
-{#                    <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>#}
+    {% if pagination is defined and pagination.items|length %}
 
-{#                </tr>#}
-{#                </thead>#}
-{#                <tbody>#}
-{#                {% for comment in pagination.items %}#}
-{#                    <tr>#}
-{#                        {% if comment.user.id is defined %}#}
-{#                            <td><a href="{{ url('user_show', {id: comment.user.id}) }}" name="{{ 'action.show'|trans }}">#}
-{#                                    {{ comment.user.email }}#}
-{#                                </a></td>#}
-{#                        {% else %} <td> null </td>#}
-{#                        {% endif %}#}
-{#                        <td>{{ comment.content }}</td>#}
-{#                        <td>{{ comment.createdAt|date('Y/m/d')  }}</td>#}
-{#                    </tr>#}
-{#                {% endfor %}#}
-{#                </tbody>#}
-{#            </table>#}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.task'|trans, 'comment.task') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user') }}</th>
 
-{#            <div class="navigation text-center">#}
-{#                {{ knp_pagination_render(pagination) }}#}
-{#            </div>#}
-{#        {% else %}#}
-{#            <p>#}
-{#                {{ 'message.empty_list'|trans }}#}
-{#            </p>#}
-{#        {% endif %}#}
+            </tr>
+            </thead>
+            <tbody>
+            {% for comment in pagination.items %}
+                <tr>
+                    <td>{{ comment.content }}</td>
+                    <td>{{ comment.createdAt|format_date('long') }}</td>
+                    {% if comment.task.title is defined %}
+                        <td>{{ comment.task.title }}</td>
+                    {% else %} <td> null </td>
+                    {% endif %}
+                    {% if comment.user.id is defined %}
+                        <td>{{ comment.user.email }}</td>
+                    {% else %} <td> null </td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+
+
+    {% else %}
+        <p>
+            {{ 'message.record_not_found'|trans }}
+        </p>
+    {% endif %}
 
         {# DODAJ KOMENTARZ #}
         <p>
@@ -79,9 +83,5 @@
             </a>
         </p>
 
-    {% else %}
-        <p>
-            {{ 'message.record_not_found'|trans }}
-        </p>
-    {% endif %}
+    {%  endif %}
 {% endblock %}

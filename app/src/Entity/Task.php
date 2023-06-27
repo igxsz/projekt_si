@@ -43,6 +43,9 @@ class Task
     #[Assert\Type(User::class)]
     private ?User $author;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $content = null;
+
 //    #[ORM\ManyToOne(fetch: "EXTRA_LAZY")]
 //    #[ORM\JoinColumn(nullable: false)]
 //    private ?Comment $comment = null;
@@ -150,6 +153,18 @@ public function removeComment(Comment $comment): self
             $comment->setTask(null);
         }
     }
+
+    return $this;
+}
+
+public function getContent(): ?string
+{
+    return $this->content;
+}
+
+public function setContent(string $content): self
+{
+    $this->content = $content;
 
     return $this;
 }

@@ -56,10 +56,8 @@ class TaskFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $author = $this->getRandomReference('users');
             $task->setAuthor($author);
 
-
-//            /** @var Comment $comment */
-//            $comment = $this->getRandomReference('comments');
-//            $task->addComment($comment);
+            $content =$this->faker->paragraph;
+            $task->setContent($content);
 
             return $task;
         });

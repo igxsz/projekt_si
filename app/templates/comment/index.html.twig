@@ -21,7 +21,11 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.task'|trans, 'comment.task') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user') }}</th>
-                <th>{{ 'label.actions'|trans }}</th>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>{{ 'label.actions'|trans }}</th>
+                {% endif %}
+
             </tr>
             </thead>
             <tbody>
@@ -36,12 +40,16 @@
                     {% endif %}
                     {% if comment.user.id is defined %}
                         <td>{{ comment.user.email }}</td>
+                        <td>{{ comment.user.nick }}</td>
                     {% else %} <td> null </td>
                     {% endif %}
                     <td>
-                        <a type="button" class="btn btn-outline-danger" href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'action.delete'|trans }}">
-                            {{ 'action.delete'|trans }}
-                        </a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a type="button" class="btn btn-outline-danger" href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'action.delete'|trans }}">
+                                {{ 'action.delete'|trans }}
+                            </a>
+                        {% endif %}
+
                     </td>
                 </tr>
             {% endfor %}

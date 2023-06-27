@@ -29,6 +29,8 @@ class CategoryService implements CategoryServiceInterface
      */
     private PaginatorInterface $paginator;
 
+    private TaskService $taskService;
+
     /**
      * Task repository.
      */
@@ -41,10 +43,11 @@ class CategoryService implements CategoryServiceInterface
      * @param PaginatorInterface $paginator      Paginator
      * @param TaskRepository $taskRepository Task repository
      */
-    public function __construct(CategoryRepository $categoryRepository, TaskRepository $taskRepository,PaginatorInterface $paginator )
+    public function __construct(CategoryRepository $categoryRepository, TaskRepository $taskRepository,TaskService $taskService,PaginatorInterface $paginator )
     {
         $this->categoryRepository = $categoryRepository;
         $this->taskRepository = $taskRepository;
+        $this->taskService = $taskService;
         $this->paginator = $paginator;
 
     }

@@ -6,7 +6,10 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Repository\CategoryRepository;
+use App\Service\CategoryService;
 use App\Service\CategoryServiceInterface;
+use App\Service\TaskService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -19,13 +22,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class CategoryController.
  */
 #[Route('/category')]
-//#[IsGranted('MANAGE')]
 class CategoryController extends AbstractController
 {
     /**
      * Category service.
      */
     private CategoryServiceInterface $categoryService;
+    private CategoryRepository $categoryRepository;
 
     /**
      * Translator.
@@ -40,10 +43,11 @@ class CategoryController extends AbstractController
      * @param CategoryServiceInterface $taskService Task service
      * @param TranslatorInterface      $translator  Translator
      */
-    public function __construct(CategoryServiceInterface $categoryService, TranslatorInterface $translator)
+    public function __construct(CategoryServiceInterface $categoryService, TranslatorInterface $translator, CategoryRepository $categoryRepository)
     {
         $this->categoryService = $categoryService;
         $this->translator = $translator;
+        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -204,8 +208,10 @@ class CategoryController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
-    public function show(Category $category): Response
+    public function show(Request $request, CategoryRepository $categoryRepository, TaskService $taskService, int $id): Response
     {
-        return $this->render('category/show.html.twig', ['category' => $category]);
+        $category = $categoryRepository->find($id);
+        $pagination = $taskService->getPaginatedListByCategory($request->query->getInt('page', 1), $category);
+        return $this->render('category/show.html.twig', ['category' => $category, 'pagination' => $pagination]);
     }
 }

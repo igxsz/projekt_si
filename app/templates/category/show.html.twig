@@ -19,10 +19,39 @@
             <dd>{{  category.title }}</dd>
 
         </dl>
-        <h2>taski z tą kategorią</h2>
-{#        {% for task in category.tasks %}#}
-{#            {{ task.title }}#}
-{#        {% endfor %}}#}
+        <h3 class="mt-6">{{ 'title.category_and_task'|trans({'%id%': category.id|default('')}) }}</h3>
+
+        {% if pagination is defined and pagination.items|length %}
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for task in pagination.items %}
+                    <tr>
+                        <td>{{ task.title }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+
+        {% else %}
+            <p>
+                {{ 'message.empty_list'|trans }}
+            </p>
+        {% endif %}
+
 
     {% else %}
         <p>

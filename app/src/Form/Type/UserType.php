@@ -24,22 +24,6 @@ use Symfony\Component\Form\FormEvents;
  */
 class UserType extends AbstractType
 {
-//    /**
-//     * User data transformer.
-//     *
-//     * @var UserDataTransformer
-//     */
-//    private UserDataTransformer $tagsDataTransformer;
-//
-//    /**
-//     * Constructor.
-//     *
-//     * @param UserDataTransformer $tagsDataTransformer User data transformer
-//     */
-//    public function __construct(UserDataTransformer $tagsDataTransformer)
-//    {
-//        $this->tagsDataTransformer = $tagsDataTransformer;
-//    }
     private AuthorizationCheckerInterface $authorizationChecker;
 
     public function __construct(AuthorizationCheckerInterface $authorizationChecker)
@@ -61,35 +45,35 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add(
-            'email',
+            'nick',
             TextType::class,
             [
-                'label' => 'label.email',
+                'label' => 'label.nick',
                 'required' => true,
-                'attr' => ['max_length' => 255],
+                'attr' => ['max_length' => 64],
             ]);
-        if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
-            $builder->add(
-                'roles',
-                ChoiceType::class,
-                [
-                    'label' => 'Roles',
-                    'choices' => [
-                        'User' => 'ROLE_USER',
-                        'Admin' => 'ROLE_ADMIN',
-                    ],
-                    'multiple' => true,
-                    'required' => true,
-                ]
-            );
-        }
-        else {
-            // Set the role to ROLE_USER for non-admin users
-            $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
-                $user = $event->getData();
-                $user->setRoles([UserRole::ROLE_USER->value]);
-            });
-        }
+//        if ($this->authorizationChecker->isGranted('ROLE_ADMIN')) {
+//            $builder->add(
+//                'roles',
+//                ChoiceType::class,
+//                [
+//                    'label' => 'Roles',
+//                    'choices' => [
+//                        'User' => 'ROLE_USER',
+//                        'Admin' => 'ROLE_ADMIN',
+//                    ],
+//                    'multiple' => true,
+//                    'required' => true,
+//                ]
+//            );
+//        }
+//        else {
+//            // Set the role to ROLE_USER for non-admin users
+//            $builder->addEventListener(FormEvents::POST_SUBMIT, function (FormEvent $event) {
+//                $user = $event->getData();
+//                $user->setRoles([UserRole::ROLE_USER->value]);
+//            });
+//        }
         $builder->add(
             'password',
             TextType::class,
@@ -100,9 +84,6 @@ class UserType extends AbstractType
             ]
         );
 
-//        $builder->get('tags')->addModelTransformer(
-//            $this->tagsDataTransformer
-//        );
     }
 
     /**

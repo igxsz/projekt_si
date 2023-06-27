@@ -8,7 +8,10 @@ namespace App\Controller;
 use App\Entity\Task;
 use App\Entity\User;
 use App\Form\Type\TaskType;
+use App\Repository\TaskRepository;
+use App\Service\CommentService;
 use App\Service\TaskServiceInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -39,10 +42,11 @@ class TaskController extends AbstractController
      * @param TaskServiceInterface $taskService Task service
      * @param TranslatorInterface  $translator  Translator
      */
-    public function __construct(TaskServiceInterface $taskService, TranslatorInterface $translator)
+    public function __construct(TaskServiceInterface $taskService, TranslatorInterface $translator, TaskRepository $taskRepository)
     {
         $this->taskService = $taskService;
         $this->translator = $translator;
+        $this->taskRepository = $taskRepository;
     }
 
     /**
@@ -56,7 +60,7 @@ class TaskController extends AbstractController
         name: 'task_index',
         methods: 'GET'
     )]
-    public function index(Request $request): Response
+    public function index(Request $request, TaskRepository $taskRepository, PaginatorInterface $paginator): Response
     {
         $filters = $this->getFilters($request);
         /** @var User $user */
@@ -81,10 +85,12 @@ class TaskController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}', name: 'task_show', requirements: ['id' => '[1-9]\d*'], methods: 'GET', )]
-    #[IsGranted('VIEW', subject: 'task')]
-    public function show(Task $task): Response
+//    #[IsGranted('VIEW', subject: 'task')]
+    public function show(Request $request,  CommentService $commentService, TaskRepository $taskRepository, Task $task ): Response
     {
-        return $this->render('task/show.html.twig', ['task' => $task]);
+        $pagination = $commentService->getPaginatedListByTask($request->query->getInt('page', 1), $task);
+
+        return $this->render('task/show.html.twig', ['task' => $task, 'pagination' => $pagination]);
     }
 
     /**

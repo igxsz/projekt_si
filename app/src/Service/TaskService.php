@@ -5,6 +5,7 @@
 
 namespace App\Service;
 
+use App\Entity\Category;
 use App\Entity\Task;
 use App\Entity\User;
 use App\Repository\CommentRepository;
@@ -30,10 +31,6 @@ class TaskService implements TaskServiceInterface
 
     private CommentRepository $commentRepository;
 
-    /**
-     * Category service.
-     */
-    private CategoryServiceInterface $categoryService;
 
     /**
      * Constructor.
@@ -43,13 +40,11 @@ class TaskService implements TaskServiceInterface
      * @param TaskRepository           $taskRepository  Task repository
      */
     public function __construct(
-        CategoryServiceInterface $categoryService,
         PaginatorInterface $paginator,
         TaskRepository $taskRepository,
         CommentRepository $commentRepository
     ) {
         $this->commentRepository = $commentRepository;
-        $this->categoryService = $categoryService;
         $this->paginator = $paginator;
         $this->taskRepository = $taskRepository;
     }
@@ -69,6 +64,16 @@ class TaskService implements TaskServiceInterface
 
         return $this->paginator->paginate(
             $this->taskRepository->queryAll($filters),
+            $page,
+            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+    public function getPaginatedListByCategory(int $page, Category $category): PaginationInterface
+    {
+        return $this->paginator->paginate(
+            $this->taskRepository->findBy(
+                ['category' => $category]
+            ),
             $page,
             TaskRepository::PAGINATOR_ITEMS_PER_PAGE
         );

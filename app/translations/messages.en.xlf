@@ -34,6 +34,14 @@
                     <source>label.author</source>
                     <target>Author</target>
                   </trans-unit>
+      <trans-unit id="label.email">
+                          <source>label.email</source>
+                          <target>Email</target>
+                        </trans-unit>
+      <trans-unit id="label.nick">
+                          <source>label.nick</source>
+                          <target>Nick</target>
+                        </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
         <target>List is empty.</target>
@@ -130,6 +138,14 @@
                               <source>title.category_edit</source>
                               <target>Edit this category</target>
                               </trans-unit>
+      <trans-unit id="title.user_edit">
+                                    <source>title.user_edit</source>
+                                    <target>Edit this user</target>
+                                    </trans-unit>
+      <trans-unit id="title.user_list">
+                                    <source>title.user_list</source>
+                                    <target>Users list</target>
+                                    </trans-unit>
       <trans-unit id="action.save">
                 <source>action.save</source>
                 <target>Save</target>
@@ -147,6 +163,14 @@
                     <source>action.delete</source>
                     <target>Delete</target>
                     </trans-unit>
+      <trans-unit id="action.submit">
+                          <source>action.submit</source>
+                          <target>Submit</target>
+                          </trans-unit>
+      <trans-unit id="action_login">
+                          <source>action_login</source>
+                          <target>Log in</target>
+                          </trans-unit>
       <trans-unit id="action.category_list">
               <source>action.category_list</source>
               <target>List of categories</target>
@@ -159,7 +183,14 @@
                   <source>action.task_create</source>
                   <target>Create an article</target>
       </trans-unit>
-
+      <trans-unit id="title.change_password">
+                                    <source>title.change_password</source>
+                                    <target>Change password</target>
+                                    </trans-unit>
+      <trans-unit id="action.add_comment">
+                                      <source>action.add_comment</source>
+                                      <target>Add a comment</target>
+                              </trans-unit>
             <trans-unit id="action.category_create">
                         <source>action.category_create</source>
                         <target>Create a category</target>
