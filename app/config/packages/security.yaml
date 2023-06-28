@@ -43,7 +43,6 @@ security:
         - { path: ^/login, roles: PUBLIC_ACCESS }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/comment/create, roles: ROLE_USER }
-        - { path: ^/comment, roles: ROLE_ADMIN }
         - { path: ^/user/edit/[ 0-9 ]+, roles: ROLE_USER }
         - { path: ^/user, roles: ROLE_ADMIN }
         - { path: ^/task/create, roles: ROLE_ADMIN }

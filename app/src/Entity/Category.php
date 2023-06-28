@@ -60,7 +60,7 @@ class Category
     #[Assert\Type('string')]
     #[Assert\Length(min: 3, max: 64)]
     #[Gedmo\Slug(fields: ['title'])]
-    private ?string $slug;
+    private string $slug;
 
     /**
      * Getter for Id.

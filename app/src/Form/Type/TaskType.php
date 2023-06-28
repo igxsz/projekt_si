@@ -53,6 +53,14 @@ class TaskType extends AbstractType
                 'required' => true,
             ]
         );
+        $builder->add(
+            'content',
+            TextType::class,
+            [
+                'label' => 'label.content',
+                'required' => true,
+            ]
+        );
     }
 
     /**

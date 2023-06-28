@@ -30,6 +30,7 @@ class TaskService implements TaskServiceInterface
     private PaginatorInterface $paginator;
 
     private CommentRepository $commentRepository;
+    private CategoryService $categoryService;
 
     /**
      * Constructor.
@@ -41,11 +42,13 @@ class TaskService implements TaskServiceInterface
     public function __construct(
         PaginatorInterface $paginator,
         TaskRepository $taskRepository,
-        CommentRepository $commentRepository
+        CommentRepository $commentRepository,
+        CategoryService $categoryService
     ) {
         $this->commentRepository = $commentRepository;
         $this->paginator = $paginator;
         $this->taskRepository = $taskRepository;
+        $this->categoryService = $categoryService;
     }
 
     /**
