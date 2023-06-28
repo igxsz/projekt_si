@@ -6,7 +6,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-// use App\Form\SignUpType;
 use App\Form\Type\UserType;
 use App\Service\UserServiceInterface;
 // use App\Service\CommentService;

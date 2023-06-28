@@ -29,7 +29,17 @@ class TaskService implements TaskServiceInterface
      */
     private PaginatorInterface $paginator;
 
+    /**
+     * Comment Repository.
+     * @var CommentRepository
+     */
     private CommentRepository $commentRepository;
+
+    /**
+     * Category service.
+     *
+     * @var CategoryService
+     */
     private CategoryService $categoryService;
 
     /**
