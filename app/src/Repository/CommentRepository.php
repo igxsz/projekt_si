@@ -7,7 +7,7 @@
 namespace App\Repository;
 
 use App\Entity\Comment;
-use App\Entity\Task;
+use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
@@ -55,28 +55,28 @@ class CommentRepository extends ServiceEntityRepository
         return $this->getOrCreateQueryBuilder()
             ->select(
                 'partial comment.{id, created_at, content}',
-                'partial task.{id, title}'
+                'partial article.{id, title}'
             )
-            ->join('comment.task', 'task');
+            ->join('comment.article', '');
     }
 
     /**
-     * Count comments by recipe.
+     * Count comments by article.
      *
-     * @param Task $task Task
+     * @param Article $article Article
      *
-     * @return int Number of comments in recipe
+     * @return int Number of comments in article
      *
      * @throws NoResultException
      * @throws NonUniqueResultException
      */
-    public function countByTask(Task $task): int
+    public function countByArticle(Article $article): int
     {
         $qb = $this->getOrCreateQueryBuilder();
 
         return $qb->select($qb->expr()->countDistinct('comment.id'))
-            ->where('comment.task = :task')
-            ->setParameter(':task', $task)
+            ->where('comment.article = :article')
+            ->setParameter(':article', $article)
             ->getQuery()
             ->getSingleScalarResult();
     }

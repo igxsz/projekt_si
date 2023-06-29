@@ -8,10 +8,10 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Comment;
-use App\Entity\Task;
+use App\Entity\Article;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
-use App\Repository\TaskRepository;
+use App\Repository\ArticleRepository;
 use App\Service\CommentServiceInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,10 +41,10 @@ class CommentController extends AbstractController
      * Constructor.
      *
      * @param CommentServiceInterface $commentService
-     * @param TranslatorInterface     $translator     Translator
-     * @param TaskRepository          $taskRepository
+     * @param TranslatorInterface     $translator        Translator
+     * @param ArticleRepository       $articleRepository
      */
-    public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator, TaskRepository $taskRepository)
+    public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator, ArticleRepository $articleRepository)
     {
         $this->commentService = $commentService;
         $this->translator = $translator;
@@ -99,22 +99,22 @@ class CommentController extends AbstractController
      * Create action.
      *
      * @param Request $request HTTP request
-     * @param Task    $task
+     * @param Article $article
      *
      * @return Response HTTP response
      */
     #[Route('/create/{id}', name: 'comment_create', requirements: ['id' => '[1-9]\d*'], methods: ['GET', 'POST'])]
-    public function create(Request $request, Task $task): Response
+    public function create(Request $request, Article $article): Response
     {
         $comment = new Comment();
         $user = $this->getUser();
         $comment->setUser($user);
-        $comment->setTask($task);
+        $comment->setArticle($article);
 
         $form = $this->createForm(
             CommentType::class,
             $comment,
-            ['action' => $this->generateUrl('comment_create', ['id' => $task->getId()]), 'current_user' => $user, 'current_task' => $task]
+            ['action' => $this->generateUrl('comment_create', ['id' => $article->getId()]), 'current_user' => $user, 'current_article' => $article]
         );
         $form->handleRequest($request);
 
@@ -126,7 +126,7 @@ class CommentController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('task_show', ['id' => $task->getId()]);
+            return $this->redirectToRoute('article_show', ['id' => $article->getId()]);
         }
 
         return $this->render('comment/create.html.twig', ['form' => $form->createView()]);

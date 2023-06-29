@@ -50,14 +50,14 @@ class CommentType extends AbstractType
         //                'data' => $options['current_user'], // Set the 'current_user' option as the default value for the user field
         //            ]);
         //        }
-        //        if ($options['current_task']) {
-        //            $builder->add('task', EntityType::class, [
-        //                'class' => task::class,
-        //                'label' => 'label.task',
+        //        if ($options['current_']) {
+        //            $builder->add('', EntityType::class, [
+        //                'class' => ::class,
+        //                'label' => 'label.',
         //                'required' => true,
         //                'disabled' => true,
         //                'choice_label' => 'title',
-        //                'data' => $options['current_task'],
+        //                'data' => $options['current_'],
         //            ]);
         //        }
     }
@@ -71,7 +71,7 @@ class CommentType extends AbstractType
     {
         $resolver->setDefaults(['data_class' => Comment::class,
             'current_user' => null, // Add the 'current_user' option with a default value of null
-            'current_task' => null,
+            'current_article' => null,
         ]);
     }
 

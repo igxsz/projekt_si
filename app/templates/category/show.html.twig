@@ -19,7 +19,7 @@
             <dd>{{  category.title }}</dd>
 
         </dl>
-        <h3 class="mt-6">{{ 'title.category_and_task'|trans({'%id%': category.id|default('')}) }}</h3>
+        <h3 class="mt-6">{{ 'title.category_and_article'|trans({'%id%': category.id|default('')}) }}</h3>
 
         {% if pagination is defined and pagination.items|length %}
 
@@ -30,13 +30,13 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'article.title') }}</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for task in pagination.items %}
+                {% for article in pagination.items %}
                     <tr>
-                        <td>{{ task.title }}</td>
+                        <td>{{ article.title }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -58,6 +58,10 @@
             {{ 'message.empty_list'|trans }}
         </p>
     {% endif %}
-
+    <p>
+        <a href="{{ url('article_index') }}" title="{{ 'action.back_to_list'|trans }}">
+            {{ 'action.back_to_list'|trans }}
+        </a>
+    </p>
 
 {% endblock %}

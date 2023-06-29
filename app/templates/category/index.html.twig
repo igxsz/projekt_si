@@ -7,7 +7,7 @@
 {% block body %}
     <h1>{{ 'title.category_list'|trans }}</h1>
     <nav class="nav">
-        <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}" class="nav-link">
+        <a href="{{ url('article_index') }}" title="{{ 'action.back_to_list'|trans }}" class="nav-link">
             {{ 'action.back_to_list'|trans }}
         </a>
         {% if is_granted('ROLE_ADMIN') %}

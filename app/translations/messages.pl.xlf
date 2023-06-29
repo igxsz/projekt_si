@@ -34,8 +34,8 @@
         <source>label.author</source>
         <target>Autor</target>
       </trans-unit>
-      <trans-unit id="label.task">
-        <source>label.task</source>
+      <trans-unit id="label.">
+        <source>label.</source>
         <target>Artykuł</target>
       </trans-unit>
       <trans-unit id="label.user">
@@ -74,8 +74,8 @@
         <source>message.edited_successfully</source>
         <target>Zedytowano pomyślnie</target>
       </trans-unit>
-      <trans-unit id="message.category_contains_tasks">
-        <source>message.category_contains_tasks</source>
+      <trans-unit id="message.category_contains_articles">
+        <source>message.category_contains_articles</source>
         <target>Kategoria zawiera artykuły</target>
       </trans-unit>
       <trans-unit id="message.form_error">
@@ -102,20 +102,20 @@
         <source>label.updated_at</source>
         <target>Zmiany</target>
       </trans-unit>
-      <trans-unit id="title.task_list">
-        <source>title.task_list</source>
+      <trans-unit id="title.article_list">
+        <source>title.article_list</source>
         <target>Lista artykułów</target>
       </trans-unit>
-      <trans-unit id="title.task_create">
-        <source>title.task_create</source>
+      <trans-unit id="title.article_create">
+        <source>title.article_create</source>
         <target>Stwórz artykuł</target>
       </trans-unit>
-      <trans-unit id="title.task_edit">
-        <source>title.task_edit</source>
+      <trans-unit id="title.article_edit">
+        <source>title.article_edit</source>
         <target>Edytuj ten artykuł</target>
       </trans-unit>
-      <trans-unit id="title.task_delete">
-        <source>title.task_delete</source>
+      <trans-unit id="title.article_delete">
+        <source>title.article_delete</source>
         <target>Usuń ten artykuł</target>
       </trans-unit>
       <trans-unit id="label_category">
@@ -126,8 +126,8 @@
         <source>category.title</source>
         <target>Kategoria</target>
       </trans-unit>
-      <trans-unit id="title.task_details">
-        <source>title.task_details</source>
+      <trans-unit id="title.article_details">
+        <source>title.article_details</source>
         <target>Szczegóły</target>
       </trans-unit>
       <trans-unit id="action.show">
@@ -166,8 +166,8 @@
         <source>title.category_details</source>
         <target>Szczegóły</target>
       </trans-unit>
-      <trans-unit id="title.category_and_task">
-        <source>title.category_and_task</source>
+      <trans-unit id="title.category_and_article">
+        <source>title.category_and_article</source>
         <target>Atykuły kategorii</target>
       </trans-unit>
       <trans-unit id="title.comment_list">
@@ -182,8 +182,8 @@
         <source>title.comment_delete</source>
         <target>Usuń komentarz</target>
       </trans-unit>
-      <trans-unit id="title.comments_and_tasks">
-        <source>title.comments_and_tasks</source>
+      <trans-unit id="title.comments_and_article">
+        <source>title.comments_and_article</source>
         <target>Komentarze</target>
       </trans-unit>
       <trans-unit id="title.user_list">
@@ -230,8 +230,8 @@
         <source>action.comment_list</source>
         <target>Komentarze</target>
       </trans-unit>
-      <trans-unit id="action.task_create">
-        <source>action.task_create</source>
+      <trans-unit id="action.article_create">
+        <source>action.article_create</source>
         <target>Stwórz artykuł</target>
       </trans-unit>
       <trans-unit id="action.category_create">

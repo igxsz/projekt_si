@@ -5,7 +5,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Task;
+use App\Entity\Article;
 use App\Entity\Comment;
 use App\Entity\User;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -37,9 +37,9 @@ class CommentFixtures extends AbstractBaseFixtures implements DependentFixtureIn
                 )
             );
 
-            /** @var Task $task */
-            $task = $this->getRandomReference('tasks');
-            $comment->setTask($task);
+            /** @var Article $article */
+            $article = $this->getRandomReference('articles');
+            $comment->setArticle($article);
 
             /** @var User $user */
             $user = $this->getRandomReference('users');
@@ -57,10 +57,10 @@ class CommentFixtures extends AbstractBaseFixtures implements DependentFixtureIn
      *
      * @return string[] of dependencies
      *
-     * @psalm-return array{0: TaskFixtures::class}
+     * @psalm-return array{0: ArticleFixtures::class}
      */
     public function getDependencies(): array
     {
-        return [TaskFixtures::class];
+        return [ArticleFixtures::class];
     }
 }

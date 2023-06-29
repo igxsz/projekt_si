@@ -2,18 +2,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.task_list'|trans }}
+    {{ 'title.article_list'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.task_list'|trans }}</h1>
+    <h1>{{ 'title.article_list'|trans }}</h1>
     <nav class="nav">
         <a href="{{ url('category_index') }}" title="{{ 'action.category_list'|trans }}" class="nav-link">
             {{ 'action.category_list'|trans }}
         </a>
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ url('task_create') }}" title="{{ 'action.task_create'|trans }}" class="nav-link">
-                {{ 'action.task_create'|trans }}
+            <a href="{{ url('article_create') }}" title="{{ 'action.article_create'|trans }}" class="nav-link">
+                {{ 'action.article_create'|trans }}
             </a>
             <a href="{{ url('user_index') }}" title="{{ 'action.user_list'|trans }}" class="nav-link">
                 {{ 'action.user_list'|trans }}
@@ -25,7 +25,7 @@
     </nav>
 
 {#    <div class="navigation text-bold">#}
-{#        <h1 >{{ 'title.task_list'|trans }}</h1>#}
+{#        <h1 >{{ 'title._list'|trans }}</h1>#}
 {#        <a href="{{ url('category_index') }}" title="{{ 'action.category_list'|trans }}" class="btn btn-outline-secondary">#}
 {#            {{ 'action.category_list'|trans }}#}
 {#        </a>#}
@@ -36,10 +36,10 @@
         <table class="table table-striped align-middle table-hover mt-4">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'task.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'task.createdAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'task.updatedAt') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'task.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'article.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'article.createdAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated_at'|trans, 'article.updatedAt') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'article.title') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_category'|trans, 'category.title') }}</th>
 {#                <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>#}
 
@@ -48,48 +48,48 @@
             </tr>
             </thead>
             <tbody>
-            {% for task in pagination.items %}
+            {% for article in pagination.items %}
                 <tr>
-                    <td>{{ task.id }}</td>
-                    <td>{{ task.createdAt|format_date('long') }}</td>
-                    <td>{{ task.updatedAt|format_date('long') }}</td>
-                    <td>{{ task.title }}</td>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.createdAt|format_date('long') }}</td>
+                    <td>{{ article.updatedAt|format_date('long') }}</td>
+                    <td>{{ article.title }}</td>
                     <td>
-                        <a href="{{ url('task_index', {'filters.category_id' : task.category.id}) }}" title="{{ task.category.title }}">
-                            {{ task.category.title }}
+                        <a href="{{ url('article_index', {'filters.category_id' : article.category.id}) }}" title="{{ article.category.title }}">
+                            {{ article.category.title }}
                         </a>
                     </td>
                     <td>
 
-{#                        {% if is_granted('VIEW', task) %}#}
-{#                            <a href="{{ url('task_show', {id: task.id}) }}" title="{{ 'action.show'|trans }}" class="btn btn-outline-secondary">#}
+{#                        {% if is_granted('VIEW', ) %}#}
+{#                            <a href="{{ url('_show', {id: .id}) }}" title="{{ 'action.show'|trans }}" class="btn btn-outline-secondary">#}
 {#                                {{ 'action.show'|trans }}#}
 {#                            </a>#}
 {#                        {% endif %}#}
 
-{#                        {% if is_granted('EDIT', task) %}#}
-{#                            <a href="{{ url('task_edit', {'id': task.id}) }}" title="{{ 'action.edit'|trans }}" class="btn btn-outline-primary">#}
+{#                        {% if is_granted('EDIT', ) %}#}
+{#                            <a href="{{ url('_edit', {'id': .id}) }}" title="{{ 'action.edit'|trans }}" class="btn btn-outline-primary">#}
 {#                                {{ 'action.edit'|trans }}#}
 {#                            </a>#}
 {#                        {% endif %}#}
 
-{#                        {% if is_granted('DELETE', task) %}#}
-{#                            <a href="{{ url('task_delete', {'id': task.id}) }}" title="{{ 'action.delete'|trans }}" class="btn btn-outline-danger">#}
+{#                        {% if is_granted('DELETE', ) %}#}
+{#                            <a href="{{ url('_delete', {'id': .id}) }}" title="{{ 'action.delete'|trans }}" class="btn btn-outline-danger">#}
 {#                                {{ 'action.delete'|trans }}#}
 {#                            </a>#}
 {#                        {% endif %}#}
-                            <a href="{{ url('task_show', {id: task.id}) }}" title="{{ 'action.show'|trans }}" class="btn btn-outline-secondary">
+                            <a href="{{ url('article_show', {id: article.id}) }}" title="{{ 'action.show'|trans }}" class="btn btn-outline-secondary">
                                 {{ 'action.show'|trans }}
                             </a>
 
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ url('task_edit', {'id': task.id}) }}" title="{{ 'action.edit'|trans }}" class="btn btn-outline-primary">
+                            <a href="{{ url('article_edit', {'id': article.id}) }}" title="{{ 'action.edit'|trans }}" class="btn btn-outline-primary">
                                 {{ 'action.edit'|trans }}
                             </a>
                         {% endif %}
 
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ url('task_delete', {'id': task.id}) }}" title="{{ 'action.delete'|trans }}" class="btn btn-outline-danger">
+                            <a href="{{ url('article_delete', {'id': article.id}) }}" title="{{ 'action.delete'|trans }}" class="btn btn-outline-danger">
                                 {{ 'action.delete'|trans }}
                             </a>
                         {% endif %}

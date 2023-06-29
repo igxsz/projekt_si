@@ -26,13 +26,13 @@ services:
     App\Controller\HelloWorldController:
         tags: ['controller.service_arguments']
 
-    App\Entity\Task:
+    App\Entity\Article:
         autowire: true
     App\Entity\Category:
         autowire: true
     App\Entity\User:
         autowire: true
-    App\Controller\TaskController:
+    App\Controller\ArticleController:
         autowire: true
     App\Controller\CategoryController:
         autowire: true

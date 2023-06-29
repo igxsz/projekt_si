@@ -1,23 +1,23 @@
 <?php
 /**
- * Task entity.
+ * Article entity.
  */
 
 namespace App\Entity;
 
-use App\Repository\TaskRepository;
+use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Class Task.
+ * Class Article.
  */
 
-#[ORM\Entity(repositoryClass: TaskRepository::class)]
-#[ORM\Table(name: 'tasks')]
-class Task
+#[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[ORM\Table(name: 'articles')]
+class Article
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -176,8 +176,8 @@ class Task
     {
         if ($this->comment->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getTask() === $this) {
-                $comment->setTask(null);
+            if ($comment->getArticle() === $this) {
+                $comment->setArticle(null);
             }
         }
 

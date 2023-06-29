@@ -22,8 +22,8 @@
         <source>label.tags</source>
         <target>Tags</target>
       </trans-unit>
-      <trans-unit id="label.task">
-        <source>label.task</source>
+      <trans-unit id="label.article">
+        <source>label.article</source>
         <target>Articles</target>
       </trans-unit>
       <trans-unit id="label.none">
@@ -74,9 +74,9 @@
         <source>message.edited_successfully</source>
         <target>Edited successfully</target>
       </trans-unit>
-      <trans-unit id="message.category_contains_tasks">
-        <source>message.category_contains_tasks</source>
-        <target>Category contains tasks!</target>
+      <trans-unit id="message.category_contains_articles">
+        <source>message.category_contains_articles</source>
+        <target>Category contains articles!</target>
       </trans-unit>
       <trans-unit id="message.form_error">
         <source>message.form_error</source>
@@ -102,20 +102,20 @@
         <source>label.updated_at</source>
         <target>Updated at</target>
       </trans-unit>
-      <trans-unit id="title.task_list">
-        <source>title.task_list</source>
+      <trans-unit id="title.article_list">
+        <source>title.article_list</source>
         <target>Articles list</target>
       </trans-unit>
-      <trans-unit id="title.task_create">
-        <source>title.task_create</source>
+      <trans-unit id="title.article_create">
+        <source>title.article_create</source>
         <target>Create an article</target>
       </trans-unit>
-      <trans-unit id="title.task_edit">
-        <source>title.task_edit</source>
+      <trans-unit id="title.article_edit">
+        <source>title.article_edit</source>
         <target>Edit this article</target>
       </trans-unit>
-      <trans-unit id="title.task_delete">
-        <source>title.task_delete</source>
+      <trans-unit id="title.article_delete">
+        <source>title.article_delete</source>
         <target>Delete this article</target>
       </trans-unit>
       <trans-unit id="label_category">
@@ -126,8 +126,8 @@
         <source>category.title</source>
         <target>Category</target>
       </trans-unit>
-      <trans-unit id="title.task_details">
-        <source>title.task_details</source>
+      <trans-unit id="title.article_details">
+        <source>title.article_details</source>
         <target>Details</target>
       </trans-unit>
       <trans-unit id="action.show">
@@ -194,8 +194,8 @@
         <source>action.user_list</source>
         <target>Users</target>
       </trans-unit>
-      <trans-unit id="action.task_create">
-        <source>action.task_create</source>
+      <trans-unit id="action.article_create">
+        <source>action.article_create</source>
         <target>Create an article</target>
       </trans-unit>
       <trans-unit id="title.change_password">
@@ -218,8 +218,8 @@
         <source>title.category_details</source>
         <target>Details</target>
       </trans-unit>
-      <trans-unit id="title.category_and_task">
-        <source>title.category_and_task</source>
+      <trans-unit id="title.category_and_article">
+        <source>title.category_and_article</source>
         <target>Articles with this category</target>
       </trans-unit>
       <trans-unit id="title.comment_list">
@@ -234,8 +234,8 @@
         <source>title.comment_delete</source>
         <target>Delete comment</target>
       </trans-unit>
-      <trans-unit id="title.comments_and_tasks">
-        <source>title.comments_and_tasks</source>
+      <trans-unit id="title.comments_and_articles">
+        <source>title.comments_and_articles</source>
         <target>Comments</target>
       </trans-unit>
     </body>

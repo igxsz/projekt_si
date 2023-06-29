@@ -8,7 +8,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use App\Service\CategoryServiceInterface;
-use App\Service\TaskService;
+use App\Service\ArticleService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -113,7 +113,7 @@ class CategoryController extends AbstractController
 
             $this->addFlash(
                 'success',
-                $this->translator->trans('message.created_successfully')
+                $this->translator->trans('message.edited_successfully')
             );
 
             return $this->redirectToRoute('category_index');
@@ -143,7 +143,7 @@ class CategoryController extends AbstractController
         if (!$this->categoryService->canBeDeleted($category)) {
             $this->addFlash(
                 'warning',
-                $this->translator->trans('message.category_contains_tasks')
+                $this->translator->trans('message.category_contains_articles')
             );
 
             return $this->redirectToRoute('category_index');
@@ -201,7 +201,7 @@ class CategoryController extends AbstractController
      *
      * @param Request            $request
      * @param CategoryRepository $categoryRepository
-     * @param TaskService        $taskService
+     * @param ArticleService     $articleService
      * @param int                $id
      *
      * @return Response HTTP response
@@ -212,10 +212,10 @@ class CategoryController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
-    public function show(Request $request, CategoryRepository $categoryRepository, TaskService $taskService, int $id): Response
+    public function show(Request $request, CategoryRepository $categoryRepository, ArticleService $articleService, int $id): Response
     {
         $category = $categoryRepository->find($id);
-        $pagination = $taskService->getPaginatedListByCategory($request->query->getInt('page', 1), $category);
+        $pagination = $articleService->getPaginatedListByCategory($request->query->getInt('page', 1), $category);
 
         return $this->render('category/show.html.twig', ['category' => $category, 'pagination' => $pagination]);
     }

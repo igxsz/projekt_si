@@ -7,7 +7,7 @@
 {% block body %}
     <h1>{{ 'title.comment_list'|trans }}</h1>
     <nav class="nav">
-        <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}" class="nav-link">
+        <a href="{{ url('article_index') }}" title="{{ 'action.back_to_list'|trans }}" class="nav-link">
             {{ 'action.back_to_list'|trans }}
         </a>
     </nav>
@@ -19,7 +19,7 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'comment.id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.task'|trans, 'comment.task') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.article'|trans, 'comment.article') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.nick'|trans, 'comment.user.nick') }}</th>
 
@@ -35,8 +35,8 @@
                     <td>{{ comment.id }}</td>
                     <td>{{ comment.content }}</td>
                     <td>{{ comment.createdAt|format_date('long') }}</td>
-                    {% if comment.task.title is defined %}
-                        <td>{{ comment.task.title }}</td>
+                    {% if comment.article.title is defined %}
+                        <td>{{ comment.article.title }}</td>
                     {% else %} <td> null </td>
                     {% endif %}
                     {% if comment.user.id is defined %}

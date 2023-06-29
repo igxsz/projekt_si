@@ -1,12 +1,12 @@
 <?php
 /**
- * Task repository.
+ * Article repository.
  */
 
 namespace App\Repository;
 
 use App\Entity\Category;
-use App\Entity\Task;
+use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\NoResultException;
@@ -15,16 +15,16 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class TaskRepository.
+ * Class ArticleRepository.
  *
- * @method Task|null find($id, $lockMode = null, $lockVersion = null)
- * @method Task|null findOneBy(array $criteria, array $orderBy = null)
- * @method Task[]    findAll()
- * @method Task[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Article|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Article|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Article[]    findAll()
+ * @method Article[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  *
- * @extends ServiceEntityRepository<Task>
+ * @extends ServiceEntityRepository<Article>
  */
-class TaskRepository extends ServiceEntityRepository
+class ArticleRepository extends ServiceEntityRepository
 {
     /**
      * Items per page.
@@ -44,11 +44,11 @@ class TaskRepository extends ServiceEntityRepository
      */
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Task::class);
+        parent::__construct($registry, Article::class);
     }
 
     //    /**
-    //     * Query tasks by author.
+    //     * Query articles by author.
     //     *
     //     * @param UserInterface         $user    User entity
     //     * @param array<string, object> $filters Filters
@@ -59,7 +59,7 @@ class TaskRepository extends ServiceEntityRepository
     //    {
     //        $queryBuilder = $this->queryAll($filters);
     //
-    //        $queryBuilder->andWhere('task.author = :author')
+    //        $queryBuilder->andWhere('article.author = :author')
     //            ->setParameter('author', $user);
     //
     //        return $queryBuilder;
@@ -76,11 +76,11 @@ class TaskRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
-                'partial task.{id, createdAt, updatedAt, title}',
+                'partial article.{id, createdAt, updatedAt, title}',
                 'partial category.{id, title}',
             )
-            ->join('task.category', 'category')
-            ->orderBy('task.updatedAt', 'DESC');
+            ->join('article.category', 'category')
+            ->orderBy('article.updatedAt', 'DESC');
 
         return $this->applyFiltersToList($queryBuilder, $filters);
     }
@@ -89,32 +89,32 @@ class TaskRepository extends ServiceEntityRepository
     /**
      * Save entity.
      *
-     * @param Task $task Task entity
+     * @param Article $article Article entity
      */
-    public function save(Task $task): void
+    public function save(Article $article): void
     {
-        $this->_em->persist($task);
+        $this->_em->persist($article);
         $this->_em->flush();
     }
 
     /**
      * Delete entity.
      *
-     * @param Task $task Task entity
+     * @param Article $article Article entity
      */
-    public function delete(Task $task): void
+    public function delete(Article $article): void
     {
-        $this->_em->remove($task);
+        $this->_em->remove($article);
         $this->_em->flush();
     }
 
 
     /**
-     * Count tasks by category.
+     * Count articles by category.
      *
      * @param Category $category Category
      *
-     * @return int Number of tasks in category
+     * @return int Number of articles in category
      *
      * @throws NoResultException
      * @throws NonUniqueResultException
@@ -123,8 +123,8 @@ class TaskRepository extends ServiceEntityRepository
     {
         $qb = $this->getOrCreateQueryBuilder();
 
-        return $qb->select($qb->expr()->countDistinct('task.id'))
-            ->where('task.category = :category')
+        return $qb->select($qb->expr()->countDistinct('article.id'))
+            ->where('article.category = :category')
             ->setParameter(':category', $category)
             ->getQuery()
             ->getSingleScalarResult();
@@ -157,6 +157,6 @@ class TaskRepository extends ServiceEntityRepository
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('task');
+        return $queryBuilder ?? $this->createQueryBuilder('article');
     }
 }

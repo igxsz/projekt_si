@@ -1,28 +1,28 @@
 <?php
 /**
- * Task service.
+ * Article service.
  */
 
 namespace App\Service;
 
 use App\Entity\Category;
-use App\Entity\Task;
+use App\Entity\Article;
 use App\Entity\User;
 use App\Repository\CommentRepository;
-use App\Repository\TaskRepository;
+use App\Repository\ArticleRepository;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
 /**
- * Class TaskService.
+ * Class ArticleService.
  */
-class TaskService implements TaskServiceInterface
+class ArticleService implements ArticleServiceInterface
 {
     /**
-     * Task repository.
+     * Article repository.
      */
-    private TaskRepository $taskRepository;
+    private ArticleRepository $articleRepository;
 
     /**
      * Paginator.
@@ -46,15 +46,15 @@ class TaskService implements TaskServiceInterface
      * Constructor.
      *
      * @param PaginatorInterface $paginator         Paginator
-     * @param TaskRepository     $taskRepository    Task repository
+     * @param ArticleRepository  $articleRepository Article repository
      * @param CommentRepository  $commentRepository
      * @param CategoryService    $categoryService
      */
-    public function __construct(PaginatorInterface $paginator, TaskRepository $taskRepository, CommentRepository $commentRepository, CategoryService $categoryService)
+    public function __construct(PaginatorInterface $paginator, ArticleRepository $articleRepository, CommentRepository $commentRepository, CategoryService $categoryService)
     {
         $this->commentRepository = $commentRepository;
         $this->paginator = $paginator;
-        $this->taskRepository = $taskRepository;
+        $this->articleRepository = $articleRepository;
         $this->categoryService = $categoryService;
     }
 
@@ -62,7 +62,7 @@ class TaskService implements TaskServiceInterface
      * Get paginated list.
      *
      * @param int                $page    Page number
-     * @param User|null          $author  Tasks author
+     * @param User|null          $author  Articles author
      * @param array<string, int> $filters Filters array
      *
      * @return PaginationInterface<SlidingPagination> Paginated list
@@ -72,9 +72,9 @@ class TaskService implements TaskServiceInterface
         $filters = $this->prepareFilters($filters);
 
         return $this->paginator->paginate(
-            $this->taskRepository->queryAll($filters),
+            $this->articleRepository->queryAll($filters),
             $page,
-            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+            ArticleRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -88,42 +88,42 @@ class TaskService implements TaskServiceInterface
     public function getPaginatedListByCategory(int $page, Category $category): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->taskRepository->findBy(
+            $this->articleRepository->findBy(
                 ['category' => $category]
             ),
             $page,
-            TaskRepository::PAGINATOR_ITEMS_PER_PAGE
+            ArticleRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
     /**
      * Save entity.
      *
-     * @param Task $task Task entity
+     * @param Article $article Article entity
      */
-    public function save(Task $task): void
+    public function save(Article $article): void
     {
-        $this->taskRepository->save($task);
+        $this->articleRepository->save($article);
     }
 
     /**
      * Delete entity.
      *
-     * @param Task $task Task entity
+     * @param Article $article Article entity
      */
-    public function delete(Task $task): void
+    public function delete(Article $article): void
     {
         $comments = $this->commentRepository->findBy(
-            ['task' => $task]
+            ['article' => $article]
         );
         foreach ($comments as $comment) {
             $this->commentRepository->delete($comment);
         }
-        $this->taskRepository->delete($task);
+        $this->articleRepository->delete($article);
     }
 
     /**
-     * Prepare filters for the tasks list.
+     * Prepare filters for the articles list.
      *
      * @param array<string, int> $filters Raw filters from request
      *

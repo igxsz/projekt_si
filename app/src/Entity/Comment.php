@@ -28,7 +28,7 @@ class Comment
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToOne]
-    private ?Task $task = null;
+    private ?Article $article = null;
 
     #[ORM\ManyToOne]
     private ?User $user = null;
@@ -87,23 +87,23 @@ class Comment
     }
 
     /**
-     * Getter for task.
-     * @return Task|null
+     * Getter for article.
+     * @return Article|null
      */
-    public function getTask(): ?Task
+    public function getArticle(): ?Article
     {
-        return $this->task;
+        return $this->article;
     }
 
     /**
-     * Setter for task
-     * @param Task|null $task
+     * Setter for article.
+     * @param Article|null $article
      *
      * @return $this
      */
-    public function setTask(?Task $task): self
+    public function setArticle(?Article $article): self
     {
-        $this->task = $task;
+        $this->article = $article;
 
         return $this;
     }

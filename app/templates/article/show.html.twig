@@ -2,30 +2,30 @@
 
 
 {% block title %}
-    {{ 'title.task_details'|trans({'%id%': task.id|default('')}) }}
+    {{ 'title.article_details'|trans({'%id%': article.id|default('')}) }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.task_details'|trans({'%id%': task.id|default('')}) }}</h1>
-    {% if task is defined and task|length %}
+    <h1>{{ 'title.article_details'|trans({'%id%': article.id|default('')}) }}</h1>
+    {% if article is defined and article|length %}
         <dl class="dl-horizontal">
             <dt>{{ 'label.id'|trans }}</dt>
-            <dd>{{ task.id }}</dd>
+            <dd>{{ article.id }}</dd>
             <dt>{{ 'label.created_at'|trans }}</dt>
-            <dd>{{ task.createdAt|format_date('long') }}</dd>
+            <dd>{{ article.createdAt|format_date('long') }}</dd>
             <dt>{{ 'label.updated_at'|trans }}</dt>
-            <dd>{{ task.updatedAt|format_date('long') }}</dd>
+            <dd>{{ article.updatedAt|format_date('long') }}</dd>
             <dt>{{ 'label.title'|trans }}</dt>
-            <dd>{{  task.title }}</dd>
+            <dd>{{  article.title }}</dd>
             <dt>{{ 'label.author'|trans }}</dt>
-            <dd>{{  task.author.nick }}</dd>
+            <dd>{{  article.author.nick }}</dd>
             <dt>{{ 'label.content'|trans }}</dt>
-            <dd>{{  task.content }}</dd>
+            <dd>{{  article.content }}</dd>
 
         </dl>
 
 
-    <h3 class="mt-6">{{ 'title.comments_and_tasks'|trans({'%id%': task.id|default('')}) }}</h3>
+    <h3 class="mt-6">{{ 'title.comments_and_article'|trans({'%id%': article.id|default('')}) }}</h3>
 
     {% if pagination is defined and pagination.items|length %}
 
@@ -34,7 +34,7 @@
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.task'|trans, 'comment.task') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.article'|trans, 'comment.article') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user') }}</th>
 
             </tr>
@@ -44,8 +44,8 @@
                 <tr>
                     <td>{{ comment.content }}</td>
                     <td>{{ comment.createdAt|format_date('long') }}</td>
-                    {% if comment.task.title is defined %}
-                        <td>{{ comment.task.title }}</td>
+                    {% if comment.article.title is defined %}
+                        <td>{{ comment.article.title }}</td>
                     {% else %} <td> null </td>
                     {% endif %}
                     {% if comment.user.id is defined %}
@@ -72,13 +72,13 @@
 
         {# DODAJ KOMENTARZ #}
         <p>
-            <a type="button" class="btn btn-primary"  href="{{ url('comment_create', {id: task.id}) }}" title="{{ 'action.add_comment'|trans }}">
+            <a type="button" class="btn btn-primary"  href="{{ url('comment_create', {id: article.id}) }}" title="{{ 'action.add_comment'|trans }}">
                 {{ 'action.add_comment'|trans }}
             </a>
         </p>
 
         <p>
-            <a href="{{ url('task_index') }}" title="{{ 'action.back_to_list'|trans }}">
+            <a href="{{ url('article_index') }}" title="{{ 'action.back_to_list'|trans }}">
                 {{ 'action.back_to_list'|trans }}
             </a>
         </p>

@@ -1,11 +1,11 @@
 <?php
 /**
- * Task voter.
+ * Article voter.
  */
 
 namespace App\Security\Voter;
 
-use App\Entity\Task;
+use App\Entity\Article;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
@@ -13,9 +13,9 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class TaskVoter.
+ * Class ArticleVoter.
  */
-class TaskVoter extends Voter
+class ArticleVoter extends Voter
 {
     /**
      * Edit permission.
@@ -64,7 +64,7 @@ class TaskVoter extends Voter
     protected function supports(string $attribute, $subject): bool
     {
         return in_array($attribute, [self::EDIT, self::VIEW, self::DELETE])
-            && $subject instanceof Task;
+            && $subject instanceof Article;
     }
 
     /**
@@ -100,7 +100,7 @@ class TaskVoter extends Voter
     }
 
     /**
-     * Checks if user can edit task.
+     * Checks if user can edit .
      *
      * @return bool Result
      */
@@ -110,9 +110,9 @@ class TaskVoter extends Voter
     }
 
     //    /**
-    //     * Checks if user can view task.
+    //     * Checks if user can view .
     //     *
-    //     * @param Task $task Task entity
+    //     * @param Article $ Article entity
     //     * @param User $user User
     //     *
     //     * @return bool Result
@@ -123,7 +123,7 @@ class TaskVoter extends Voter
     //    }
 
     /**
-     * Checks if user can delete task.
+     * Checks if user can delete .
      *
      * @return bool Result
      */

@@ -1,16 +1,16 @@
 {#{% include 'default/_form.html.twig' with {#}
-{#    page_title: 'title.task_create'|trans,#}
+{#    page_title: 'title.article_create'|trans,#}
 {#    form: form,#}
 {#    submit_label: 'action.save'|trans,#}
-{#    back_to_list_path: 'task_index',#}
+{#    back_to_list_path: 'article_index',#}
 {#} %}#}
 
 {% if is_granted('ROLE_ADMIN') %}
     {% include 'default/_form.html.twig' with {
-        page_title: 'title.task_create'|trans,
+        page_title: 'title.article_create'|trans,
         form: form,
         submit_label: 'action.save'|trans,
-        back_to_list_path: 'task_index',
+        back_to_list_path: 'article_index',
     } %}
 {% else %}
     {% if is_granted('ROLE_USER') %}
