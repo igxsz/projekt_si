@@ -1,4 +1,7 @@
 <?php
+/**
+ * Task entity.
+ */
 
 namespace App\Entity;
 

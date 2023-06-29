@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Comment repository.
+ */
+
 namespace App\Repository;
 
 use App\Entity\Comment;
@@ -99,17 +103,7 @@ class CommentRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
-    /**
-     * Get or create new query builder.
-     *
-     * @param QueryBuilder|null $queryBuilder Query builder
-     *
-     * @return QueryBuilder Query builder
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('comment');
-    }
+
 
     /**
      * Removing comment
@@ -125,6 +119,17 @@ class CommentRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+    /**
+     * Get or create new query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('comment');
     }
     //    /**
     //     * @return Comment[] Returns an array of Comment objects

@@ -42,7 +42,7 @@ class CategoryService implements CategoryServiceInterface
 
      * @param PaginatorInterface $paginator          Paginator
      */
-    public function __construct(CategoryRepository $categoryRepository, TaskRepository $taskRepository,  PaginatorInterface $paginator)
+    public function __construct(CategoryRepository $categoryRepository, TaskRepository $taskRepository, PaginatorInterface $paginator)
     {
         $this->categoryRepository = $categoryRepository;
         $this->taskRepository = $taskRepository;

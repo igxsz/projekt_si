@@ -37,11 +37,16 @@ class TaskController extends AbstractController
     private TranslatorInterface $translator;
 
     /**
+     * Task repository.
+     */
+    private TaskRepository $taskRepository;
+
+    /**
      * Constructor.
      *
-     * @param TaskServiceInterface $taskService Task service
-     * @param TranslatorInterface $translator Translator
-     * @param TaskRepository $taskRepository
+     * @param TaskServiceInterface $taskService    Task service
+     * @param TranslatorInterface  $translator     Translator
+     * @param TaskRepository       $taskRepository Task repository
      */
     public function __construct(TaskServiceInterface $taskService, TranslatorInterface $translator, TaskRepository $taskRepository)
     {
@@ -53,13 +58,15 @@ class TaskController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request HTTP Request
+     * @param Request            $request        HTTP Request
+     * @param TaskRepository     $taskRepository Task repository
+     * @param PaginatorInterface $paginator      Paginator
      *
      * @return Response HTTP response
      */
     #[Route(
         name: 'task_index',
-        methods: 'GET'
+        methods: ['GET']
     )]
     public function index(Request $request, TaskRepository $taskRepository, PaginatorInterface $paginator): Response
     {
@@ -78,15 +85,14 @@ class TaskController extends AbstractController
     /**
      * Show action.
      *
-     * @param Request $request
-     * @param CommentService $commentService
-     * @param TaskRepository $taskRepository
-     * @param Task $task Task entity
+     * @param Request        $request        HTTP request
+     * @param CommentService $commentService Comment service
+     * @param TaskRepository $taskRepository Task repository
+     * @param Task           $task           Task entity
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}', name: 'task_show', requirements: ['id' => '[1-9]\d*'], methods: 'GET', )]
-    //    #[IsGranted('VIEW', subject: 'task')]
+    #[Route('/{id}', name: 'task_show', requirements: ['id' => '[1-9]\d*'], methods: ['GET'])]
     public function show(Request $request, CommentService $commentService, TaskRepository $taskRepository, Task $task): Response
     {
         $pagination = $commentService->getPaginatedListByTask($request->query->getInt('page', 1), $task);
@@ -101,7 +107,7 @@ class TaskController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/create', name: 'task_create', methods: 'GET|POST')]
+    #[Route('/create', name: 'task_create', methods: ['GET', 'POST'])]
     public function create(Request $request): Response
     {
         /** @var User $user */
@@ -140,7 +146,7 @@ class TaskController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/edit', name: 'task_edit', requirements: ['id' => '[1-9]\d*'], methods: 'GET|PUT')]
+    #[Route('/{id}/edit', name: 'task_edit', requirements: ['id' => '[1-9]\d*'], methods: ['GET', 'PUT'])]
     #[IsGranted('EDIT', subject: 'task')]
     public function edit(Request $request, Task $task): Response
     {
@@ -182,7 +188,7 @@ class TaskController extends AbstractController
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/delete', name: 'task_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    #[Route('/{id}/delete', name: 'task_delete', requirements: ['id' => '[1-9]\d*'], methods: ['GET', 'DELETE'])]
     #[IsGranted('DELETE', subject: 'task')]
     public function delete(Request $request, Task $task): Response
     {
@@ -223,7 +229,7 @@ class TaskController extends AbstractController
      *
      * @return array<string, int> Array of filters
      *
-     * @psalm-return array{category_id: int, tag_id: int, status_id: int}
+     * @psalm-return array{category_id: int}
      */
     private function getFilters(Request $request): array
     {

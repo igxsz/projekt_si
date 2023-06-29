@@ -85,23 +85,6 @@ class TaskRepository extends ServiceEntityRepository
         return $this->applyFiltersToList($queryBuilder, $filters);
     }
 
-    /**
-     * Apply filters to paginated list.
-     *
-     * @param QueryBuilder          $queryBuilder Query builder
-     * @param array<string, object> $filters      Filters array
-     *
-     * @return QueryBuilder Query builder
-     */
-    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
-    {
-        if (isset($filters['category']) && $filters['category'] instanceof Category) {
-            $queryBuilder->andWhere('category = :category')
-                ->setParameter('category', $filters['category']);
-        }
-
-        return $queryBuilder;
-    }
 
     /**
      * Save entity.
@@ -125,17 +108,6 @@ class TaskRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
-    /**
-     * Get or create new query builder.
-     *
-     * @param QueryBuilder|null $queryBuilder Query builder
-     *
-     * @return QueryBuilder Query builder
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('task');
-    }
 
     /**
      * Count tasks by category.
@@ -156,5 +128,35 @@ class TaskRepository extends ServiceEntityRepository
             ->setParameter(':category', $category)
             ->getQuery()
             ->getSingleScalarResult();
+    }
+
+    /**
+     * Apply filters to paginated list.
+     *
+     * @param QueryBuilder          $queryBuilder Query builder
+     * @param array<string, object> $filters      Filters array
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['category']) && $filters['category'] instanceof Category) {
+            $queryBuilder->andWhere('category = :category')
+                ->setParameter('category', $filters['category']);
+        }
+
+        return $queryBuilder;
+    }
+
+    /**
+     * Get or create new query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('task');
     }
 }
