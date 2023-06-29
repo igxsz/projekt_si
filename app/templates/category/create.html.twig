@@ -15,7 +15,7 @@
     } %}
 {% else %}
     {% if is_granted('ROLE_USER') %}
-        <p>{{ 'Access denied'|trans }}</p>
+        <p>{{ 'message.access_denied'|trans }}</p>
     {% else %}
         {% set loginRoute = path('app_login') %}
         {% set loginRedirect = path(app.request.attributes.get('_route'), app.request.query.all) %}

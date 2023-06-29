@@ -21,6 +21,7 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'comment.created_at') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.task'|trans, 'comment.task') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.user'|trans, 'comment.user') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.nick'|trans, 'comment.user.nick') }}</th>
 
                 {% if is_granted('ROLE_ADMIN') %}
                     <th>{{ 'label.actions'|trans }}</th>

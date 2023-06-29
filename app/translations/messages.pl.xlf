@@ -50,6 +50,10 @@
         <source>label.nick</source>
         <target>Nick</target>
       </trans-unit>
+      <trans-unit id="label.password">
+              <source>label.password</source>
+              <target>Hasło</target>
+            </trans-unit>
       <trans-unit id="message.empty_list">
         <source>message.empty_list</source>
         <target>List jest pusta</target>
@@ -78,6 +82,10 @@
         <source>message.form_error</source>
         <target>Błąd</target>
       </trans-unit>
+      <trans-unit id="message.access_denied">
+              <source>message.access_denied</source>
+              <target>Odmowa dostępu</target>
+            </trans-unit>
       <trans-unit id="title.record_list">
         <source>title.record_list</source>
         <target>Lista rekordów</target>

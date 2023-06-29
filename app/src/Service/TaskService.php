@@ -117,7 +117,7 @@ class TaskService implements TaskServiceInterface
     public function delete(Task $task): void
     {
         $comments = $this->commentRepository->findBy(
-            ['Task' => $task]
+            ['task' => $task]
         );
         foreach ($comments as $comment) {
             $this->commentRepository->delete($comment);
