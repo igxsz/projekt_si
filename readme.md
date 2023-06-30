@@ -1,82 +1,45 @@
-# Docker Symfony Starter Kit
+git# Projekt SI - Gazeta internet Iga Szczepańska
 
-Starter kit is based on [The perfect kit starter for a Symfony 4 project with Docker and PHP 7.2](https://medium.com/@romaricp/the-perfect-kit-starter-for-a-symfony-4-project-with-docker-and-php-7-2-fda447b6bca1).
-
-## What is inside?
-
-* Apache 2.4.25 (Debian)
-* PHP 8.1 FPM
-* MySQL 8.0.x (5.7)
-* NodeJS LTS (latest)
-* Composer
-* Symfony CLI 
-* xdebug
-* djfarrelly/maildev
 
 ## Requirements
 
-* Install [Docker](https://www.docker.com/products/docker-desktop) and [Docker Compose](https://docs.docker.com/compose/install) on your machine 
-
+* MySQL 8.0.x (5.7)
+* PHP parsen (7.4) / package containing MySQL, PHP and Apache (e.g. XAMPP)
+* PhpStorm environment
+* Composer
+* Symfony CLI
+* xdebug
+* 
 ## Installation
 
-* (optional) Add 
+* Clone: this repository:
 
 ```bash
-127.0.0.1   symfony.local
+https://github.com/igxsz/projekt_si.git
 ```
-in your `host` file.
 
-* Run `build-env.sh` (or `build-env.ps1` on Windows box)
-
+* Change database connection details in the .env file
 * Enter the PHP container:
-
 ```bash
 docker-compose exec php bash
 ```
-
-* To install Symfony LTS inside container execute:
-
+* Go to the /app directory and then execute the following commands:
 ```bash
-cd app
-rm .gitkeep
-git config --global user.email "you@example.com"
-symfony new ../app --full --version=lts
-chown -R dev.dev *
+$ composer install
+$ bin/console make:migration
+$ bin/console doctrine:migrations:migrate
+$ bin/console doctrine:fixtures:load
 ```
 
-## Container URLs and ports
-
-* Project URL
+## Homepage
 
 ```bash
-http://localhost:8000
+http://localhost:8000/article
 ```
 
-or 
-
-```bash
-http://symfony.local:8000
-```
-
-* MySQL
-
-    * inside container: host is `mysql`, port: `3306`
-    * outside container: host is `localhost`, port: `3307`
-    * passwords, db name are in `docker-compose.yml`
-    
-* djfarrelly/maildev i available from the browser on port `8001`
-
-* xdebug i available remotely on port `9000`
 
 * Database connection in Symfony `.env` file:
 ```yaml
 DATABASE_URL=mysql://symfony:symfony@mysql:3306/symfony?serverVersion=5.7
 ```
 
-## Useful commands
-
-* `docker-compose up -d` - start containers
-* `docker-compose down` - stop contaniners
-* `docker-compose exec php bash` - enter into PHP container
-* `docker-compose exec mysql bash` - enter into MySQL container
-* `docker-compose exec apache bash` - enter into Apache2 container

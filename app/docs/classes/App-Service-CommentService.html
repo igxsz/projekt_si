@@ -199,6 +199,13 @@
 <dd>Delete entity.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Service-CommentService.html#method_getArticle">getArticle()</a>
+    <span>
+                                &nbsp;: <a href="classes/App-Entity-Article.html"><abbr title="\App\Entity\Article">Article</abbr></a>|null    </span>
+</dt>
+<dd>Getter for article.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Service-CommentService.html#method_getPaginatedList">getPaginatedList()</a>
     <span>
                                 &nbsp;: <abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr>&lt;string, mixed&gt;    </span>
@@ -206,25 +213,18 @@
 <dd>Get paginated list.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-CommentService.html#method_getPaginatedListByTask">getPaginatedListByTask()</a>
+    <a href="classes/App-Service-CommentService.html#method_getPaginatedListByArticle">getPaginatedListByArticle()</a>
     <span>
                                 &nbsp;: <abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr>    </span>
 </dt>
-<dd>Paginated list by users</dd>
+<dd>Paginated list by users.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Service-CommentService.html#method_getPaginatedListByUser">getPaginatedListByUser()</a>
     <span>
                                 &nbsp;: <abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr>    </span>
 </dt>
-<dd>Paginated list by users</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-CommentService.html#method_getTask">getTask()</a>
-    <span>
-                                &nbsp;: <a href="classes/App-Entity-Task.html"><abbr title="\App\Entity\Task">Task</abbr></a>|null    </span>
-</dt>
-<dd>Getter for task.</dd>
+<dd>Paginated list by users.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Service-CommentService.html#method_save">save()</a>
@@ -387,7 +387,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/CommentService.php"><a href="files/src-service-commentservice.html"><abbr title="src/Service/CommentService.php">CommentService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
@@ -405,7 +405,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Comment.html"><abbr title="\App\Entity\Comment">Comment</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Task entity</p>
+                    <section class="phpdocumentor-description"><p>Article entity</p>
 </section>
 
             </dd>
@@ -415,6 +415,49 @@
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getArticle">
+        getArticle()
+        <a href="classes/App-Service-CommentService.html#method_getArticle" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/CommentService.php"><a href="files/src-service-commentservice.html"><abbr title="src/Service/CommentService.php">CommentService.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">100</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Getter for article.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getArticle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Comment.html"><abbr title="\App\Entity\Comment">Comment</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$comment</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Article.html"><abbr title="\App\Entity\Article">Article</abbr></a>|null</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$comment</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Comment.html"><abbr title="\App\Entity\Comment">Comment</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Article.html"><abbr title="\App\Entity\Article">Article</abbr></a>|null</span>
             &mdash;
         
     
@@ -472,9 +515,9 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getPaginatedListByTask">
-        getPaginatedListByTask()
-        <a href="classes/App-Service-CommentService.html#method_getPaginatedListByTask" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getPaginatedListByArticle">
+        getPaginatedListByArticle()
+        <a href="classes/App-Service-CommentService.html#method_getPaginatedListByArticle" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/CommentService.php"><a href="files/src-service-commentservice.html"><abbr title="src/Service/CommentService.php">CommentService.php</abbr></a></abbr>
@@ -483,11 +526,11 @@
 
     </aside>
 
-        <p class="phpdocumentor-summary">Paginated list by users</p>
+        <p class="phpdocumentor-summary">Paginated list by users.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPaginatedListByTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Task.html"><abbr title="\App\Entity\Task">Task</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$task</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr></span></code>
+                <span class="phpdocumentor-signature__name">getPaginatedListByArticle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Article.html"><abbr title="\App\Entity\Article">Article</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$article</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -500,8 +543,8 @@
                 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$task</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Task.html"><abbr title="\App\Entity\Task">Task</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$article</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Article.html"><abbr title="\App\Entity\Article">Article</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -529,11 +572,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/CommentService.php"><a href="files/src-service-commentservice.html"><abbr title="src/Service/CommentService.php">CommentService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Paginated list by users</p>
+        <p class="phpdocumentor-summary">Paginated list by users.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -572,49 +615,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getTask">
-        getTask()
-        <a href="classes/App-Service-CommentService.html#method_getTask" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/CommentService.php"><a href="files/src-service-commentservice.html"><abbr title="src/Service/CommentService.php">CommentService.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">102</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Getter for task.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getTask</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Comment.html"><abbr title="\App\Entity\Comment">Comment</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$comment</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Task.html"><abbr title="\App\Entity\Task">Task</abbr></a>|null</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$comment</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Comment.html"><abbr title="\App\Entity\Comment">Comment</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Task.html"><abbr title="\App\Entity\Task">Task</abbr></a>|null</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_save">
         save()
         <a href="classes/App-Service-CommentService.html#method_save" class="headerlink"><i class="fas fa-link"></i></a>
@@ -622,7 +622,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Service/CommentService.php"><a href="files/src-service-commentservice.html"><abbr title="src/Service/CommentService.php">CommentService.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 

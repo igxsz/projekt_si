@@ -1,6 +1,61 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\App\\Controller\\ArticleController",
+            "name": "ArticleController",
+            "summary": "Class\u0020ArticleController.",
+            "url": "classes/App-Controller-ArticleController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor.",
+            "url": "classes/App-Controller-ArticleController.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Index\u0020action.",
+            "url": "classes/App-Controller-ArticleController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Ashow\u0028\u0029",
+            "name": "show",
+            "summary": "Show\u0020action.",
+            "url": "classes/App-Controller-ArticleController.html#method_show"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "Create\u0020action.",
+            "url": "classes/App-Controller-ArticleController.html#method_create"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Aedit\u0028\u0029",
+            "name": "edit",
+            "summary": "Edit\u0020action.",
+            "url": "classes/App-Controller-ArticleController.html#method_edit"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020action.",
+            "url": "classes/App-Controller-ArticleController.html#method_delete"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003AgetFilters\u0028\u0029",
+            "name": "getFilters",
+            "summary": "Get\u0020filters\u0020from\u0020request.",
+            "url": "classes/App-Controller-ArticleController.html#method_getFilters"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003A\u0024articleService",
+            "name": "articleService",
+            "summary": "Article\u0020service.",
+            "url": "classes/App-Controller-ArticleController.html#property_articleService"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator.",
+            "url": "classes/App-Controller-ArticleController.html#property_translator"
+        },                {
+            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003A\u0024articleRepository",
+            "name": "articleRepository",
+            "summary": "Article\u0020repository.",
+            "url": "classes/App-Controller-ArticleController.html#property_articleRepository"
+        },                {
             "fqsen": "\\App\\Controller\\CategoryController",
             "name": "CategoryController",
             "summary": "Class\u0020CategoryController.",
@@ -131,56 +186,6 @@ Search.appendIndex(
             "summary": "Logout\u0020action.",
             "url": "classes/App-Controller-SecurityController.html#method_logout"
         },                {
-            "fqsen": "\\App\\Controller\\ArticleController",
-            "name": "ArticleController",
-            "summary": "Class\u0020ArticleController.",
-            "url": "classes/App-Controller-ArticleController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Constructor.",
-            "url": "classes/App-Controller-ArticleController.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "Index\u0020action.",
-            "url": "classes/App-Controller-ArticleController.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Ashow\u0028\u0029",
-            "name": "show",
-            "summary": "Show\u0020action.",
-            "url": "classes/App-Controller-ArticleController.html#method_show"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "Create\u0020action.",
-            "url": "classes/App-Controller-ArticleController.html#method_create"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Aedit\u0028\u0029",
-            "name": "edit",
-            "summary": "Edit\u0020action.",
-            "url": "classes/App-Controller-ArticleController.html#method_edit"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020action.",
-            "url": "classes/App-Controller-ArticleController.html#method_delete"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003AgetFilters\u0028\u0029",
-            "name": "getFilters",
-            "summary": "Get\u0020filters\u0020from\u0020request.",
-            "url": "classes/App-Controller-ArticleController.html#method_getFilters"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003A\u0024articleService",
-            "name": "articleService",
-            "summary": "Article\u0020service.",
-            "url": "classes/App-Controller-ArticleController.html#property_articleService"
-        },                {
-            "fqsen": "\\App\\Controller\\ArticleController\u003A\u003A\u0024translator",
-            "name": "translator",
-            "summary": "Translator.",
-            "url": "classes/App-Controller-ArticleController.html#property_translator"
-        },                {
             "fqsen": "\\App\\Controller\\UserController",
             "name": "UserController",
             "summary": "Class\u0020UserController.",
@@ -205,6 +210,16 @@ Search.appendIndex(
             "name": "edit",
             "summary": "Edit\u0020action.",
             "url": "classes/App-Controller-UserController.html#method_edit"
+        },                {
+            "fqsen": "\\App\\Controller\\UserController\u003A\u003AeditNick\u0028\u0029",
+            "name": "editNick",
+            "summary": "Edit\u0020nick\u0020action.",
+            "url": "classes/App-Controller-UserController.html#method_editNick"
+        },                {
+            "fqsen": "\\App\\Controller\\UserController\u003A\u003AeditPassword\u0028\u0029",
+            "name": "editPassword",
+            "summary": "Edit\u0020password\u0020action.",
+            "url": "classes/App-Controller-UserController.html#method_editPassword"
         },                {
             "fqsen": "\\App\\Controller\\UserController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
@@ -266,15 +281,20 @@ Search.appendIndex(
             "summary": "Object\u0020reference\u0020index.",
             "url": "classes/App-DataFixtures-AbstractBaseFixtures.html#property_referencesIndex"
         },                {
-            "fqsen": "\\App\\DataFixtures\\AppFixtures",
-            "name": "AppFixtures",
-            "summary": "",
-            "url": "classes/App-DataFixtures-AppFixtures.html"
+            "fqsen": "\\App\\DataFixtures\\ArticleFixtures",
+            "name": "ArticleFixtures",
+            "summary": "Class\u0020ArticleFixtures.",
+            "url": "classes/App-DataFixtures-ArticleFixtures.html"
         },                {
-            "fqsen": "\\App\\DataFixtures\\AppFixtures\u003A\u003Aload\u0028\u0029",
-            "name": "load",
-            "summary": "",
-            "url": "classes/App-DataFixtures-AppFixtures.html#method_load"
+            "fqsen": "\\App\\DataFixtures\\ArticleFixtures\u003A\u003AloadData\u0028\u0029",
+            "name": "loadData",
+            "summary": "Load\u0020data.",
+            "url": "classes/App-DataFixtures-ArticleFixtures.html#method_loadData"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\ArticleFixtures\u003A\u003AgetDependencies\u0028\u0029",
+            "name": "getDependencies",
+            "summary": "This\u0020method\u0020must\u0020return\u0020an\u0020array\u0020of\u0020fixtures\u0020classes\non\u0020which\u0020the\u0020implementing\u0020class\u0020depends\u0020on.",
+            "url": "classes/App-DataFixtures-ArticleFixtures.html#method_getDependencies"
         },                {
             "fqsen": "\\App\\DataFixtures\\CategoryFixtures",
             "name": "CategoryFixtures",
@@ -301,21 +321,6 @@ Search.appendIndex(
             "summary": "This\u0020method\u0020must\u0020return\u0020an\u0020array\u0020of\u0020fixtures\u0020classes\non\u0020which\u0020the\u0020implementing\u0020class\u0020depends\u0020on.",
             "url": "classes/App-DataFixtures-CommentFixtures.html#method_getDependencies"
         },                {
-            "fqsen": "\\App\\DataFixtures\\ArticleFixtures",
-            "name": "ArticleFixtures",
-            "summary": "Class\u0020ArticleFixtures.",
-            "url": "classes/App-DataFixtures-ArticleFixtures.html"
-        },                {
-            "fqsen": "\\App\\DataFixtures\\ArticleFixtures\u003A\u003AloadData\u0028\u0029",
-            "name": "loadData",
-            "summary": "Load\u0020data.",
-            "url": "classes/App-DataFixtures-ArticleFixtures.html#method_loadData"
-        },                {
-            "fqsen": "\\App\\DataFixtures\\ArticleFixtures\u003A\u003AgetDependencies\u0028\u0029",
-            "name": "getDependencies",
-            "summary": "This\u0020method\u0020must\u0020return\u0020an\u0020array\u0020of\u0020fixtures\u0020classes\non\u0020which\u0020the\u0020implementing\u0020class\u0020depends\u0020on.",
-            "url": "classes/App-DataFixtures-ArticleFixtures.html#method_getDependencies"
-        },                {
             "fqsen": "\\App\\DataFixtures\\UserFixtures",
             "name": "UserFixtures",
             "summary": "Class\u0020UserFixtures.",
@@ -335,6 +340,116 @@ Search.appendIndex(
             "name": "passwordHasher",
             "summary": "Password\u0020hasher.",
             "url": "classes/App-DataFixtures-UserFixtures.html#property_passwordHasher"
+        },                {
+            "fqsen": "\\App\\Entity\\Article",
+            "name": "Article",
+            "summary": "Class\u0020Article.",
+            "url": "classes/App-Entity-Article.html"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "Getter\u0020for\u0020id.",
+            "url": "classes/App-Entity-Article.html#method_getId"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetCreatedAt\u0028\u0029",
+            "name": "getCreatedAt",
+            "summary": "Getter\u0020for\u0020createdAt.",
+            "url": "classes/App-Entity-Article.html#method_getCreatedAt"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetCreatedAt\u0028\u0029",
+            "name": "setCreatedAt",
+            "summary": "Setter\u0020for\u0020createdAt.",
+            "url": "classes/App-Entity-Article.html#method_setCreatedAt"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetUpdatedAt\u0028\u0029",
+            "name": "getUpdatedAt",
+            "summary": "Getter\u0020for\u0020updatedAt.",
+            "url": "classes/App-Entity-Article.html#method_getUpdatedAt"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetUpdatedAt\u0028\u0029",
+            "name": "setUpdatedAt",
+            "summary": "Setter\u0020for\u0020updatedAt.",
+            "url": "classes/App-Entity-Article.html#method_setUpdatedAt"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetTitle\u0028\u0029",
+            "name": "getTitle",
+            "summary": "Getter\u0020for\u0020title.",
+            "url": "classes/App-Entity-Article.html#method_getTitle"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetTitle\u0028\u0029",
+            "name": "setTitle",
+            "summary": "Setter\u0020for\u0020title.",
+            "url": "classes/App-Entity-Article.html#method_setTitle"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetCategory\u0028\u0029",
+            "name": "getCategory",
+            "summary": "Getter\u0020for\u0020category.",
+            "url": "classes/App-Entity-Article.html#method_getCategory"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetCategory\u0028\u0029",
+            "name": "setCategory",
+            "summary": "Setter\u0020for\u0020category.",
+            "url": "classes/App-Entity-Article.html#method_setCategory"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetAuthor\u0028\u0029",
+            "name": "getAuthor",
+            "summary": "Getter\u0020for\u0020author.",
+            "url": "classes/App-Entity-Article.html#method_getAuthor"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetAuthor\u0028\u0029",
+            "name": "setAuthor",
+            "summary": "Setter\u0020for\u0020author.",
+            "url": "classes/App-Entity-Article.html#method_setAuthor"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AremoveComment\u0028\u0029",
+            "name": "removeComment",
+            "summary": "Remove\u0020comment.",
+            "url": "classes/App-Entity-Article.html#method_removeComment"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetContent\u0028\u0029",
+            "name": "getContent",
+            "summary": "Getter\u0020for\u0020content.",
+            "url": "classes/App-Entity-Article.html#method_getContent"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetContent\u0028\u0029",
+            "name": "setContent",
+            "summary": "Setter\u0020for\u0020content.",
+            "url": "classes/App-Entity-Article.html#method_setContent"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "",
+            "url": "classes/App-Entity-Article.html#property_id"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024createdAt",
+            "name": "createdAt",
+            "summary": "",
+            "url": "classes/App-Entity-Article.html#property_createdAt"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024updatedAt",
+            "name": "updatedAt",
+            "summary": "",
+            "url": "classes/App-Entity-Article.html#property_updatedAt"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024title",
+            "name": "title",
+            "summary": "",
+            "url": "classes/App-Entity-Article.html#property_title"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024category",
+            "name": "category",
+            "summary": "",
+            "url": "classes/App-Entity-Article.html#property_category"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024author",
+            "name": "author",
+            "summary": "Author.",
+            "url": "classes/App-Entity-Article.html#property_author"
+        },                {
+            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024content",
+            "name": "content",
+            "summary": "",
+            "url": "classes/App-Entity-Article.html#property_content"
         },                {
             "fqsen": "\\App\\Entity\\Category",
             "name": "Category",
@@ -378,12 +493,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AgetSlug\u0028\u0029",
             "name": "getSlug",
-            "summary": "Get\u0020slug",
+            "summary": "Get\u0020slug.",
             "url": "classes/App-Entity-Category.html#method_getSlug"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AsetSlug\u0028\u0029",
             "name": "setSlug",
-            "summary": "Setter\u0020for\u0020slug",
+            "summary": "Setter\u0020for\u0020slug.",
             "url": "classes/App-Entity-Category.html#method_setSlug"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003A\u0024id",
@@ -418,7 +533,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "Getter\u0020for\u0020id",
+            "summary": "Getter\u0020for\u0020id.",
             "url": "classes/App-Entity-Comment.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetContent\u0028\u0029",
@@ -438,7 +553,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetCreatedAt\u0028\u0029",
             "name": "setCreatedAt",
-            "summary": "Setter\u0020for\u0020createdAt",
+            "summary": "Setter\u0020for\u0020createdAt.",
             "url": "classes/App-Entity-Comment.html#method_setCreatedAt"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetArticle\u0028\u0029",
@@ -448,7 +563,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetArticle\u0028\u0029",
             "name": "setArticle",
-            "summary": "Setter\u0020for\u0020article",
+            "summary": "Setter\u0020for\u0020article.",
             "url": "classes/App-Entity-Comment.html#method_setArticle"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetUser\u0028\u0029",
@@ -505,116 +620,6 @@ Search.appendIndex(
             "name": "ROLE_ADMIN",
             "summary": "",
             "url": ""
-        },                {
-            "fqsen": "\\App\\Entity\\Article",
-            "name": "Article",
-            "summary": "Class\u0020Article.",
-            "url": "classes/App-Entity-Article.html"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetId\u0028\u0029",
-            "name": "getId",
-            "summary": "Getter\u0020for\u0020id.",
-            "url": "classes/App-Entity-Article.html#method_getId"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetCreatedAt\u0028\u0029",
-            "name": "getCreatedAt",
-            "summary": "Getter\u0020for\u0020createdAt.",
-            "url": "classes/App-Entity-Article.html#method_getCreatedAt"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetCreatedAt\u0028\u0029",
-            "name": "setCreatedAt",
-            "summary": "Setter\u0020for\u0020createdAt.",
-            "url": "classes/App-Entity-Article.html#method_setCreatedAt"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetUpdatedAt\u0028\u0029",
-            "name": "getUpdatedAt",
-            "summary": "Getter\u0020for\u0020updatedAt",
-            "url": "classes/App-Entity-Article.html#method_getUpdatedAt"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetUpdatedAt\u0028\u0029",
-            "name": "setUpdatedAt",
-            "summary": "Setter\u0020for\u0020updatedAt",
-            "url": "classes/App-Entity-Article.html#method_setUpdatedAt"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetTitle\u0028\u0029",
-            "name": "getTitle",
-            "summary": "Getter\u0020for\u0020title",
-            "url": "classes/App-Entity-Article.html#method_getTitle"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetTitle\u0028\u0029",
-            "name": "setTitle",
-            "summary": "Setter\u0020for\u0020title",
-            "url": "classes/App-Entity-Article.html#method_setTitle"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetCategory\u0028\u0029",
-            "name": "getCategory",
-            "summary": "Getter\u0020for\u0020category",
-            "url": "classes/App-Entity-Article.html#method_getCategory"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetCategory\u0028\u0029",
-            "name": "setCategory",
-            "summary": "Setter\u0020for\u0020category",
-            "url": "classes/App-Entity-Article.html#method_setCategory"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetAuthor\u0028\u0029",
-            "name": "getAuthor",
-            "summary": "Getter\u0020for\u0020author",
-            "url": "classes/App-Entity-Article.html#method_getAuthor"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetAuthor\u0028\u0029",
-            "name": "setAuthor",
-            "summary": "Setter\u0020for\u0020author",
-            "url": "classes/App-Entity-Article.html#method_setAuthor"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AremoveComment\u0028\u0029",
-            "name": "removeComment",
-            "summary": "Remove\u0020comment",
-            "url": "classes/App-Entity-Article.html#method_removeComment"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AgetContent\u0028\u0029",
-            "name": "getContent",
-            "summary": "Getter\u0020for\u0020content",
-            "url": "classes/App-Entity-Article.html#method_getContent"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AsetContent\u0028\u0029",
-            "name": "setContent",
-            "summary": "Setter\u0020for\u0020content",
-            "url": "classes/App-Entity-Article.html#method_setContent"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024id",
-            "name": "id",
-            "summary": "",
-            "url": "classes/App-Entity-Article.html#property_id"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024createdAt",
-            "name": "createdAt",
-            "summary": "",
-            "url": "classes/App-Entity-Article.html#property_createdAt"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024updatedAt",
-            "name": "updatedAt",
-            "summary": "",
-            "url": "classes/App-Entity-Article.html#property_updatedAt"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024title",
-            "name": "title",
-            "summary": "",
-            "url": "classes/App-Entity-Article.html#property_title"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024category",
-            "name": "category",
-            "summary": "",
-            "url": "classes/App-Entity-Article.html#property_category"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024author",
-            "name": "author",
-            "summary": "Author.",
-            "url": "classes/App-Entity-Article.html#property_author"
-        },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003A\u0024content",
-            "name": "content",
-            "summary": "",
-            "url": "classes/App-Entity-Article.html#property_content"
         },                {
             "fqsen": "\\App\\Entity\\User",
             "name": "User",
@@ -678,12 +683,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetNick\u0028\u0029",
             "name": "getNick",
-            "summary": "Getter\u0020for\u0020nick",
+            "summary": "Getter\u0020for\u0020nick.",
             "url": "classes/App-Entity-User.html#method_getNick"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AsetNick\u0028\u0029",
             "name": "setNick",
-            "summary": "Setter\u0020for\u0020nick",
+            "summary": "Setter\u0020for\u0020nick.",
             "url": "classes/App-Entity-User.html#method_setNick"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003A\u0024id",
@@ -710,6 +715,26 @@ Search.appendIndex(
             "name": "nick",
             "summary": "",
             "url": "classes/App-Entity-User.html#property_nick"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\ArticleType",
+            "name": "ArticleType",
+            "summary": "Class\u0020ArticleType.",
+            "url": "classes/App-Form-Type-ArticleType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003AbuildForm\u0028\u0029",
+            "name": "buildForm",
+            "summary": "Builds\u0020the\u0020form.",
+            "url": "classes/App-Form-Type-ArticleType.html#method_buildForm"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003AconfigureOptions\u0028\u0029",
+            "name": "configureOptions",
+            "summary": "Configures\u0020the\u0020options\u0020for\u0020this\u0020type.",
+            "url": "classes/App-Form-Type-ArticleType.html#method_configureOptions"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003AgetBlockPrefix\u0028\u0029",
+            "name": "getBlockPrefix",
+            "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
+            "url": "classes/App-Form-Type-ArticleType.html#method_getBlockPrefix"
         },                {
             "fqsen": "\\App\\Form\\Type\\CategoryType",
             "name": "CategoryType",
@@ -751,25 +776,55 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
             "url": "classes/App-Form-CommentType.html#method_getBlockPrefix"
         },                {
-            "fqsen": "\\App\\Form\\Type\\ArticleType",
-            "name": "ArticleType",
-            "summary": "Class\u0020ArticleType.",
-            "url": "classes/App-Form-Type-ArticleType.html"
+            "fqsen": "\\App\\Form\\Type\\EditPasswordType",
+            "name": "EditPasswordType",
+            "summary": "Class\u0020EditPasswordType.",
+            "url": "classes/App-Form-Type-EditPasswordType.html"
         },                {
-            "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003AbuildForm\u0028\u0029",
+            "fqsen": "\\App\\Form\\Type\\EditPasswordType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor",
+            "url": "classes/App-Form-Type-EditPasswordType.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\EditPasswordType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
             "summary": "Builds\u0020the\u0020form.",
-            "url": "classes/App-Form-Type-ArticleType.html#method_buildForm"
+            "url": "classes/App-Form-Type-EditPasswordType.html#method_buildForm"
         },                {
-            "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003AconfigureOptions\u0028\u0029",
+            "fqsen": "\\App\\Form\\Type\\EditPasswordType\u003A\u003AconfigureOptions\u0028\u0029",
             "name": "configureOptions",
             "summary": "Configures\u0020the\u0020options\u0020for\u0020this\u0020type.",
-            "url": "classes/App-Form-Type-ArticleType.html#method_configureOptions"
+            "url": "classes/App-Form-Type-EditPasswordType.html#method_configureOptions"
         },                {
-            "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003AgetBlockPrefix\u0028\u0029",
+            "fqsen": "\\App\\Form\\Type\\EditPasswordType\u003A\u003AgetBlockPrefix\u0028\u0029",
             "name": "getBlockPrefix",
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
-            "url": "classes/App-Form-Type-ArticleType.html#method_getBlockPrefix"
+            "url": "classes/App-Form-Type-EditPasswordType.html#method_getBlockPrefix"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\EditPasswordType\u003A\u003A\u0024passwordHasher",
+            "name": "passwordHasher",
+            "summary": "",
+            "url": "classes/App-Form-Type-EditPasswordType.html#property_passwordHasher"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\NickType",
+            "name": "NickType",
+            "summary": "Class\u0020NickType.",
+            "url": "classes/App-Form-Type-NickType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\NickType\u003A\u003AbuildForm\u0028\u0029",
+            "name": "buildForm",
+            "summary": "Builds\u0020the\u0020form.",
+            "url": "classes/App-Form-Type-NickType.html#method_buildForm"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\NickType\u003A\u003AconfigureOptions\u0028\u0029",
+            "name": "configureOptions",
+            "summary": "Configures\u0020the\u0020options\u0020for\u0020this\u0020type.",
+            "url": "classes/App-Form-Type-NickType.html#method_configureOptions"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\NickType\u003A\u003AgetBlockPrefix\u0028\u0029",
+            "name": "getBlockPrefix",
+            "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
+            "url": "classes/App-Form-Type-NickType.html#method_getBlockPrefix"
         },                {
             "fqsen": "\\App\\Form\\Type\\UserType",
             "name": "UserType",
@@ -778,7 +833,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\UserType\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Contructor.",
             "url": "classes/App-Form-Type-UserType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\UserType\u003A\u003AbuildForm\u0028\u0029",
@@ -803,8 +858,53 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
-            "summary": "",
+            "summary": "Class\u0020Kernel.",
             "url": "classes/App-Kernel.html"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository",
+            "name": "ArticleRepository",
+            "summary": "Class\u0020ArticleRepository.",
+            "url": "classes/App-Repository-ArticleRepository.html"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor.",
+            "url": "classes/App-Repository-ArticleRepository.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AqueryAll\u0028\u0029",
+            "name": "queryAll",
+            "summary": "Query\u0020all\u0020records.",
+            "url": "classes/App-Repository-ArticleRepository.html#method_queryAll"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "Save\u0020entity.",
+            "url": "classes/App-Repository-ArticleRepository.html#method_save"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020entity.",
+            "url": "classes/App-Repository-ArticleRepository.html#method_delete"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AcountByCategory\u0028\u0029",
+            "name": "countByCategory",
+            "summary": "Count\u0020articles\u0020by\u0020category.",
+            "url": "classes/App-Repository-ArticleRepository.html#method_countByCategory"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AapplyFiltersToList\u0028\u0029",
+            "name": "applyFiltersToList",
+            "summary": "Apply\u0020filters\u0020to\u0020paginated\u0020list.",
+            "url": "classes/App-Repository-ArticleRepository.html#method_applyFiltersToList"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
+            "name": "getOrCreateQueryBuilder",
+            "summary": "Get\u0020or\u0020create\u0020new\u0020query\u0020builder.",
+            "url": "classes/App-Repository-ArticleRepository.html#method_getOrCreateQueryBuilder"
+        },                {
+            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
+            "name": "PAGINATOR_ITEMS_PER_PAGE",
+            "summary": "Items\u0020per\u0020page.",
+            "url": "classes/App-Repository-ArticleRepository.html#constant_PAGINATOR_ITEMS_PER_PAGE"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository",
             "name": "CategoryRepository",
@@ -821,11 +921,6 @@ Search.appendIndex(
             "summary": "Query\u0020all\u0020records.",
             "url": "classes/App-Repository-CategoryRepository.html#method_queryAll"
         },                {
-            "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
-            "name": "getOrCreateQueryBuilder",
-            "summary": "Get\u0020or\u0020create\u0020new\u0020query\u0020builder.",
-            "url": "classes/App-Repository-CategoryRepository.html#method_getOrCreateQueryBuilder"
-        },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
             "summary": "Save\u0020entity.",
@@ -835,6 +930,11 @@ Search.appendIndex(
             "name": "delete",
             "summary": "Delete\u0020entity.",
             "url": "classes/App-Repository-CategoryRepository.html#method_delete"
+        },                {
+            "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
+            "name": "getOrCreateQueryBuilder",
+            "summary": "Get\u0020or\u0020create\u0020new\u0020query\u0020builder.",
+            "url": "classes/App-Repository-CategoryRepository.html#method_getOrCreateQueryBuilder"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
             "name": "PAGINATOR_ITEMS_PER_PAGE",
@@ -858,7 +958,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003AcountByArticle\u0028\u0029",
             "name": "countByArticle",
-            "summary": "Count\u0020comments\u0020by\u0020recipe.",
+            "summary": "Count\u0020comments\u0020by\u0020article.",
             "url": "classes/App-Repository-CommentRepository.html#method_countByArticle"
         },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003Asave\u0028\u0029",
@@ -871,15 +971,15 @@ Search.appendIndex(
             "summary": "Delete\u0020entity.",
             "url": "classes/App-Repository-CommentRepository.html#method_delete"
         },                {
+            "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "Removing\u0020comment.",
+            "url": "classes/App-Repository-CommentRepository.html#method_remove"
+        },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
             "name": "getOrCreateQueryBuilder",
             "summary": "Get\u0020or\u0020create\u0020new\u0020query\u0020builder.",
             "url": "classes/App-Repository-CommentRepository.html#method_getOrCreateQueryBuilder"
-        },                {
-            "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "Removing\u0020comment",
-            "url": "classes/App-Repository-CommentRepository.html#method_remove"
         },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
             "name": "PAGINATOR_ITEMS_PER_PAGE",
@@ -906,51 +1006,6 @@ Search.appendIndex(
             "summary": "Data.",
             "url": "classes/App-Repository-RecordRepository.html#property_data"
         },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository",
-            "name": "ArticleRepository",
-            "summary": "Class\u0020ArticleRepository.",
-            "url": "classes/App-Repository-ArticleRepository.html"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Constructor.",
-            "url": "classes/App-Repository-ArticleRepository.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AqueryAll\u0028\u0029",
-            "name": "queryAll",
-            "summary": "Query\u0020all\u0020records.",
-            "url": "classes/App-Repository-ArticleRepository.html#method_queryAll"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AapplyFiltersToList\u0028\u0029",
-            "name": "applyFiltersToList",
-            "summary": "Apply\u0020filters\u0020to\u0020paginated\u0020list.",
-            "url": "classes/App-Repository-ArticleRepository.html#method_applyFiltersToList"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "Save\u0020entity.",
-            "url": "classes/App-Repository-ArticleRepository.html#method_save"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020entity.",
-            "url": "classes/App-Repository-ArticleRepository.html#method_delete"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
-            "name": "getOrCreateQueryBuilder",
-            "summary": "Get\u0020or\u0020create\u0020new\u0020query\u0020builder.",
-            "url": "classes/App-Repository-ArticleRepository.html#method_getOrCreateQueryBuilder"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003AcountByCategory\u0028\u0029",
-            "name": "countByCategory",
-            "summary": "Count\u0020articles\u0020by\u0020category.",
-            "url": "classes/App-Repository-ArticleRepository.html#method_countByCategory"
-        },                {
-            "fqsen": "\\App\\Repository\\ArticleRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
-            "name": "PAGINATOR_ITEMS_PER_PAGE",
-            "summary": "Items\u0020per\u0020page.",
-            "url": "classes/App-Repository-ArticleRepository.html#constant_PAGINATOR_ITEMS_PER_PAGE"
-        },                {
             "fqsen": "\\App\\Repository\\UserRepository",
             "name": "UserRepository",
             "summary": "",
@@ -958,17 +1013,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor.",
             "url": "classes/App-Repository-UserRepository.html#method___construct"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "Save\u0020action",
+            "summary": "Save\u0020action.",
             "url": "classes/App-Repository-UserRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "Delete\u0020action",
+            "summary": "Delete\u0020action.",
             "url": "classes/App-Repository-UserRepository.html#method_delete"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003AupgradePassword\u0028\u0029",
@@ -1036,61 +1091,6 @@ Search.appendIndex(
             "summary": "URL\u0020Generator.",
             "url": "classes/App-Security-LoginFormAuthenticator.html#property_urlGenerator"
         },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter",
-            "name": "CategoryVoter",
-            "summary": "Class\u0020CategoryVoter.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "OrderVoter\u0020constructor.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003Asupports\u0028\u0029",
-            "name": "supports",
-            "summary": "Determines\u0020if\u0020the\u0020attribute\u0020and\u0020subject\u0020are\u0020supported\u0020by\u0020this\u0020voter.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#method_supports"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AvoteOnAttribute\u0028\u0029",
-            "name": "voteOnAttribute",
-            "summary": "Perform\u0020a\u0020single\u0020access\u0020check\u0020operation\u0020on\u0020a\u0020given\u0020attribute,\u0020subject\u0020and\u0020token.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#method_voteOnAttribute"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AcanEdit\u0028\u0029",
-            "name": "canEdit",
-            "summary": "Can\u0020edit\u0020is\u0020role\u0020is\u0020admin",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#method_canEdit"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AcanView\u0028\u0029",
-            "name": "canView",
-            "summary": "Can\u0020view\u0020if\u0020role\u0020is\u0020admin",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#method_canView"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AcanDelete\u0028\u0029",
-            "name": "canDelete",
-            "summary": "Can\u0020delete\u0020if\u0020role\u0020is\u0020admin",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#method_canDelete"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AEDIT",
-            "name": "EDIT",
-            "summary": "Edit\u0020permission.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#constant_EDIT"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AVIEW",
-            "name": "VIEW",
-            "summary": "View\u0020permission.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#constant_VIEW"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003ADELETE",
-            "name": "DELETE",
-            "summary": "Delete\u0020permission.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#constant_DELETE"
-        },                {
-            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003A\u0024security",
-            "name": "security",
-            "summary": "Security\u0020helper.",
-            "url": "classes/App-Security-Voter-CategoryVoter.html#property_security"
-        },                {
             "fqsen": "\\App\\Security\\Voter\\ArticleVoter",
             "name": "ArticleVoter",
             "summary": "Class\u0020ArticleVoter.",
@@ -1113,12 +1113,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Security\\Voter\\ArticleVoter\u003A\u003AcanEdit\u0028\u0029",
             "name": "canEdit",
-            "summary": "Checks\u0020if\u0020user\u0020can\u0020edit\u0020article.",
+            "summary": "Checks\u0020if\u0020user\u0020can\u0020edit\u0020.",
             "url": "classes/App-Security-Voter-ArticleVoter.html#method_canEdit"
         },                {
             "fqsen": "\\App\\Security\\Voter\\ArticleVoter\u003A\u003AcanDelete\u0028\u0029",
             "name": "canDelete",
-            "summary": "Checks\u0020if\u0020user\u0020can\u0020delete\u0020article.",
+            "summary": "Checks\u0020if\u0020user\u0020can\u0020delete\u0020.",
             "url": "classes/App-Security-Voter-ArticleVoter.html#method_canDelete"
         },                {
             "fqsen": "\\App\\Security\\Voter\\ArticleVoter\u003A\u003AEDIT",
@@ -1140,6 +1140,136 @@ Search.appendIndex(
             "name": "security",
             "summary": "Security\u0020helper.",
             "url": "classes/App-Security-Voter-ArticleVoter.html#property_security"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter",
+            "name": "CategoryVoter",
+            "summary": "Class\u0020CategoryVoter.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "OrderVoter\u0020constructor.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "Determines\u0020if\u0020the\u0020attribute\u0020and\u0020subject\u0020are\u0020supported\u0020by\u0020this\u0020voter.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#method_supports"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AvoteOnAttribute\u0028\u0029",
+            "name": "voteOnAttribute",
+            "summary": "Perform\u0020a\u0020single\u0020access\u0020check\u0020operation\u0020on\u0020a\u0020given\u0020attribute,\u0020subject\u0020and\u0020token.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#method_voteOnAttribute"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AcanEdit\u0028\u0029",
+            "name": "canEdit",
+            "summary": "Can\u0020edit\u0020is\u0020role\u0020is\u0020admin.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#method_canEdit"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AcanView\u0028\u0029",
+            "name": "canView",
+            "summary": "Can\u0020view\u0020if\u0020role\u0020is\u0020admin.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#method_canView"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AcanDelete\u0028\u0029",
+            "name": "canDelete",
+            "summary": "Can\u0020delete\u0020if\u0020role\u0020is\u0020admin.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#method_canDelete"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AEDIT",
+            "name": "EDIT",
+            "summary": "Edit\u0020permission.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#constant_EDIT"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003AVIEW",
+            "name": "VIEW",
+            "summary": "View\u0020permission.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#constant_VIEW"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003ADELETE",
+            "name": "DELETE",
+            "summary": "Delete\u0020permission.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#constant_DELETE"
+        },                {
+            "fqsen": "\\App\\Security\\Voter\\CategoryVoter\u003A\u003A\u0024security",
+            "name": "security",
+            "summary": "Security\u0020helper.",
+            "url": "classes/App-Security-Voter-CategoryVoter.html#property_security"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService",
+            "name": "ArticleService",
+            "summary": "Class\u0020ArticleService.",
+            "url": "classes/App-Service-ArticleService.html"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor.",
+            "url": "classes/App-Service-ArticleService.html#method___construct"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003AgetPaginatedList\u0028\u0029",
+            "name": "getPaginatedList",
+            "summary": "Get\u0020paginated\u0020list.",
+            "url": "classes/App-Service-ArticleService.html#method_getPaginatedList"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003AgetPaginatedListByCategory\u0028\u0029",
+            "name": "getPaginatedListByCategory",
+            "summary": "Get\u0020paginated\u0020list\u0020by\u0020category.",
+            "url": "classes/App-Service-ArticleService.html#method_getPaginatedListByCategory"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "Save\u0020entity.",
+            "url": "classes/App-Service-ArticleService.html#method_save"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020entity.",
+            "url": "classes/App-Service-ArticleService.html#method_delete"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003AprepareFilters\u0028\u0029",
+            "name": "prepareFilters",
+            "summary": "Prepare\u0020filters\u0020for\u0020the\u0020articles\u0020list.",
+            "url": "classes/App-Service-ArticleService.html#method_prepareFilters"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A\u0024articleRepository",
+            "name": "articleRepository",
+            "summary": "Article\u0020repository.",
+            "url": "classes/App-Service-ArticleService.html#property_articleRepository"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A\u0024paginator",
+            "name": "paginator",
+            "summary": "Paginator.",
+            "url": "classes/App-Service-ArticleService.html#property_paginator"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A\u0024commentRepository",
+            "name": "commentRepository",
+            "summary": "Comment\u0020Repository.",
+            "url": "classes/App-Service-ArticleService.html#property_commentRepository"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A\u0024categoryService",
+            "name": "categoryService",
+            "summary": "Category\u0020service.",
+            "url": "classes/App-Service-ArticleService.html#property_categoryService"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleServiceInterface",
+            "name": "ArticleServiceInterface",
+            "summary": "Interface\u0020ArticleServiceInterface.",
+            "url": "classes/App-Service-ArticleServiceInterface.html"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleServiceInterface\u003A\u003AgetPaginatedList\u0028\u0029",
+            "name": "getPaginatedList",
+            "summary": "Get\u0020paginated\u0020list.",
+            "url": "classes/App-Service-ArticleServiceInterface.html#method_getPaginatedList"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleServiceInterface\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "Save\u0020entity.",
+            "url": "classes/App-Service-ArticleServiceInterface.html#method_save"
+        },                {
+            "fqsen": "\\App\\Service\\ArticleServiceInterface\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "Delete\u0020entity.",
+            "url": "classes/App-Service-ArticleServiceInterface.html#method_delete"
         },                {
             "fqsen": "\\App\\Service\\CategoryService",
             "name": "CategoryService",
@@ -1233,12 +1363,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003AgetPaginatedListByArticle\u0028\u0029",
             "name": "getPaginatedListByArticle",
-            "summary": "Paginated\u0020list\u0020by\u0020users",
+            "summary": "Paginated\u0020list\u0020by\u0020users.",
             "url": "classes/App-Service-CommentService.html#method_getPaginatedListByArticle"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003AgetPaginatedListByUser\u0028\u0029",
             "name": "getPaginatedListByUser",
-            "summary": "Paginated\u0020list\u0020by\u0020users",
+            "summary": "Paginated\u0020list\u0020by\u0020users.",
             "url": "classes/App-Service-CommentService.html#method_getPaginatedListByUser"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003AgetArticle\u0028\u0029",
@@ -1278,88 +1408,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\CommentServiceInterface\u003A\u003AgetPaginatedListByArticle\u0028\u0029",
             "name": "getPaginatedListByArticle",
-            "summary": "Get\u0020paginated\u0020list\u0020by\u0020article",
+            "summary": "Get\u0020paginated\u0020list\u0020by\u0020article.",
             "url": "classes/App-Service-CommentServiceInterface.html#method_getPaginatedListByArticle"
         },                {
             "fqsen": "\\App\\Service\\CommentServiceInterface\u003A\u003AgetPaginatedListByUser\u0028\u0029",
             "name": "getPaginatedListByUser",
             "summary": "Get\u0020paginated\u0020list\u0020by\u0020user.",
             "url": "classes/App-Service-CommentServiceInterface.html#method_getPaginatedListByUser"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService",
-            "name": "ArticleService",
-            "summary": "Class\u0020ArticleService.",
-            "url": "classes/App-Service-ArticleService.html"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Constructor.",
-            "url": "classes/App-Service-ArticleService.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003AgetPaginatedList\u0028\u0029",
-            "name": "getPaginatedList",
-            "summary": "Get\u0020paginated\u0020list.",
-            "url": "classes/App-Service-ArticleService.html#method_getPaginatedList"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003AgetPaginatedListByCategory\u0028\u0029",
-            "name": "getPaginatedListByCategory",
-            "summary": "Get\u0020paginated\u0020list\u0020by\u0020category",
-            "url": "classes/App-Service-ArticleService.html#method_getPaginatedListByCategory"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "Save\u0020entity.",
-            "url": "classes/App-Service-ArticleService.html#method_save"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020entity.",
-            "url": "classes/App-Service-ArticleService.html#method_delete"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003AprepareFilters\u0028\u0029",
-            "name": "prepareFilters",
-            "summary": "Prepare\u0020filters\u0020for\u0020the\u0020articles\u0020list.",
-            "url": "classes/App-Service-articleService.html#method_prepareFilters"
-        },                {
-            "fqsen": "\\App\\Service\\articleService\u003A\u003A\u0024articleRepository",
-            "name": "articleRepository",
-            "summary": "Article\u0020repository.",
-            "url": "classes/App-Service-ArticleService.html#property_articleRepository"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A\u0024paginator",
-            "name": "paginator",
-            "summary": "Paginator.",
-            "url": "classes/App-Service-ArticleService.html#property_paginator"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A\u0024commentRepository",
-            "name": "commentRepository",
-            "summary": "",
-            "url": "classes/App-Service-ArticleService.html#property_commentRepository"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleService\u003A\u003A\u0024categoryService",
-            "name": "categoryService",
-            "summary": "",
-            "url": "classes/App-Service-ArticleService.html#property_categoryService"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleServiceInterface",
-            "name": "ArticleServiceInterface",
-            "summary": "Interface\u0020ArticleServiceInterface.",
-            "url": "classes/App-Service-ArticleServiceInterface.html"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleServiceInterface\u003A\u003AgetPaginatedList\u0028\u0029",
-            "name": "getPaginatedList",
-            "summary": "Get\u0020paginated\u0020list.",
-            "url": "classes/App-Service-ArticleServiceInterface.html#method_getPaginatedList"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleServiceInterface\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "Save\u0020entity.",
-            "url": "classes/App-Service-ArticleServiceInterface.html#method_save"
-        },                {
-            "fqsen": "\\App\\Service\\ArticleServiceInterface\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "Delete\u0020entity.",
-            "url": "classes/App-Service-ArticleServiceInterface.html#method_delete"
         },                {
             "fqsen": "\\App\\Service\\UserService",
             "name": "UserService",
