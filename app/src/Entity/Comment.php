@@ -16,25 +16,40 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'comments')]
 class Comment
 {
+    /**
+     * @var int|null
+     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @var string|null
+     */
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
+    /**
+     * @var \DateTimeImmutable|null
+     */
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+    /**
+     * @var Article|null
+     */
     #[ORM\ManyToOne]
     private ?Article $article = null;
 
+    /**
+     * @var User|null
+     */
     #[ORM\ManyToOne]
     private ?User $user = null;
 
     /**
-     * Getter for id
+     * Getter for id.
      * @return int|null
      */
     public function getId(): ?int
@@ -53,6 +68,7 @@ class Comment
 
     /**
      * Setter for content.
+     *
      * @param string $content
      *
      * @return $this
@@ -74,7 +90,8 @@ class Comment
     }
 
     /**
-     * Setter for createdAt
+     * Setter for createdAt.
+     *
      * @param \DateTimeImmutable $createdAt
      *
      * @return $this
@@ -97,6 +114,7 @@ class Comment
 
     /**
      * Setter for article.
+     *
      * @param Article|null $article
      *
      * @return $this
@@ -119,6 +137,7 @@ class Comment
 
     /**
      * Setter for user.
+     *
      * @param User|null $user
      *
      * @return $this

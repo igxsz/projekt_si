@@ -34,8 +34,8 @@
         <source>label.author</source>
         <target>Autor</target>
       </trans-unit>
-      <trans-unit id="label.">
-        <source>label.</source>
+      <trans-unit id="label.article">
+        <source>label.article</source>
         <target>Artykuł</target>
       </trans-unit>
       <trans-unit id="label.user">
@@ -194,6 +194,14 @@
         <source>title.user_edit</source>
         <target>Edytuj użytkownika</target>
       </trans-unit>
+      <trans-unit id="title.user_edit_nick">
+              <source>title.user_edit_nick</source>
+              <target>Edytuj nick użytkownika</target>
+            </trans-unit>
+      <trans-unit id="title.user_edit_password">
+              <source>title.user_edit_password</source>
+              <target>Edytuj hasło użytkownika</target>
+            </trans-unit>
       <trans-unit id="action.save">
         <source>action.save</source>
         <target>Zapisz</target>
@@ -214,6 +222,14 @@
         <source>action.edit</source>
         <target>Edytuj</target>
       </trans-unit>
+      <trans-unit id="action.edit_nick">
+              <source>action.edit_nick</source>
+              <target>Zmień nick</target>
+            </trans-unit>
+      <trans-unit id="action.edit_password">
+              <source>action.edit_password</source>
+              <target>Zmień hasło</target>
+            </trans-unit>
       <trans-unit id="action.delete">
         <source>action.delete</source>
         <target>Usuń</target>

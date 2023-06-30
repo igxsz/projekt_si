@@ -1,35 +1,34 @@
 <?php
 /**
- * User type.
+ * Password type.
  */
 
 namespace App\Form\Type;
 
 use App\Entity\User;
-// use App\Form\DataTransformer\UserDataTransformer;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
- * Class UserType.
+ * Class EditPasswordType.
  */
-class UserType extends AbstractType
+class EditPasswordType extends AbstractType
 {
-    /**
-     * @var AuthorizationCheckerInterface
-     */
-    private AuthorizationCheckerInterface $authorizationChecker;
+    private UserPasswordHasherInterface $passwordHasher;
 
     /**
-     * Contructor.
-     * @param AuthorizationCheckerInterface $authorizationChecker
+     * Constructor
+     *
+     * @param UserPasswordHasherInterface $passwordHasher
      */
-    public function __construct(AuthorizationCheckerInterface $authorizationChecker)
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
-        $this->authorizationChecker = $authorizationChecker;
+        $this->passwordHasher = $passwordHasher;
     }
 
     /**
@@ -45,25 +44,28 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add(
-            'nick',
-            TextType::class,
-            [
-                'label' => 'label.nick',
-                'required' => true,
-                'attr' => ['max_length' => 64],
-            ]
-        );
+        $builder
+            ->add(
+                'password',
+                PasswordType::class,
+                [
+                    'label' => 'label.password',
+                    'required' => true,
+                    'attr' => ['max_length' => 64],
+                ]
+            )
+            ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+                $form = $event->getForm();
+                $user = $event->getData();
 
-        $builder->add(
-            'password',
-            TextType::class,
-            [
-                'label' => 'label.password',
-                'required' => true,
-                'attr' => ['max_length' => 128],
-            ]
-        );
+                // Hash the password
+                $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
+
+                // Set the hashed password
+                $user->setPassword($hashedPassword);
+
+                $event->setData($user);
+            });
     }
 
     /**

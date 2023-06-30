@@ -6,7 +6,6 @@
 namespace App\Security\Voter;
 
 use App\Entity\Category;
-use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Security;
@@ -101,7 +100,8 @@ class CategoryVoter extends Voter
     }
 
     /**
-     * Can edit is role is admin
+     * Can edit is role is admin.
+     *
      * @return bool
      */
     private function canEdit()
@@ -110,7 +110,8 @@ class CategoryVoter extends Voter
     }
 
     /**
-     * Can view if role is admin
+     * Can view if role is admin.
+     *
      * @return bool
      */
     private function canView()
@@ -119,7 +120,8 @@ class CategoryVoter extends Voter
     }
 
     /**
-     * Can delete if role is admin
+     * Can delete if role is admin.
+     *
      * @return bool
      */
     private function canDelete()

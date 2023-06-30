@@ -103,14 +103,10 @@ class CommentRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
-
-
     /**
-     * Removing comment
+     * Removing comment.
      * @param Comment $entity
      * @param bool    $flush
-     *
-     * @return void
      */
     public function remove(Comment $entity, bool $flush = false): void
     {
@@ -120,6 +116,7 @@ class CommentRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
     /**
      * Get or create new query builder.
      *

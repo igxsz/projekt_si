@@ -1,37 +1,23 @@
 <?php
 /**
- * User type.
+ * Nick type.
  */
 
 namespace App\Form\Type;
 
 use App\Entity\User;
-// use App\Form\DataTransformer\UserDataTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 /**
- * Class UserType.
+ * Class NickType.
  */
-class UserType extends AbstractType
+class NickType extends AbstractType
 {
-    /**
-     * @var AuthorizationCheckerInterface
-     */
-    private AuthorizationCheckerInterface $authorizationChecker;
-
-    /**
-     * Contructor.
-     * @param AuthorizationCheckerInterface $authorizationChecker
-     */
-    public function __construct(AuthorizationCheckerInterface $authorizationChecker)
-    {
-        $this->authorizationChecker = $authorizationChecker;
-    }
-
     /**
      * Builds the form.
      *
@@ -45,25 +31,22 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add(
-            'nick',
-            TextType::class,
-            [
-                'label' => 'label.nick',
-                'required' => true,
-                'attr' => ['max_length' => 64],
-            ]
-        );
+        $builder
+            ->add(
+                'nick',
+                TextType::class,
+                [
+                    'label' => 'label.nick',
+                    'required' => true,
+                    'attr' => ['max_length' => 64],
+                ]
+            )
+            ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event) {
+                $form = $event->getForm();
+                $user = $event->getData();
 
-        $builder->add(
-            'password',
-            TextType::class,
-            [
-                'label' => 'label.password',
-                'required' => true,
-                'attr' => ['max_length' => 128],
-            ]
-        );
+                $event->setData($user);
+            });
     }
 
     /**

@@ -56,7 +56,7 @@ class CommentService implements CommentServiceInterface
     }
 
     /**
-     * Paginated list by users
+     * Paginated list by users.
      * @param int     $page
      * @param Article $article
      *
@@ -74,8 +74,7 @@ class CommentService implements CommentServiceInterface
     }
 
     /**
-     * Paginated list by users
-     *
+     * Paginated list by users.
      * @param int  $page
      * @param User $user
      *
@@ -94,7 +93,6 @@ class CommentService implements CommentServiceInterface
 
     /**
      * Getter for article.
-     *
      * @param Comment $comment
      *
      * @return Article|null

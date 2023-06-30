@@ -194,6 +194,14 @@
         <source>action.user_list</source>
         <target>Users</target>
       </trans-unit>
+      <trans-unit id="action.edit_nick">
+                    <source>action.edit_nick</source>
+                    <target>Change nick</target>
+                  </trans-unit>
+            <trans-unit id="action.edit_password">
+                    <source>action.edit_password</source>
+                    <target>Change password</target>
+                  </trans-unit>
       <trans-unit id="action.article_create">
         <source>action.article_create</source>
         <target>Create an article</target>
@@ -238,6 +246,18 @@
         <source>title.comments_and_articles</source>
         <target>Comments</target>
       </trans-unit>
+      <trans-unit id="title.comments_and_article">
+              <source>title.comments_and_article</source>
+              <target>Comments</target>
+            </trans-unit>
+      <trans-unit id="title.user_edit_nick">
+                    <source>title.user_edit_nick</source>
+                    <target>Change user's nick</target>
+                  </trans-unit>
+            <trans-unit id="title.user_edit_password">
+                    <source>title.user_edit_password</source>
+                    <target>Change user's password</target>
+                  </trans-unit>
     </body>
   </file>
 </xliff>

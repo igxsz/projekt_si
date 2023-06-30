@@ -28,7 +28,6 @@ class CategoryService implements CategoryServiceInterface
      */
     private PaginatorInterface $paginator;
 
-
     /**
      * Article repository.
      */
@@ -39,13 +38,13 @@ class CategoryService implements CategoryServiceInterface
      *
      * @param CategoryRepository $categoryRepository Category repository
      * @param ArticleRepository  $articleRepository  Article repository
- * @param PaginatorInterface $paginator          Paginator
+     * @param PaginatorInterface $paginator          Paginator
      */
     public function __construct(CategoryRepository $categoryRepository, ArticleRepository $articleRepository, PaginatorInterface $paginator)
     {
         $this->categoryRepository = $categoryRepository;
         $this->articleRepository = $articleRepository;
-//        $this->articleService = $articleService;
+        //        $this->articleService = $articleService;
         $this->paginator = $paginator;
     }
 
@@ -56,7 +55,6 @@ class CategoryService implements CategoryServiceInterface
      */
     public function save(Category $category): void
     {
-
         $this->categoryRepository->save($category);
     }
 

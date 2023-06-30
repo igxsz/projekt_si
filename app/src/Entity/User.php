@@ -179,7 +179,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * Getter for nick
+     * Getter for nick.
      * @return string|null
      */
     public function getNick(): ?string
@@ -188,7 +188,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * Setter for nick
+     * Setter for nick.
+     *
      * @param string $nick
      *
      * @return $this

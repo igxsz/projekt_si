@@ -31,14 +31,11 @@ class ArticleService implements ArticleServiceInterface
 
     /**
      * Comment Repository.
-     * @var CommentRepository
      */
     private CommentRepository $commentRepository;
 
     /**
      * Category service.
-     *
-     * @var CategoryService
      */
     private CategoryService $categoryService;
 
@@ -79,7 +76,7 @@ class ArticleService implements ArticleServiceInterface
     }
 
     /**
-     * Get paginated list by category
+     * Get paginated list by category.
      * @param int      $page
      * @param Category $category
      *

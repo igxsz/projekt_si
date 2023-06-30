@@ -35,13 +35,13 @@
 
                     <td>
 
-{#                        {% if is_granted('EDIT', category) %}#}
-                            <a href="{{ url('user_edit', {'id': user.id}) }}" title="{{ 'action.edit'|trans }}" class="btn btn-outline-primary">
-                                {{ 'action.edit'|trans }}
+                        <a href="{{ url('user_editNick', {'id': user.id}) }}" title="{{ 'action.edit_nick'|trans }}" class="btn btn-outline-primary">
+                            {{ 'action.edit_nick'|trans }}
+                        </a>
+
+                        <a href="{{ url('user_editPassword', {'id': user.id}) }}" title="{{ 'action.edit_password'|trans }}" class="btn btn-outline-primary">
+                                {{ 'action.edit_password'|trans }}
                             </a>
-{#                        {% endif %}#}
-
-
 
                     </td>
                 </tr>

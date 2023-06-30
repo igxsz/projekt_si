@@ -45,7 +45,6 @@ class ArticleFixtures extends AbstractBaseFixtures implements DependentFixtureIn
             $category = $this->getRandomReference('categories');
             $article->setCategory($category);
 
-
             /** @var User $author */
             $author = $this->getRandomReference('users');
             $article->setAuthor($author);

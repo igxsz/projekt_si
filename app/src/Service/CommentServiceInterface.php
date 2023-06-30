@@ -24,7 +24,7 @@ interface CommentServiceInterface
     public function getPaginatedList(int $page): PaginationInterface;
 
     /**
-     * Get paginated list by article
+     * Get paginated list by article.
      * @param int     $page
      * @param Article $article
      *

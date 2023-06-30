@@ -27,6 +27,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
+     * Constructor.
      * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
@@ -35,10 +36,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Save action
+     * Save action.
      * @param User $entity
-     *
-     * @return void
      */
     public function save(User $entity): void
     {
@@ -48,10 +47,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Delete action
+     * Delete action.
      * @param User $entity
-     *
-     * @return void
      */
     public function delete(User $entity): void
     {

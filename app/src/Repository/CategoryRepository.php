@@ -74,6 +74,7 @@ class CategoryRepository extends ServiceEntityRepository
         $this->_em->remove($category);
         $this->_em->flush();
     }
+
     /**
      * Get or create new query builder.
      *

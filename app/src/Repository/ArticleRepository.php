@@ -85,7 +85,6 @@ class ArticleRepository extends ServiceEntityRepository
         return $this->applyFiltersToList($queryBuilder, $filters);
     }
 
-
     /**
      * Save entity.
      *
@@ -107,7 +106,6 @@ class ArticleRepository extends ServiceEntityRepository
         $this->_em->remove($article);
         $this->_em->flush();
     }
-
 
     /**
      * Count articles by category.
