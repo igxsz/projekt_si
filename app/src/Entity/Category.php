@@ -65,7 +65,7 @@ class Category
     /**
      * Getter for Id.
      *
-     * @return int|null Id
+     * @return int Id
      */
     public function getId(): ?int
     {
@@ -75,7 +75,7 @@ class Category
     /**
      * Getter for created at.
      *
-     * @return \DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable Created at
      */
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -85,7 +85,7 @@ class Category
     /**
      * Setter for created at.
      *
-     * @param \DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable $createdAt Created at
      */
     public function setCreatedAt(?\DateTimeImmutable $createdAt): void
     {
@@ -95,7 +95,7 @@ class Category
     /**
      * Getter for updated at.
      *
-     * @return \DateTimeImmutable|null Updated at
+     * @return \DateTimeImmutable Updated at
      */
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
@@ -105,7 +105,7 @@ class Category
     /**
      * Setter for updated at.
      *
-     * @param \DateTimeImmutable|null $updatedAt Updated at
+     * @param \DateTimeImmutable $updatedAt Updated at
      */
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): void
     {
@@ -115,7 +115,7 @@ class Category
     /**
      * Getter for title.
      *
-     * @return string|null Title
+     * @return string Title
      */
     public function getTitle(): ?string
     {
@@ -125,7 +125,7 @@ class Category
     /**
      * Setter for title.
      *
-     * @param string|null $title Title
+     * @param string $title Title
      */
     public function setTitle(?string $title): void
     {
@@ -134,7 +134,8 @@ class Category
 
     /**
      * Get slug.
-     * @return string|null
+     *
+     * @return string slug
      */
     public function getSlug(): ?string
     {
@@ -144,9 +145,9 @@ class Category
     /**
      * Setter for slug.
      *
-     * @param string $slug
+     * @param string $slug Slug
      *
-     * @return $this
+     * @return $this this
      */
     public function setSlug(string $slug): self
     {

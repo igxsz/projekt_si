@@ -57,10 +57,11 @@ class CommentService implements CommentServiceInterface
 
     /**
      * Paginated list by users.
-     * @param int     $page
-     * @param Article $article
      *
-     * @return PaginationInterface
+     * @param int     $page    Page
+     * @param Article $article Article
+     *
+     * @return PaginationInterface Paginator interface
      */
     public function getPaginatedListByArticle(int $page, Article $article): PaginationInterface
     {
@@ -75,10 +76,11 @@ class CommentService implements CommentServiceInterface
 
     /**
      * Paginated list by users.
-     * @param int  $page
-     * @param User $user
      *
-     * @return PaginationInterface
+     * @param int  $page Page
+     * @param User $user User
+     *
+     * @return PaginationInterface Paginator interface
      */
     public function getPaginatedListByUser(int $page, User $user): PaginationInterface
     {
@@ -93,9 +95,10 @@ class CommentService implements CommentServiceInterface
 
     /**
      * Getter for article.
-     * @param Comment $comment
      *
-     * @return Article|null
+     * @param Comment $comment Comment
+     *
+     * @return Article Article
      */
     public function getArticle(Comment $comment): ?Article
     {

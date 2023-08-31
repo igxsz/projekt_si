@@ -18,8 +18,8 @@ interface ArticleServiceInterface
      * Get paginated list.
      *
      * @param int   $page    Page number
-     * @param User  $author
-     * @param array $filters
+     * @param User  $author  User author
+     * @param array $filters Filters
      *
      * @return PaginationInterface<string, mixed> Paginated list
      */

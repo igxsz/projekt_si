@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * comment controller.
+ * Comment controller.
  */
 
 namespace App\Controller;
@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * Class commentController.
+ * Class CommentController.
  */
 #[Route('/comment')]
 class CommentController extends AbstractController
@@ -40,9 +40,9 @@ class CommentController extends AbstractController
     /**
      * Constructor.
      *
-     * @param CommentServiceInterface $commentService
+     * @param CommentServiceInterface $commentService    CommentServiceInteraface
      * @param TranslatorInterface     $translator        Translator
-     * @param ArticleRepository       $articleRepository
+     * @param ArticleRepository       $articleRepository Article Repository
      */
     public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator, ArticleRepository $articleRepository)
     {
@@ -74,8 +74,8 @@ class CommentController extends AbstractController
     /**
      * Show action.
      *
-     * @param CommentRepository $commentRepository
-     * @param int               $id
+     * @param CommentRepository $commentRepository Comment Repository
+     * @param int               $id                Id
      *
      * @return Response HTTP response
      */
@@ -99,7 +99,7 @@ class CommentController extends AbstractController
      * Create action.
      *
      * @param Request $request HTTP request
-     * @param Article $article
+     * @param Article $article Article
      *
      * @return Response HTTP response
      */
@@ -135,8 +135,8 @@ class CommentController extends AbstractController
     /**
      * Delete.
      *
-     * @param Request $request
-     * @param Comment $comment
+     * @param Request $request Request
+     * @param Comment $comment Comment
      *
      * @return Response Responsse
      */

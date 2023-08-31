@@ -105,8 +105,9 @@ class CommentRepository extends ServiceEntityRepository
 
     /**
      * Removing comment.
-     * @param Comment $entity
-     * @param bool    $flush
+     *
+     * @param Comment $entity Comment entity
+     * @param bool    $flush  Flush
      */
     public function remove(Comment $entity, bool $flush = false): void
     {
@@ -128,28 +129,4 @@ class CommentRepository extends ServiceEntityRepository
     {
         return $queryBuilder ?? $this->createQueryBuilder('comment');
     }
-    //    /**
-    //     * @return Comment[] Returns an array of Comment objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Comment
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }

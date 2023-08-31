@@ -10,6 +10,7 @@ use App\Entity\Article;
 use App\Entity\User;
 use App\Repository\CommentRepository;
 use App\Repository\ArticleRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -44,8 +45,8 @@ class ArticleService implements ArticleServiceInterface
      *
      * @param PaginatorInterface $paginator         Paginator
      * @param ArticleRepository  $articleRepository Article repository
-     * @param CommentRepository  $commentRepository
-     * @param CategoryService    $categoryService
+     * @param CommentRepository  $commentRepository Comment repository
+     * @param CategoryService    $categoryService   Category service
      */
     public function __construct(PaginatorInterface $paginator, ArticleRepository $articleRepository, CommentRepository $commentRepository, CategoryService $categoryService)
     {
@@ -59,10 +60,12 @@ class ArticleService implements ArticleServiceInterface
      * Get paginated list.
      *
      * @param int                $page    Page number
-     * @param User|null          $author  Articles author
+     * @param User|null          $author  User
      * @param array<string, int> $filters Filters array
      *
      * @return PaginationInterface<SlidingPagination> Paginated list
+     *
+     * @throws NonUniqueResultException
      */
     public function getPaginatedList(int $page, User $author = null, array $filters = []): PaginationInterface
     {
@@ -77,10 +80,11 @@ class ArticleService implements ArticleServiceInterface
 
     /**
      * Get paginated list by category.
-     * @param int      $page
-     * @param Category $category
      *
-     * @return PaginationInterface
+     * @param int      $page     Int
+     * @param Category $category Category
+     *
+     * @return PaginationInterface Paginator interface
      */
     public function getPaginatedListByCategory(int $page, Category $category): PaginationInterface
     {
@@ -96,7 +100,7 @@ class ArticleService implements ArticleServiceInterface
     /**
      * Save entity.
      *
-     * @param Article $article Article entity
+     * @param Article $article Article
      */
     public function save(Article $article): void
     {
@@ -125,6 +129,8 @@ class ArticleService implements ArticleServiceInterface
      * @param array<string, int> $filters Raw filters from request
      *
      * @return array<string, object> Result array of filters
+     *
+     * @throws NonUniqueResultException
      */
     private function prepareFilters(array $filters): array
     {

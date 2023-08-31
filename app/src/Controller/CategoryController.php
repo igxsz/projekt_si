@@ -27,23 +27,30 @@ class CategoryController extends AbstractController
     /**
      * Category service.
      *
-     * @param CategoryServiceInterface $categoryService
+     * @param CategoryServiceInterface $categoryService Category Service Interface
      */
     private CategoryServiceInterface $categoryService;
 
+    /**
+     * Category repository.
+     *
+     * @param CategoryRepository $categoryRepository Category Repository
+     */
     private CategoryRepository $categoryRepository;
 
     /**
      * Translator.
+     *
+     * @param TranslatorInterface $translator Translator Interface
      */
     private TranslatorInterface $translator;
 
     /**
      * Constructor.
      *
-     * @param CategoryServiceInterface $categoryService
+     * @param CategoryServiceInterface $categoryService    Category Service
      * @param TranslatorInterface      $translator         Translator
-     * @param CategoryRepository       $categoryRepository
+     * @param CategoryRepository       $categoryRepository Category Repository
      */
     public function __construct(CategoryServiceInterface $categoryService, TranslatorInterface $translator, CategoryRepository $categoryRepository)
     {
@@ -180,9 +187,9 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * Index action.
+     * Category index action.
      *
-     * @param Request $request HTTP Request
+     * @param Request $request HTTP request
      *
      * @return Response HTTP response
      */
@@ -199,10 +206,10 @@ class CategoryController extends AbstractController
     /**
      * Show action.
      *
-     * @param Request            $request
-     * @param CategoryRepository $categoryRepository
-     * @param ArticleService     $articleService
-     * @param int                $id
+     * @param Request            $request            Request
+     * @param CategoryRepository $categoryRepository Category Repository
+     * @param ArticleService     $articleService     Article Service
+     * @param int                $id                 Id
      *
      * @return Response HTTP response
      */

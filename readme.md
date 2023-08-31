@@ -9,7 +9,7 @@ git# Projekt SI - Gazeta internet Iga Szczepańska
 * Composer
 * Symfony CLI
 * xdebug
-* 
+
 ## Installation
 
 * Clone: this repository:

@@ -19,13 +19,14 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 class UserType extends AbstractType
 {
     /**
-     * @var AuthorizationCheckerInterface
+     * Checks the authorization.
      */
     private AuthorizationCheckerInterface $authorizationChecker;
 
     /**
      * Contructor.
-     * @param AuthorizationCheckerInterface $authorizationChecker
+     *
+     * @param AuthorizationCheckerInterface $authorizationChecker Authorization checker
      */
     public function __construct(AuthorizationCheckerInterface $authorizationChecker)
     {

@@ -28,7 +28,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Constructor.
-     * @param ManagerRegistry $registry
+     *
+     * @param ManagerRegistry $registry Manager registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -37,7 +38,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Save action.
-     * @param User $entity
+     *
+     * @param User $entity User entity
      */
     public function save(User $entity): void
     {
@@ -48,7 +50,8 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Delete action.
-     * @param User $entity
+     *
+     * @param User $entity User entity
      */
     public function delete(User $entity): void
     {
@@ -59,8 +62,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
-     * @param PasswordAuthenticatedUserInterface $user
-     * @param string                             $newHashedPassword
+     *
+     * @param PasswordAuthenticatedUserInterface $user              User instance
+     * @param string                             $newHashedPassword New hashed password
+     *
+     * @throws UnsupportedUserException
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {

@@ -57,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for id.
      *
-     * @return int|null Id
+     * @return int Id
      */
     public function getId(): ?int
     {
@@ -67,7 +67,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for email.
      *
-     * @return string|null Email
+     * @return string Email
      */
     public function getEmail(): ?string
     {
@@ -135,7 +135,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for password.
      *
-     * @return string|null Password
+     * @return string Password
      *
      * @see PasswordAuthenticatedUserInterface
      */
@@ -158,7 +158,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
      *
-     * @return string|null
+     * @return string
      *
      * @see UserInterface
      */
@@ -180,7 +180,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Getter for nick.
-     * @return string|null
+     *
+     * @return string
      */
     public function getNick(): ?string
     {
@@ -190,7 +191,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for nick.
      *
-     * @param string $nick
+     * @param string $nick Nick
      *
      * @return $this
      */

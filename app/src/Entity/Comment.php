@@ -16,41 +16,27 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'comments')]
 class Comment
 {
-    /**
-     * @var int|null
-     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    /**
-     * @var string|null
-     */
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
-    /**
-     * @var \DateTimeImmutable|null
-     */
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
-    /**
-     * @var Article|null
-     */
     #[ORM\ManyToOne]
     private ?Article $article = null;
 
-    /**
-     * @var User|null
-     */
     #[ORM\ManyToOne]
     private ?User $user = null;
 
     /**
      * Getter for id.
-     * @return int|null
+     *
+     * @return int
      */
     public function getId(): ?int
     {
@@ -59,7 +45,8 @@ class Comment
 
     /**
      * Getter for content.
-     * @return string|null
+     *
+     * @return string
      */
     public function getContent(): ?string
     {
@@ -69,7 +56,7 @@ class Comment
     /**
      * Setter for content.
      *
-     * @param string $content
+     * @param string $content Content
      *
      * @return $this
      */
@@ -82,7 +69,8 @@ class Comment
 
     /**
      * Getter for createdAt.
-     * @return \DateTimeImmutable|null
+     *
+     * @return \DateTimeImmutable
      */
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -92,7 +80,7 @@ class Comment
     /**
      * Setter for createdAt.
      *
-     * @param \DateTimeImmutable $createdAt
+     * @param \DateTimeImmutable $createdAt Created at
      *
      * @return $this
      */
@@ -105,7 +93,8 @@ class Comment
 
     /**
      * Getter for article.
-     * @return Article|null
+     *
+     * @return Article
      */
     public function getArticle(): ?Article
     {
@@ -115,7 +104,7 @@ class Comment
     /**
      * Setter for article.
      *
-     * @param Article|null $article
+     * @param Article $article Article
      *
      * @return $this
      */
@@ -128,7 +117,8 @@ class Comment
 
     /**
      * Getter for user.
-     * @return User|null
+     *
+     * @return User
      */
     public function getUser(): ?User
     {
@@ -138,7 +128,7 @@ class Comment
     /**
      * Setter for user.
      *
-     * @param User|null $user
+     * @param User $user User
      *
      * @return $this
      */

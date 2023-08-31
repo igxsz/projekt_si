@@ -16,15 +16,17 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
  * Class EditPasswordType.
+ *
+ * Form type for editing the user password.
  */
 class EditPasswordType extends AbstractType
 {
     private UserPasswordHasherInterface $passwordHasher;
 
     /**
-     * Constructor
+     * EditPasswordType constructor.
      *
-     * @param UserPasswordHasherInterface $passwordHasher
+     * @param UserPasswordHasherInterface $passwordHasher The password hasher
      */
     public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
@@ -35,10 +37,10 @@ class EditPasswordType extends AbstractType
      * Builds the form.
      *
      * This method is called for each type in the hierarchy starting from the
-     * top most type. Type extensions can further modify the form.
+     * top-most type. Type extensions can further modify the form.
      *
      * @param FormBuilderInterface $builder The form builder
-     * @param array<string, mixed> $options Form options
+     * @param array<string, mixed> $options The form options
      *
      * @see FormTypeExtensionInterface::buildForm()
      */

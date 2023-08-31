@@ -17,37 +17,22 @@ use Gedmo\Mapping\Annotation as Gedmo;
 #[ORM\Table(name: 'articles')]
 class Article
 {
-    /**
-     * @var int|null
-     */
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    /**
-     * @var \DateTimeImmutable|null
-     */
     #[ORM\Column]
     #[Gedmo\Timestampable(on: 'create')]
     private ?\DateTimeImmutable $createdAt = null;
 
-    /**
-     * @var \DateTimeImmutable|null
-     */
     #[ORM\Column]
     #[Gedmo\Timestampable(on: 'update')]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    /**
-     * @var string|null
-     */
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    /**
-     * @var Category|null
-     */
     #[ORM\ManyToOne(fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
@@ -61,15 +46,13 @@ class Article
     #[Assert\Type(User::class)]
     private ?User $author;
 
-    /**
-     * @var string|null
-     */
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
     /**
      * Getter for id.
-     * @return int|null
+     *
+     * @return int
      */
     public function getId(): ?int
     {
@@ -78,7 +61,8 @@ class Article
 
     /**
      * Getter for createdAt.
-     * @return \DateTimeImmutable|null
+     *
+     * @return \DateTimeImmutable
      */
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -87,7 +71,8 @@ class Article
 
     /**
      * Setter for createdAt.
-     * @param \DateTimeImmutable $createdAt
+     *
+     * @param \DateTimeImmutable $createdAt Created at
      */
     public function setCreatedAt(\DateTimeImmutable $createdAt): void
     {
@@ -96,7 +81,8 @@ class Article
 
     /**
      * Getter for updatedAt.
-     * @return \DateTimeImmutable|null
+     *
+     * @return \DateTimeImmutable
      */
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
@@ -105,7 +91,8 @@ class Article
 
     /**
      * Setter for updatedAt.
-     * @param \DateTimeImmutable $updatedAt
+     *
+     * @param \DateTimeImmutable $updatedAt Updated at
      */
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): void
     {
@@ -114,7 +101,8 @@ class Article
 
     /**
      * Getter for title.
-     * @return string|null
+     *
+     * @return string
      */
     public function getTitle(): ?string
     {
@@ -123,7 +111,8 @@ class Article
 
     /**
      * Setter for title.
-     * @param string $title
+     *
+     * @param string $title Title
      */
     public function setTitle(string $title): void
     {
@@ -132,7 +121,8 @@ class Article
 
     /**
      * Getter for category.
-     * @return Category|null
+     *
+     * @return Category
      */
     public function getCategory(): ?Category
     {
@@ -142,7 +132,7 @@ class Article
     /**
      * Setter for category.
      *
-     * @param Category|null $category
+     * @param Category $category Category
      *
      * @return $this
      */
@@ -155,7 +145,8 @@ class Article
 
     /**
      * Getter for author.
-     * @return User|null
+     *
+     * @return User
      */
     public function getAuthor(): ?User
     {
@@ -165,7 +156,7 @@ class Article
     /**
      * Setter for author.
      *
-     * @param User|null $author
+     * @param User $author Author
      *
      * @return $this
      */
@@ -179,7 +170,7 @@ class Article
     /**
      * Remove comment.
      *
-     * @param Comment $comment
+     * @param Comment $comment Comment
      *
      * @return $this
      */
@@ -197,7 +188,8 @@ class Article
 
     /**
      * Getter for content.
-     * @return string|null
+     *
+     * @return string
      */
     public function getContent(): ?string
     {
@@ -207,7 +199,7 @@ class Article
     /**
      * Setter for content.
      *
-     * @param string $content
+     * @param string $content Content
      *
      * @return $this
      */

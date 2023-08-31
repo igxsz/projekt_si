@@ -25,19 +25,21 @@ interface CommentServiceInterface
 
     /**
      * Get paginated list by article.
-     * @param int     $page
-     * @param Article $article
      *
-     * @return PaginationInterface
+     * @param int     $page    Page
+     * @param Article $article Article
+     *
+     * @return PaginationInterface Paginator interface
      */
     public function getPaginatedListByArticle(int $page, Article $article): PaginationInterface;
 
     /**
      * Get paginated list by user.
-     * @param int  $page
-     * @param User $user
      *
-     * @return PaginationInterface
+     * @param int  $page Page
+     * @param User $user User
+     *
+     * @return PaginationInterface Paginator interface
      */
     public function getPaginatedListByUser(int $page, User $user): PaginationInterface;
 }
