@@ -9,7 +9,7 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Entity\Article;
-use App\Form\CommentType;
+use App\Form\Type\CommentType;
 use App\Repository\CommentRepository;
 use App\Repository\ArticleRepository;
 use App\Service\CommentServiceInterface;
