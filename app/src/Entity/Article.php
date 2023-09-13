@@ -52,7 +52,7 @@ class Article
     /**
      * Getter for id.
      *
-     * @return int
+     * @return int Id
      */
     public function getId(): ?int
     {
@@ -62,7 +62,7 @@ class Article
     /**
      * Getter for createdAt.
      *
-     * @return \DateTimeImmutable
+     * @return \DateTimeImmutable Created at
      */
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -82,7 +82,7 @@ class Article
     /**
      * Getter for updatedAt.
      *
-     * @return \DateTimeImmutable
+     * @return \DateTimeImmutable Updated at
      */
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
@@ -102,7 +102,7 @@ class Article
     /**
      * Getter for title.
      *
-     * @return string
+     * @return string Title
      */
     public function getTitle(): ?string
     {
@@ -122,7 +122,7 @@ class Article
     /**
      * Getter for category.
      *
-     * @return Category
+     * @return Category Category
      */
     public function getCategory(): ?Category
     {
@@ -134,7 +134,7 @@ class Article
      *
      * @param Category $category Category
      *
-     * @return $this
+     * @return $this Category
      */
     public function setCategory(?Category $category): self
     {
@@ -146,7 +146,7 @@ class Article
     /**
      * Getter for author.
      *
-     * @return User
+     * @return User User
      */
     public function getAuthor(): ?User
     {
@@ -158,7 +158,7 @@ class Article
      *
      * @param User $author Author
      *
-     * @return $this
+     * @return $this Author
      */
     public function setAuthor(?User $author): self
     {
@@ -189,7 +189,7 @@ class Article
     /**
      * Getter for content.
      *
-     * @return string
+     * @return string Content
      */
     public function getContent(): ?string
     {

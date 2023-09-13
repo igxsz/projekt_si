@@ -36,7 +36,7 @@ class Comment
     /**
      * Getter for id.
      *
-     * @return int
+     * @return int Id
      */
     public function getId(): ?int
     {
@@ -46,7 +46,7 @@ class Comment
     /**
      * Getter for content.
      *
-     * @return string
+     * @return string Content
      */
     public function getContent(): ?string
     {
@@ -70,7 +70,7 @@ class Comment
     /**
      * Getter for createdAt.
      *
-     * @return \DateTimeImmutable
+     * @return \DateTimeImmutable Created at
      */
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -82,7 +82,7 @@ class Comment
      *
      * @param \DateTimeImmutable $createdAt Created at
      *
-     * @return $this
+     * @return $this This
      */
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
@@ -94,7 +94,7 @@ class Comment
     /**
      * Getter for article.
      *
-     * @return Article
+     * @return Article Article
      */
     public function getArticle(): ?Article
     {
@@ -106,7 +106,7 @@ class Comment
      *
      * @param Article $article Article
      *
-     * @return $this
+     * @return $this Article
      */
     public function setArticle(?Article $article): self
     {
@@ -118,7 +118,7 @@ class Comment
     /**
      * Getter for user.
      *
-     * @return User
+     * @return User User
      */
     public function getUser(): ?User
     {

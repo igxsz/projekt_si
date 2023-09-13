@@ -83,7 +83,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\CategoryController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "Index\u0020action.",
+            "summary": "Category\u0020index\u0020action.",
             "url": "classes/App-Controller-CategoryController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\CategoryController\u003A\u003Ashow\u0028\u0029",
@@ -98,7 +98,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\CategoryController\u003A\u003A\u0024categoryRepository",
             "name": "categoryRepository",
-            "summary": "",
+            "summary": "Category\u0020repository.",
             "url": "classes/App-Controller-CategoryController.html#property_categoryRepository"
         },                {
             "fqsen": "\\App\\Controller\\CategoryController\u003A\u003A\u0024translator",
@@ -108,7 +108,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\CommentController",
             "name": "CommentController",
-            "summary": "Class\u0020commentController.",
+            "summary": "Class\u0020CommentController.",
             "url": "classes/App-Controller-CommentController.html"
         },                {
             "fqsen": "\\App\\Controller\\CommentController\u003A\u003A__construct\u0028\u0029",
@@ -756,25 +756,25 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
             "url": "classes/App-Form-Type-CategoryType.html#method_getBlockPrefix"
         },                {
-            "fqsen": "\\App\\Form\\CommentType",
+            "fqsen": "\\App\\Form\\Type\\CommentType",
             "name": "CommentType",
             "summary": "Class\u0020CommentType.",
-            "url": "classes/App-Form-CommentType.html"
+            "url": "classes/App-Form-Type-CommentType.html"
         },                {
-            "fqsen": "\\App\\Form\\CommentType\u003A\u003AbuildForm\u0028\u0029",
+            "fqsen": "\\App\\Form\\Type\\CommentType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
             "summary": "Builds\u0020the\u0020form.",
-            "url": "classes/App-Form-CommentType.html#method_buildForm"
+            "url": "classes/App-Form-Type-CommentType.html#method_buildForm"
         },                {
-            "fqsen": "\\App\\Form\\CommentType\u003A\u003AconfigureOptions\u0028\u0029",
+            "fqsen": "\\App\\Form\\Type\\CommentType\u003A\u003AconfigureOptions\u0028\u0029",
             "name": "configureOptions",
             "summary": "Configures\u0020the\u0020options\u0020for\u0020this\u0020type.",
-            "url": "classes/App-Form-CommentType.html#method_configureOptions"
+            "url": "classes/App-Form-Type-CommentType.html#method_configureOptions"
         },                {
-            "fqsen": "\\App\\Form\\CommentType\u003A\u003AgetBlockPrefix\u0028\u0029",
+            "fqsen": "\\App\\Form\\Type\\CommentType\u003A\u003AgetBlockPrefix\u0028\u0029",
             "name": "getBlockPrefix",
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
-            "url": "classes/App-Form-CommentType.html#method_getBlockPrefix"
+            "url": "classes/App-Form-Type-CommentType.html#method_getBlockPrefix"
         },                {
             "fqsen": "\\App\\Form\\Type\\EditPasswordType",
             "name": "EditPasswordType",
@@ -783,7 +783,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\EditPasswordType\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor",
+            "summary": "EditPasswordType\u0020constructor.",
             "url": "classes/App-Form-Type-EditPasswordType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\EditPasswordType\u003A\u003AbuildForm\u0028\u0029",
@@ -853,7 +853,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\UserType\u003A\u003A\u0024authorizationChecker",
             "name": "authorizationChecker",
-            "summary": "",
+            "summary": "Checks\u0020the\u0020authorization.",
             "url": "classes/App-Form-Type-UserType.html#property_authorizationChecker"
         },                {
             "fqsen": "\\App\\Kernel",

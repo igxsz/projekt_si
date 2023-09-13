@@ -114,15 +114,16 @@
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/app.html">App</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-datafixtures.html">DataFixtures</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-form.html">Form</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/app-form-type.html">Type</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    AppFixtures
+    CommentType
 
         <span class="phpdocumentor-element__extends">
-        extends <abbr title="\Doctrine\Bundle\FixturesBundle\Fixture">Fixture</abbr>
+        extends <abbr title="\Symfony\Component\Form\AbstractType">AbstractType</abbr>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -136,14 +137,14 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/DataFixtures/AppFixtures.php"><a href="files/src-datafixtures-appfixtures.html"><abbr title="src/DataFixtures/AppFixtures.php">AppFixtures.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Form/Type/CommentType.php"><a href="files/src-form-type-commenttype.html"><abbr title="src/Form/Type/CommentType.php">CommentType.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-        
-    <section class="phpdocumentor-description"></section>
+            <p class="phpdocumentor-summary">Class CommentType.</p>
+
 
 
 
@@ -159,11 +160,25 @@
 
 <dl class="phpdocumentor-table-of-contents">
                         <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-DataFixtures-AppFixtures.html#method_load">load()</a>
+    <a href="classes/App-Form-Type-CommentType.html#method_buildForm">buildForm()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Builds the form.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Form-Type-CommentType.html#method_configureOptions">configureOptions()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Configures the options for this type.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Form-Type-CommentType.html#method_getBlockPrefix">getBlockPrefix()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the prefix of the template block name for this type.</dd>
 
         </dl>
 
@@ -176,7 +191,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-DataFixtures-AppFixtures.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Form-Type-CommentType.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -184,32 +199,104 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_load">
-        load()
-        <a href="classes/App-DataFixtures-AppFixtures.html#method_load" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_buildForm">
+        buildForm()
+        <a href="classes/App-Form-Type-CommentType.html#method_buildForm" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/DataFixtures/AppFixtures.php"><a href="files/src-datafixtures-appfixtures.html"><abbr title="src/DataFixtures/AppFixtures.php">AppFixtures.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Form/Type/CommentType.php"><a href="files/src-form-type-commenttype.html"><abbr title="src/Form/Type/CommentType.php">CommentType.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Builds the form.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">load</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Doctrine\Persistence\ObjectManager">ObjectManager</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$manager</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">buildForm</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\Form\FormBuilderInterface">FormBuilderInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$builder</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>This method is called for each type in the hierarchy starting from the
+top most type. Type extensions can further modify the form.</p>
+</section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$manager</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Doctrine\Persistence\ObjectManager">ObjectManager</abbr></span>
+                <span class="phpdocumentor-signature__argument__name">$builder</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\Form\FormBuilderInterface">FormBuilderInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>The form builder</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$options</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Form options</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\App\Form\Type\FormTypeExtensionInterface::buildForm()">FormTypeExtensionInterface::buildForm()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_configureOptions">
+        configureOptions()
+        <a href="classes/App-Form-Type-CommentType.html#method_configureOptions" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Form/Type/CommentType.php"><a href="files/src-form-type-commenttype.html"><abbr title="src/Form/Type/CommentType.php">CommentType.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">70</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Configures the options for this type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">configureOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\OptionsResolver\OptionsResolver">OptionsResolver</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$resolver</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$resolver</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\OptionsResolver\OptionsResolver">OptionsResolver</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The resolver for the options</p>
+</section>
 
             </dd>
             </dl>
@@ -220,6 +307,44 @@
     <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getBlockPrefix">
+        getBlockPrefix()
+        <a href="classes/App-Form-Type-CommentType.html#method_getBlockPrefix" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Form/Type/CommentType.php"><a href="files/src-form-type-commenttype.html"><abbr title="src/Form/Type/CommentType.php">CommentType.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">86</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the prefix of the template block name for this type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">getBlockPrefix</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The block prefix defaults to the underscored short class name with
+the &quot;Type&quot; suffix removed (e.g. &quot;UserProfileType&quot; =&gt; &quot;user_profile&quot;).</p>
+</section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The prefix of the template block name</p>
+</section>
+
     
 </article>
             </section>
@@ -300,7 +425,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/App-DataFixtures-AppFixtures.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Form-Type-CommentType.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
